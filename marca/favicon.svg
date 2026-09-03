@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Compendia — os colchetes. Duas formas espelhadas que leem ao mesmo tempo
+       como [ ] e como dois C de frente um para o outro.
+       Cantos externos arredondados (raio 14) dao o C; terminais retos dao o
+       colchete. O vao de 16 e o que faz o par sobreviver a 16px: com vao 8 as
+       duas metades se fecham e viram um retangulo unico. Nao aperte o vao.
+       [ ] e a notacao da citacao interpolada e o delimitador no codigo; o C
+       dobrado e a inicial da marca. Cor unica: e o que vira favicon. -->
+  <path fill="#4A1626" d="M 42,16 H 20 A 14,14 0 0 0 6,30 V 70 A 14,14 0 0 0 20,84 H 42 V 70 H 20 V 30 H 42 Z"/>
+  <path fill="#4A1626" d="M 58,16 H 80 A 14,14 0 0 1 94,30 V 70 A 14,14 0 0 1 80,84 H 58 V 70 H 80 V 30 H 58 Z"/>
+</svg>

@@ -3,17 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compendia</title>
-<meta name="description" content="Compendia — página em construção.">
+<title>Compendia — Sistemas autênticos</title>
+<meta name="description" content="Compendia — sistemas autênticos. Página em construção.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/svg+xml" href="marca/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="marca/favicon-32.png">
+<link rel="apple-touch-icon" href="marca/apple-touch-icon.png">
+<meta name="theme-color" content="#F3EBDA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2C0C17" media="(prefers-color-scheme: dark)">
 <style>
+  /* Cores do brandbook da Compendia, §4. Nao trocar aqui: trocar la e copiar. */
   :root{
-    --fundo:#fbfaf7; --tinta:#1c1a17; --suave:#6b6560; --linha:#e3ded6;
+    --fundo:#F3EBDA;      /* pergaminho */
+    --tinta:#1C1712;      /* grafite-tinta */
+    --suave:#6E645A;      /* pedra */
+    --linha:#D9CDB6;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --fundo:#141310; --tinta:#f0ece5; --suave:#9a938a; --linha:#2e2b26; }
+    :root{ --fundo:#2C0C17; --tinta:#F3EBDA; --suave:#B9A79A; --linha:#4A1626; }
   }
   *{box-sizing:border-box}
   body{
@@ -24,9 +32,17 @@
     -webkit-font-smoothing:antialiased;
   }
   main{width:100%; max-width:34rem}
-  h1{
-    margin:0; font-size:clamp(2.1rem, 11vw, 3.4rem); font-weight:400;
-    letter-spacing:.02em; line-height:1.05;
+  h1{margin:0}
+  /* O nome vive na assinatura; o texto fica escondido para leitor de tela.
+     Nao usar font-size:0 nem depender do alt: no modo escuro a imagem clara
+     fica display:none e o h1 ficaria sem texto acessivel nenhum. */
+  .oculto{position:absolute; width:1px; height:1px; overflow:hidden;
+          clip-path:inset(50%); white-space:nowrap}
+  .assinatura{display:block; width:min(100%, 22rem); height:auto}
+  .assinatura.escura{display:none}
+  @media (prefers-color-scheme: dark){
+    .assinatura.clara{display:none}
+    .assinatura.escura{display:block}
   }
   .regua{width:2.5rem; height:1px; background:var(--linha); margin:1.75rem 0}
   p{margin:0; color:var(--suave); font-size:1rem}
@@ -41,7 +57,13 @@
 </head>
 <body>
   <main>
-    <h1>Compendia</h1>
+    <h1>
+      <span class="oculto">Compendia — Sistemas autênticos</span>
+      <img class="assinatura clara"  src="marca/assinatura.svg"
+           alt="" aria-hidden="true" width="520" height="112">
+      <img class="assinatura escura" src="marca/assinatura-negativa.svg"
+           alt="" aria-hidden="true" width="520" height="112">
+    </h1>
     <div class="regua"></div>
     <p>Site em construção.</p>
     <div class="contato">
