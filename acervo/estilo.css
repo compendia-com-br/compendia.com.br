@@ -30,9 +30,12 @@ section{padding-block:clamp(3rem,8vw,5.25rem)}
 .escuro .sub,.escuro li{color:#D9C9BE}
 .sub{color:var(--pedra); font-size:1.09rem}
 
-/* topo */
+/* topo — assinatura do Acervo, submarca. Maior que a antiga assinatura da
+   Compendia (190px): aqui quem assina em peso e o Acervo, nao a Compendia
+   (regra de hierarquia, brandbook §12.1). Piso 180px fica acima dos ~96px
+   em que a palavra fecha os contraformas (§7). */
 .topo{padding:1.15rem 0; border-bottom:1px solid var(--linha)}
-.topo img{width:190px}
+.topo img{width:clamp(180px,34vw,260px)}
 
 /* hero */
 .hero{padding-top:clamp(2.5rem,7vw,4rem); padding-bottom:0}
@@ -103,9 +106,13 @@ details summary::after{content:"+"; float:right; color:var(--pedra); font-weight
 details[open] summary::after{content:"–"}
 details p{margin:.8rem 0 0; color:#3A322B}
 
-/* rodape */
+/* rodape — lockup "uma produção" + assinatura da Compendia, subordinada
+   (brandbook §12.1). Nunca a versao com slogan aqui: slogan e territorio da
+   assinatura da propria Compendia, nao de uma aparicao em rodape de produto. */
 .rodape{border-top:1px solid var(--linha); padding-block:2.5rem; font-size:.9rem; color:var(--pedra)}
-.rodape img{width:150px; margin-bottom:1rem}
+.produtor{display:flex; align-items:center; gap:.65rem; margin:0 0 1.1rem}
+.produtor span{font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra)}
+.produtor img{width:110px; margin:0}
 .rodape a{color:var(--grafite)}
 
 /* lacuna a preencher */
