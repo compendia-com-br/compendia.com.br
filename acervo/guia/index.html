@@ -6,7 +6,7 @@
 <title>Guia de instalação e uso — Acervo Compendia</title>
 <meta name="description" content="Como instalar e usar o Acervo Compendia no Claude e no ChatGPT. Passo a passo escrito e duas videoaulas.">
 <link rel="canonical" href="https://compendia.com.br/acervo/guia/">
-<link rel="icon" type="image/svg+xml" href="../img/simbolo.svg?v=20260905232254">
+<link rel="icon" type="image/svg+xml" href="../img/simbolo.svg?v=20260905233707">
 <meta name="theme-color" content="#F3EBDA">
 <meta name="robots" content="noindex">
 <meta property="og:type" content="article">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../estilo.css?v=20260905232254">
+<link rel="stylesheet" href="../estilo.css?v=20260905233707">
 <style>
 /* Só o que esta página tem e a de vendas não. O resto vem do estilo.css. */
 .migalha{font-size:.85rem; color:var(--pedra); margin:0 0 .4rem}
@@ -40,12 +40,19 @@
 .indice{list-style:none; padding:0; margin:1.2rem 0 0}
 .indice li{margin-bottom:.4rem}
 .indice a{color:var(--tinta); font-weight:600}
+.baixar{display:inline-flex; align-items:center; gap:.5rem; margin:.2rem .6rem .6rem 0;
+  padding:.7rem 1.1rem; border:1.5px solid var(--tinta); border-radius:3px;
+  color:var(--tinta); text-decoration:none; font-weight:600; font-size:.95rem}
+.baixar:hover{background:var(--tinta); color:var(--pergaminho)}
+.escuro .baixar{border-color:var(--pergaminho); color:var(--pergaminho)}
+.escuro .baixar:hover{background:var(--pergaminho); color:var(--tinta)}
+.baixar small{font-weight:400; font-size:.82rem; opacity:.75}
 </style>
 </head>
 <body>
 
 <header class="topo">
-  <div class="env"><a href="../"><img src="../img/assinatura-acervo.svg?v=20260905232254" alt="Acervo — Compendia" width="267" height="100"></a></div>
+  <div class="env"><a href="../"><img src="../img/assinatura-acervo.svg?v=20260905233707" alt="Acervo — Compendia" width="267" height="100"></a></div>
 </header>
 
 <section class="hero">
@@ -75,6 +82,8 @@
     </div>
 
     <h3>Instalar o plugin</h3>
+    <p><a class="baixar" href="../compendia-acervo.zip" download>Baixar o plugin <small>compendia-acervo.zip</small></a></p>
+    <p class="legenda">O arquivo é o gatilho do Acervo — pequeno, sem os livros dentro. Ele só responde depois que você conectar a sua chave.</p>
     <ol class="passos">
       <li>Clique <b>no seu nome</b>, no canto inferior esquerdo.</li>
       <li>Vá em <b>Configurações</b>.</li>
@@ -121,9 +130,11 @@
     <p class="legenda">5 min 05 s · dois capítulos: acessar e ativar a chave, depois conversar com os autores.</p>
 
     <p><b>Aqui você não baixa nada.</b> Não há arquivo, não há upload — só o link e a sua chave.</p>
+    <p><a class="baixar" href="https://chatgpt.com/g/g-69e0327c41f48191b69d1bd50769e3b3-compendia-acervo" target="_blank" rel="noopener">Abrir o Compendia Acervo no ChatGPT</a></p>
+    <p class="legenda">É este o GPT a usar — o oficial, já personalizado. Guarde o link: é por ele que você volta.</p>
     <ol class="passos">
       <li>Entre na sua conta do <b>ChatGPT</b>.</li>
-      <li>Abra <b>o link do GPT</b> que você recebeu.</li>
+      <li>Abra o GPT pelo botão acima (ou pelo link que você recebeu por e-mail — é o mesmo).</li>
       <li>Clique em <b>listar autores disponíveis</b> ou <b>saber mais sobre o Compendia</b>.</li>
       <li>Aparece um botão para <b>iniciar a sessão</b>. Clique nele.</li>
       <li>Carrega a tela de login. <b>Cole a sua chave</b> e clique em <b>Entrar</b>.</li>
@@ -161,7 +172,7 @@
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>uma produção</span><img src="../img/assinatura-produtora.svg?v=20260905232254" alt="Compendia" width="412" height="100"></p>
+    <p class="produtor"><span>uma produção</span><img src="../img/assinatura-produtora.svg?v=20260905233707" alt="Compendia" width="412" height="100"></p>
     <p>Dúvida, sugestão ou crítica: responda o e-mail em que você recebeu o Acervo.<br>
     © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a></p>
   </div>
