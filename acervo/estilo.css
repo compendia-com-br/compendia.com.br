@@ -255,3 +255,13 @@ details p{margin:.8rem 0 0; color:#3A322B}
   display:inline-block; background:transparent; color:var(--pedra);
   border:1.5px dashed var(--linha); cursor:default;
 }
+
+/* Selo do plano em destaque. Não diz "mais vendido" — ninguém comprou ainda, e
+   alegação que não se confere é o que a §10 reprova. Diz a conta. */
+.plano.destaque{position:relative}
+.plano .selo{
+  display:inline-block; margin-bottom:.8rem; padding:.3rem .6rem; border-radius:2px;
+  background:var(--tinta); color:var(--pergaminho);
+  font-size:.7rem; letter-spacing:.05em; line-height:1.3;
+}
+.plano .valor small{font-family:Inter,sans-serif; font-size:.95rem; color:var(--pedra); letter-spacing:0}
