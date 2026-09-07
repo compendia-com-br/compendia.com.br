@@ -238,7 +238,10 @@ details p{margin:.8rem 0 0; color:#3A322B}
 }
 
 /* pré-checkout — dois SKUs, e o avulso diz qual autor */
-.escolha{display:block; font-size:.8rem; color:var(--pedra); margin:.9rem 0 .3rem}
+/* O rotulo do seletor de autor: negrito e dois pontos maior que os .8rem de antes.
+   .8rem = 12,8px = 9,6pt; +2pt = 15,5px, que e' .97rem. Pedido dele em 06/09/2026:
+   e' a unica pergunta da secao de compra, e estava com peso de legenda. */
+.escolha{display:block; font-size:.97rem; font-weight:600; color:var(--pedra); margin:.9rem 0 .3rem}
 .plano select{
   width:100%; font:400 .95rem Inter,sans-serif; color:var(--grafite);
   padding:.6rem .7rem; border:1px solid var(--linha); border-radius:3px;
