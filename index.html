@@ -4,84 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compendia — Sistemas autênticos</title>
-<link rel="canonical" href="https://compendia.com.br/">
 <meta name="description" content="Compendia — sistemas autênticos. Clones de IA de autores em domínio público e outros sistemas, com a origem de cada resposta declarada.">
+<link rel="canonical" href="https://compendia.com.br/">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260907191339">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260907191339">
+<meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://compendia.com.br/">
 <meta property="og:site_name" content="Compendia">
 <meta property="og:title" content="Compendia — Sistemas autênticos">
 <meta property="og:description" content="Clones de IA de autores em domínio público e outros sistemas, com a origem de cada resposta declarada.">
-<meta property="og:image" content="https://compendia.com.br/marca/og-image.png?v=20260905171032">
-<meta property="og:image:type" content="image/png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://compendia.com.br/marca/og-image.png?v=20260907191339">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Compendia — Sistemas autênticos">
-<meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="marca/favicon.svg?v=20260905171032">
-<link rel="icon" type="image/png" sizes="32x32" href="marca/favicon-32.png?v=20260905171032">
-<link rel="apple-touch-icon" href="marca/apple-touch-icon.png?v=20260905171032">
-<meta name="theme-color" content="#F3EBDA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2C0C17" media="(prefers-color-scheme: dark)">
-<style>
-  /* Cores do brandbook da Compendia, §4. Nao trocar aqui: trocar la e copiar. */
-  :root{
-    --fundo:#F3EBDA;      /* pergaminho */
-    --tinta:#1C1712;      /* grafite-tinta */
-    --suave:#6E645A;      /* pedra */
-    --linha:#D9CDB6;
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --fundo:#2C0C17; --tinta:#F3EBDA; --suave:#B9A79A; --linha:#4A1626; }
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0; min-height:100dvh; display:flex; align-items:center; justify-content:center;
-    padding:2rem 1.25rem;
-    background:var(--fundo); color:var(--tinta);
-    font:400 1rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  main{width:100%; max-width:34rem}
-  h1{margin:0}
-  /* O nome vive na assinatura; o texto fica escondido para leitor de tela.
-     Nao usar font-size:0 nem depender do alt: no modo escuro a imagem clara
-     fica display:none e o h1 ficaria sem texto acessivel nenhum. */
-  .oculto{position:absolute; width:1px; height:1px; overflow:hidden;
-          clip-path:inset(50%); white-space:nowrap}
-  .assinatura{display:block; width:min(100%, 22rem); height:auto}
-  .assinatura.escura{display:none}
-  @media (prefers-color-scheme: dark){
-    .assinatura.clara{display:none}
-    .assinatura.escura{display:block}
-  }
-  .regua{width:2.5rem; height:1px; background:var(--linha); margin:1.75rem 0}
-  p{margin:0; color:var(--suave); font-size:1rem}
-  .contato{
-    margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--linha);
-    font:400 .875rem/1.9 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-  .contato a{color:var(--tinta); text-decoration:none; border-bottom:1px solid var(--linha)}
-  .contato a:hover{border-bottom-color:var(--suave)}
-  .contato div + div{margin-top:.15rem}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/estilo.css?v=20260907191339">
 </head>
 <body>
-  <main>
-    <h1>
-      <span class="oculto">Compendia — Sistemas autênticos</span>
-      <img class="assinatura clara"  src="marca/assinatura.svg?v=20260905171032"
-           alt="" aria-hidden="true" width="412" height="117">
-      <img class="assinatura escura" src="marca/assinatura-negativa.svg?v=20260905171032"
-           alt="" aria-hidden="true" width="412" height="117">
-    </h1>
-    <div class="regua"></div>
-    <p>Site em construção.</p>
-    <div class="contato">
-      <div><a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a></div>
-      <div><a href="https://wa.me/5534984309000">+55 34 98430-9000</a></div>
+
+<header class="topo">
+  <div class="env">
+    <a class="assina" href="/"><img src="/marca/assinatura.svg?v=20260907191339" alt="Compendia" width="413" height="100"></a>
+    <nav class="menu" aria-label="Principal"><a href="/" aria-current="page">Início</a><a href="/acervo/">Acervo</a><a href="/privacidade/">Privacidade</a></nav>
+  </div>
+</header>
+
+
+
+<section class="hero">
+  <div class="env txt">
+    <h1>Sistemas autênticos</h1>
+    <p class="sub">Autêntico no sentido que a palavra carrega desde a raiz: autenticado,
+    com origem que se comprova.</p>
+    <p>Compendia é a marca de sistemas que declaram, junto de cada resultado, de onde ele
+    veio — e o que não sabem ou não fazem.</p>
+    <a class="cta" href="#acervo">Ver o Acervo</a>
+  </div>
+</section>
+
+<section id="negocio">
+  <div class="env txt">
+    <h2>O que a Compendia faz</h2>
+    <p>A Compendia constrói sistemas de software — parte deles com IA, sempre revisada por
+    gente — que declaram de onde vem o resultado e o que não cobrem. Hoje isso é:</p>
+    <ul>
+      <li>Sistemas construídos com apoio de IA, sob supervisão humana.</li>
+      <li>Clonagem de personalidades e de autores, a partir de obra real e indexada.</li>
+      <li>Plugins, conectores e skills para assistentes de IA.</li>
+    </ul>
+    <p>A Compendia é idealizada e dirigida por <b>Thiago Luz</b>.</p>
+    <p class="sub">Psicoterapeuta, ele também fundou a Escola de Consciências, negócio de
+    terapia e educação — a Compendia é o outro, de software.</p>
+  </div>
+</section>
+
+<section id="projetos" class="escuro">
+  <div class="env">
+    <div class="txt">
+      <h2>Em desenvolvimento</h2>
+      <p class="sub">Projetos internos, ainda não vendidos. Sem página, sem preço e sem
+      lista de espera — quando abrirem, abrem aqui.</p>
     </div>
-  </main>
+    <div class="par">
+      <div class="caixa">
+        <h3>Projeto interno · Vote Melhor</h3>
+        <p><span class="cta inerte" aria-disabled="true">Em desenvolvimento</span></p>
+        <p>Monta a ficha de um candidato a partir do dado oficial do TSE — não classifica, não
+        pontua, não recomenda voto.</p>
+      </div>
+      <div class="caixa">
+        <h3>Projeto interno · Clone IA</h3>
+        <p><span class="cta inerte" aria-disabled="true">Em desenvolvimento</span></p>
+        <p>A ferramenta que fabrica os clones de autor da Compendia, a partir do corpus que
+        você indexar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="acervo">
+  <div class="env txt">
+    <h2>Acervo Compendia</h2>
+    <p><b>Vinte e oito autores</b> em domínio público, <b>1.202 volumes</b> e
+    115.047.072 palavras indexadas — medido em 07/09/2026, lido do servidor. O corpus é
+    reindexado; este número é o retrato do dia, não uma promessa fixa.</p>
+    <p>Cada resposta cita o autor, o volume e a frase exata do texto — a página, quando o
+    volume-fonte a preserva.</p>
+    <a class="cta" href="/acervo/">Ver o Acervo</a>
+    <p class="aviso-cta">É o produto que já está à venda. Os outros ainda não.</p>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="env txt">
+    <h2>Contato</h2>
+    <ul class="contato">
+      <li><a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a></li>
+      <li><a href="https://wa.me/5534984309000">+55 34 98430-9000</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="env">
+    <p>© 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a></p>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,338 @@
+/* Compendia · Acervo — tokens da §4 do brandbook. Não inventar cor aqui. */
+:root{
+  --tinta:#4A1626; --tinta-fundo:#2C0C17; --pergaminho:#F3EBDA; --cartao:#FAF6EC;
+  --grafite:#1C1712; --pedra:#6E645A; --linha:#DFD3BC; --citacao:#12776D;
+  /* Rampa de pergaminho sobre tinta — para superficie escura (verso da carta,
+     secao .escuro). NAO esta na §4 do brandbook: sao tintas do pergaminho, nao
+     cor nova, mas a §4 precisa de uma linha sobre isso. Medidas sobre
+     --tinta-fundo: 12,54:1 · 9,16:1 · 6,31:1 — todas AA. */
+  --perg-90:#E3D6C6; --perg-75:#D9C9BE; --perg-60:#C9B6A8; --perg-45:#A8968A;
+  --largura:64rem; --texto:38rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--pergaminho); color:var(--grafite);
+  font:400 1.0625rem/1.65 Inter,ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+h1,h2,h3{font-family:Fraunces,ui-serif,Georgia,serif; font-weight:600; letter-spacing:-.015em; margin:0}
+h1{font-size:clamp(2rem,6.2vw,3.05rem); line-height:1.12}
+h2{font-size:clamp(1.6rem,4.4vw,2.25rem); line-height:1.2; margin-bottom:.9rem}
+h3{font-size:1.18rem; line-height:1.35; margin-bottom:.5rem}
+p{margin:0 0 1.05rem}
+a{color:inherit}
+.env{max-width:var(--largura); margin-inline:auto; padding-inline:1.35rem}
+.txt{max-width:var(--texto)}
+section{padding-block:clamp(3rem,8vw,5.25rem)}
+.escuro{background:var(--tinta-fundo); color:var(--pergaminho)}
+.escuro .sub,.escuro li{color:#D9C9BE}
+.sub{color:var(--pedra); font-size:1.09rem}
+
+/* topo — assinatura do Acervo, submarca. Maior que a antiga assinatura da
+   Compendia (190px): aqui quem assina em peso e o Acervo, nao a Compendia
+   (regra de hierarquia, brandbook §12.1). Piso 180px fica acima dos ~96px
+   em que a palavra fecha os contraformas (§7). */
+.topo{padding:1.15rem 0; border-bottom:1px solid var(--linha)}
+.topo img{width:clamp(180px,34vw,260px)}
+
+/* hero */
+.hero{padding-top:clamp(2.5rem,7vw,4rem); padding-bottom:0}
+.hero h1{margin-bottom:1rem}
+.hero .sub{max-width:34rem}
+.hero-img{margin-top:clamp(2rem,5vw,3rem)}
+.hero-img img{width:100%; border-radius:2px}
+
+/* botao */
+.cta{
+  display:inline-block; background:var(--tinta); color:var(--pergaminho);
+  text-decoration:none; font-weight:600; font-size:1.02rem;
+  padding:.95rem 1.7rem; border-radius:3px; margin-top:.4rem;
+  border:1px solid var(--tinta);
+}
+.cta:hover{background:var(--tinta-fundo); border-color:var(--tinta-fundo)}
+.escuro .cta{background:var(--pergaminho); color:var(--tinta); border-color:var(--pergaminho)}
+.aviso-cta{font-size:.82rem; color:var(--pedra); margin-top:.7rem}
+.escuro .aviso-cta{color:#B9A79A}
+
+/* citacao tecnica */
+code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:.92em}
+.fonte{color:var(--citacao); font-family:"JetBrains Mono",ui-monospace,monospace; font-size:.86rem}
+
+/* comparacao */
+.par{display:grid; gap:1.1rem; margin-top:1.6rem}
+@media(min-width:46rem){.par{grid-template-columns:1fr 1fr; gap:1.35rem}}
+.caixa{background:var(--cartao); border:1px solid var(--linha); border-radius:3px; padding:1.25rem}
+.caixa.ruim{background:#EFE7D6}
+.caixa h3{font-family:Inter; font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra); margin-bottom:.7rem}
+.caixa p{margin:0; font-size:.99rem}
+.caixa .fonte{display:block; margin-top:.8rem}
+
+/* listas */
+ul{padding-left:1.15rem; margin:0 0 1.05rem}
+li{margin-bottom:.5rem}
+.duas{display:grid; gap:2rem}
+@media(min-width:46rem){.duas{grid-template-columns:1fr 1fr; gap:3rem}}
+
+/* passos */
+.passos{counter-reset:p; list-style:none; padding:0; max-width:var(--texto)}
+.passos li{counter-increment:p; position:relative; padding-left:2.5rem; margin-bottom:1.05rem}
+.passos li::before{
+  content:counter(p); position:absolute; left:0; top:.05rem;
+  width:1.65rem; height:1.65rem; border-radius:50%;
+  background:var(--tinta); color:var(--pergaminho);
+  font-size:.85rem; font-weight:600; display:grid; place-items:center;
+}
+.escuro .passos li::before{background:var(--pergaminho); color:var(--tinta)}
+
+/* autores */
+.autores{display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem; margin-top:2rem}
+@media(min-width:38rem){.autores{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:60rem){.autores{grid-template-columns:repeat(7,1fr); gap:.85rem}}
+.autor img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; filter:grayscale(.25)}
+.autor b{display:block; font-size:.9rem; margin-top:.5rem; font-weight:600}
+.autor span{display:block; font-size:.8rem; color:var(--pedra)}
+.escuro .autor span{color:#B9A79A}
+
+/* faixa */
+.faixa img{width:100%}
+
+/* faq */
+details{border-bottom:1px solid var(--linha); padding:1.05rem 0}
+details summary{cursor:pointer; font-weight:600; font-size:1.05rem; list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+"; float:right; color:var(--pedra); font-weight:400}
+details[open] summary::after{content:"–"}
+details p{margin:.8rem 0 0; color:#3A322B}
+
+/* rodape — lockup "uma produção" + assinatura da Compendia, subordinada
+   (brandbook §12.1). Nunca a versao com slogan aqui: slogan e territorio da
+   assinatura da propria Compendia, nao de uma aparicao em rodape de produto. */
+.rodape{border-top:1px solid var(--linha); padding-block:2.5rem; font-size:.9rem; color:var(--pedra)}
+.produtor{display:flex; align-items:center; gap:.65rem; margin:0 0 1.1rem}
+.produtor span{font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra)}
+.produtor img{width:110px; margin:0}
+.rodape a{color:var(--grafite)}
+
+/* lacuna a preencher */
+.lacuna{
+  background:#FBF3D8; border:1px dashed #B8952F; border-radius:3px;
+  padding:.85rem 1rem; font-size:.86rem; color:#6B531A; margin:1rem 0;
+}
+
+/* texto e imagem lado a lado, sem cortar o assunto da foto */
+.lado-a-lado{display:grid; gap:2rem; align-items:center}
+.lado-a-lado img{border-radius:2px; width:100%}
+@media(min-width:46rem){
+  .lado-a-lado{grid-template-columns:1fr .8fr; gap:3.5rem}
+  .lado-a-lado img{max-height:30rem; width:auto; margin-left:auto}
+}
+
+/* planos */
+.planos{display:grid; gap:1.1rem; margin:1.8rem 0 2rem}
+@media(min-width:46rem){.planos{grid-template-columns:1fr 1fr; gap:1.35rem; max-width:46rem}}
+.plano{background:var(--cartao); border:1px solid var(--linha); border-radius:3px; padding:1.5rem}
+.plano.destaque{border-color:var(--tinta); border-width:2px}
+.plano h3{font-family:Inter; font-size:.8rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra); margin-bottom:.6rem}
+.plano .valor{font-family:Fraunces,ui-serif,Georgia,serif; font-size:2.3rem; line-height:1;
+  color:var(--tinta); margin:0 0 .7rem; font-weight:600}
+.plano p:last-child{margin:0; font-size:.97rem; color:#3A322B}
+
+/* ============================================================
+   CARTAS DE AUTOR — grade fluida + giro
+   A grade deixou de ser repeat(7,1fr): com 12 autores hoje e numero
+   diferente a cada reindexacao, coluna fixa quebra sozinha. auto-fit se
+   reorganiza pelo numero real.
+   Ordem: sempre por volume decrescente, calculada pelo gerador, nunca
+   escolhida a mao. Todas as cartas tem o MESMO tamanho — Steiner (306) e
+   Vygotsky (1) ocupam a mesma caixa. E o que impede a pagina de virar
+   "Steiner e mais onze".
+   ============================================================ */
+.cartas{
+  list-style:none; margin:2rem 0 0; padding:0;
+  display:grid; gap:.9rem;
+  /* 13rem, nao 9rem: medido em 04/09 — com carta de 151px o verso do Steiner
+     precisava de 666px e cabia 210, e os DOZE cortavam. Carta de verdade tem de
+     caber o verso; a largura e o que resolve, porque as etiquetas de area
+     reembrulham em menos linhas quando ha largura. Com 13rem (4 colunas, carta
+     234x328) TRES ainda cortavam; 18rem da 3 colunas e carta ~320x448. */
+  grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));
+}
+.carta{perspective:1000px}
+
+.giro{
+  all:unset; box-sizing:border-box; display:block; position:relative;
+  width:100%; aspect-ratio:5/7; cursor:pointer;
+  transition:transform .55s cubic-bezier(.2,.7,.3,1);
+  transform-style:preserve-3d; border-radius:5px;
+}
+.giro:focus-visible{outline:2px solid var(--citacao); outline-offset:3px}
+/* O giro acontece no hover (mouse) e no aria-expanded (toque e teclado).
+   Os dois caminhos, porque hover nao existe no celular e foco nao existe no mouse. */
+@media(hover:hover){.carta:hover .giro{transform:rotateY(180deg)}}
+.giro[aria-expanded="true"]{transform:rotateY(180deg)}
+
+.face{
+  position:absolute; inset:0; border-radius:5px; overflow:hidden;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border:1px solid var(--linha);
+}
+.frente{background:var(--cartao)}
+.frente img{width:100%; height:100%; object-fit:cover}
+.frente .sem-retrato{
+  display:grid; place-items:center; width:100%; height:100%;
+  font-family:Fraunces,ui-serif,Georgia,serif; font-size:3.4rem; font-weight:600;
+  color:var(--tinta); background:var(--cartao);
+}
+.placa{
+  position:absolute; left:0; right:0; bottom:0; padding:.75rem .6rem .55rem;
+  background:linear-gradient(to top,rgba(28,23,18,.92),rgba(28,23,18,.62) 62%,transparent);
+  color:var(--pergaminho);
+}
+.placa b{display:block; font-family:Fraunces,ui-serif,Georgia,serif; font-size:.98rem; line-height:1.15}
+.placa span{display:block; font-size:.74rem; color:#D9C9BE; margin-top:.1rem}
+.carta.vazia .placa{background:linear-gradient(to top,rgba(28,23,18,.9),transparent)}
+
+/* verso — CSS puro, nenhuma imagem */
+.verso{
+  transform:rotateY(180deg); background:var(--tinta-fundo); color:var(--pergaminho);
+  padding:.8rem .78rem; display:flex; flex-direction:column; gap:.32rem;
+  overflow-y:auto; text-align:left;
+}
+.verso-topo{display:block; border-bottom:1px solid rgba(243,235,218,.22); padding-bottom:.35rem}
+.verso-topo b{display:block; font-family:Fraunces,ui-serif,Georgia,serif; font-size:.86rem; line-height:1.2}
+.verso-topo i{font-style:normal; font-size:.7rem; color:var(--perg-60)}
+.numeros{display:flex; gap:.8rem}
+.numeros span{display:block; font-size:.62rem; color:var(--perg-60); line-height:1.3}
+.numeros b{
+  display:block; font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:.86rem; color:var(--pergaminho); letter-spacing:-.02em;
+}
+.rotulo{
+  display:block; font-size:.58rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--perg-45); margin-top:.2rem;
+}
+.temas{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.22rem}
+.temas li{
+  font-size:.68rem; line-height:1.25; padding:.14rem .36rem; border-radius:2px;
+  background:rgba(243,235,218,.1); color:var(--perg-90);
+}
+.linguas{margin:0; font-size:.68rem; color:#D9C9BE}
+.linguas span{color:var(--perg-45); letter-spacing:.07em; text-transform:uppercase; font-size:.58rem}
+.temas .mais{background:none; color:var(--perg-45); padding-inline:.1rem}
+.proc{
+  margin:auto 0 0; padding-top:.4rem; font-size:.6rem; line-height:1.35; color:var(--perg-45);
+  border-top:1px solid rgba(243,235,218,.22);
+}
+.proc b{color:var(--perg-60); font-weight:600}
+
+/* Movimento reduzido: a carta ainda vira, mas sem o giro 3D — troca por
+   fundido. Esconder a informacao seria pior que anima-la. */
+@media(prefers-reduced-motion:reduce){
+  .giro,.carta:hover .giro,.giro[aria-expanded="true"]{transition:none; transform:none}
+  .face{backface-visibility:visible; transition:opacity .01s}
+  .verso{transform:none; opacity:0; pointer-events:none}
+  @media(hover:hover){.carta:hover .verso{opacity:1; pointer-events:auto}}
+  .giro[aria-expanded="true"] .verso{opacity:1; pointer-events:auto}
+}
+
+/* pré-checkout — dois SKUs, e o avulso diz qual autor */
+/* O rotulo do seletor de autor: negrito e dois pontos maior que os .8rem de antes.
+   .8rem = 12,8px = 9,6pt; +2pt = 15,5px, que e' .97rem. Pedido dele em 06/09/2026:
+   e' a unica pergunta da secao de compra, e estava com peso de legenda. */
+.escolha{display:block; font-size:.97rem; font-weight:600; color:var(--pedra); margin:.9rem 0 .3rem}
+.plano select{
+  width:100%; font:400 .95rem Inter,sans-serif; color:var(--grafite);
+  padding:.6rem .7rem; border:1px solid var(--linha); border-radius:3px;
+  background:var(--cartao); margin-bottom:.9rem;
+}
+.plano select:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
+.plano .cta{display:block; text-align:center; margin-top:.4rem}
+.cta.secundario{background:transparent; color:var(--tinta); border:1.5px solid var(--tinta)}
+.plano .nota{font-size:.8rem; color:var(--pedra); margin:.7rem 0 0}
+
+/* Botão sem destino: existe enquanto o checkout não existe. Não é link, não
+   entra na ordem de tab, não finge ser clicável. */
+.cta.inerte{
+  display:inline-block; background:transparent; color:var(--pedra);
+  border:1.5px dashed var(--linha); cursor:default;
+}
+
+/* Selo do plano em destaque. Não diz "mais vendido" — ninguém comprou ainda, e
+   alegação que não se confere é o que a §10 reprova. Diz a conta. */
+.plano.destaque{position:relative}
+.plano .selo{
+  display:inline-block; margin-bottom:.8rem; padding:.3rem .6rem; border-radius:2px;
+  background:var(--tinta); color:var(--pergaminho);
+  font-size:.7rem; letter-spacing:.05em; line-height:1.3;
+}
+.plano .valor small{font-family:Inter,sans-serif; font-size:.95rem; color:var(--pedra); letter-spacing:0}
+
+/* ============================================================
+   CABECALHO COMPARTILHADO, MENU E PAGINAS NOVAS (home, termos,
+   privacidade, autor). Nenhuma cor nova: tudo sai das variaveis
+   da §4 ja' declaradas no topo deste arquivo.
+   Celular primeiro, medido em 375px: no menor, assinatura em cima
+   e menu embaixo, os dois na largura inteira; a partir de 46rem
+   eles dividem a linha.
+   ============================================================ */
+.topo .env{display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1.4rem}
+.assina{display:block; line-height:0}
+.menu{display:flex; flex-wrap:wrap; gap:.15rem 1.15rem; font-size:.92rem}
+.menu a{color:var(--pedra); text-decoration:none; padding:.15rem 0}
+.menu a:hover{color:var(--grafite)}
+.menu a[aria-current="page"]{color:var(--tinta); font-weight:600}
+@media(min-width:46rem){
+  .topo .env{flex-wrap:nowrap; justify-content:space-between}
+  .menu{gap:1.5rem}
+}
+
+/* migalha — o caminho de volta, no topo da pagina de dentro */
+.migalha{font-size:.85rem; color:var(--pedra); margin:0 0 .5rem}
+.migalha a{color:var(--pedra)}
+
+/* contato da home, sem marcador */
+.contato{list-style:none; padding:0}
+.contato a{color:var(--grafite)}
+
+/* ---------- pagina de autor ---------- */
+.autor-topo{display:grid; gap:1.6rem; align-items:start}
+@media(min-width:46rem){
+  .autor-topo{grid-template-columns:1fr 15rem; gap:2.5rem}
+}
+.autor-topo h1 small{display:block; font-family:Inter,sans-serif; font-size:.95rem;
+  font-weight:400; color:var(--pedra); letter-spacing:0; margin-top:.35rem}
+/* Ordem no celular: primeiro o retrato, depois o texto? NAO. O nome e o numero
+   decidem a compra; o rosto ilustra. Em 375px o texto vem primeiro e o retrato
+   desce — por isso o retrato e' o segundo filho na grade, e nao ha' `order`. */
+.retrato{margin:0; max-width:15rem}
+.retrato img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:3px;
+  border:1px solid var(--linha); filter:grayscale(.2)}
+.retrato figcaption{font-size:.72rem; line-height:1.4; color:var(--pedra); margin-top:.5rem}
+/* Autor sem retrato — 16 dos 28 hoje. A caixa continua existindo, com a inicial:
+   sem original em dominio publico nomeado, a §13 nao deixa entrar imagem. */
+.retrato.sem .sem-retrato{
+  display:grid; place-items:center; width:100%; aspect-ratio:4/5;
+  border:1px dashed var(--linha); border-radius:3px; background:var(--cartao);
+  font-family:Fraunces,ui-serif,Georgia,serif; font-size:4rem; font-weight:600;
+  color:var(--tinta);
+}
+
+/* lista de obras — o titulo em portugues manda, o original vem abaixo */
+.obras{list-style:none; padding:0; margin:1.4rem 0 1.2rem}
+.obra{
+  border-top:1px solid var(--linha); padding:.85rem 0; margin:0;
+  font-family:Fraunces,ui-serif,Georgia,serif; font-size:1.12rem; line-height:1.3;
+}
+.obra:last-child{border-bottom:1px solid var(--linha)}
+.obra-orig,.obra-meta{display:block; font-family:Inter,sans-serif; line-height:1.45}
+.obra-orig{font-size:.9rem; color:#3A322B; margin-top:.25rem}
+.obra-meta{font-size:.78rem; color:var(--pedra); margin-top:.1rem}
+
+.rotulo-bloco{font-size:.72rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--pedra); margin-bottom:.6rem}
+.escuro .rotulo-bloco{color:var(--perg-45)}
+.temas-lista{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:.3rem}
+.temas-lista li{font-size:.82rem; padding:.2rem .5rem; border-radius:2px;
+  background:rgba(243,235,218,.1); color:var(--perg-90); margin:0}
