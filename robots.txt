@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /corpus/guia/
+Disallow: /bibliotheca/guia/
 
 Sitemap: https://compendia.com.br/sitemap.xml
