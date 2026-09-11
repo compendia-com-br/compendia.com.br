@@ -312,6 +312,48 @@ details p{margin:.8rem 0 0; color:#3A322B}
 }
 
 /* ============================================================
+   IDIOMA — o seletor e o convite
+   ============================================================
+   `PT · EN` em texto, nao bandeira: bandeira e' pais, nao lingua. Ingles
+   nao e' dos Estados Unidos e portugues nao e' so' do Brasil, e o §10 do
+   brandbook manda que toda afirmacao se confira. Texto tambem ocupa menos
+   espaco no cabecalho, que e' o que o pedido pedia.
+   ============================================================ */
+.idioma{
+  display:flex; align-items:center; gap:.35rem; flex:0 0 auto;
+  font-size:.78rem; letter-spacing:.06em; color:var(--pedra);
+}
+.idioma a{color:var(--pedra); text-decoration:none; padding:.2rem .1rem;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s}
+.idioma a:hover{color:var(--tinta); border-bottom-color:var(--linha)}
+.idioma a:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
+.idioma [aria-current]{color:var(--tinta); font-weight:600}
+.idioma [aria-hidden]{opacity:.45}
+
+.idioma-rodape{margin:.2rem 0 .5rem; font-size:.82rem; color:var(--pedra)}
+.idioma-rodape a{color:var(--pedra)}
+.idioma-rodape [aria-current]{color:var(--tinta); font-weight:600}
+
+/* O convite aparece UMA vez, na primeira visita, e some quando a pessoa
+   decide — inclusive quando ela decide ficar. Nao e' faixa de promocao:
+   e' uma pergunta que se faz uma vez so'. */
+.convite-idioma{
+  display:flex; align-items:center; gap:.9rem; flex-wrap:wrap;
+  padding:.7rem 1.35rem; font-size:.88rem;
+  background:var(--tinta-fundo); color:var(--pergaminho);
+}
+.convite-idioma a{color:var(--pergaminho); font-weight:600; text-underline-offset:3px}
+.convite-idioma button{
+  margin-left:auto; display:grid; place-items:center;
+  width:1.8rem; height:1.8rem; padding:0; cursor:pointer;
+  background:none; border:1px solid rgba(243,235,218,.28); border-radius:50%;
+  color:var(--perg-60); transition:color .15s, border-color .15s;
+}
+.convite-idioma button:hover{color:var(--pergaminho); border-color:var(--perg-60)}
+.convite-idioma a:focus-visible,.convite-idioma button:focus-visible{
+  outline:2px solid var(--pergaminho); outline-offset:2px}
+
+/* ============================================================
    INDICE DOS AUTORES — o pe da pagina de vendas
    ============================================================
    Colunas de CSS (`columns`) e nao grid: com 42 nomes de largura
