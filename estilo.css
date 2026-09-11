@@ -311,6 +311,39 @@ details p{margin:.8rem 0 0; color:#3A322B}
   .giro[aria-expanded="true"] .verso{opacity:1; pointer-events:auto}
 }
 
+/* ============================================================
+   INDICE DOS AUTORES — o pe da pagina de vendas
+   ============================================================
+   Colunas de CSS (`columns`) e nao grid: com 42 nomes de largura
+   desigual, o grid deixaria coluna curta ao lado de coluna cheia.
+   `columns` distribui pela ALTURA, entao as colunas terminam juntas
+   e a leitura desce cada uma de cima a baixo, como indice de livro.
+
+   Ele repete o que o carrossel ja mostra, de proposito: o carrossel
+   e' para descobrir e o indice e' para ACHAR — e so' o indice e'
+   link rastreavel para as 42 paginas de autor.
+   ============================================================ */
+.indice{border-top:1px solid var(--linha)}
+.indice h2{margin-bottom:.2rem}
+.indice-autores{
+  list-style:none; margin:1.4rem 0 0; padding:0;
+  /* 9rem, nao 11rem: com 11rem o celular de 375px caiu para UMA coluna
+     (332px uteis / 176px = 1) e a lista virou uma parede de 1.532px.
+     Com 9rem cabem duas la' e as quatro no desktop — o teto de 4 e' o
+     que impede seis colunas raquiticas em tela larga. O nome mais longo
+     do acervo e' `Schopenhauer`, que cabe folgado em 9rem. */
+  columns:4 9rem; column-gap:1.6rem;
+}
+.indice-autores li{break-inside:avoid; margin:0 0 .1rem}
+.indice-autores a{
+  display:block; padding:.3rem 0; font-size:.92rem;
+  color:var(--tinta); text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:color .15s ease-out, border-color .15s ease-out;
+}
+.indice-autores a:hover{color:var(--citacao); border-bottom-color:var(--linha)}
+.indice-autores a:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
+
 /* pré-checkout — dois SKUs, e o avulso diz qual autor */
 /* O rotulo do seletor de autor: negrito e dois pontos maior que os .8rem de antes.
    .8rem = 12,8px = 9,6pt; +2pt = 15,5px, que e' .97rem. Pedido dele em 06/09/2026:
