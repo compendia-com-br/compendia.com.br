@@ -161,6 +161,80 @@ details p{margin:.8rem 0 0; color:#3A322B}
 }
 .carta{perspective:1000px}
 
+/* ============================================================
+   CARROSSEL — a galeria gira sozinha
+   ============================================================
+   Por que trilho com scroll-snap e nao slides posicionados: o
+   deslize do dedo, a roda do mouse na horizontal e a navegacao por
+   teclado ja existem de graca no navegador. E sem JavaScript a
+   galeria continua sendo uma galeria que rola — degrada para o que
+   ja funcionava, nunca para uma coluna travada mostrando 4 de 42.
+
+   A largura da carta continua sendo 18rem, o mesmo piso medido em
+   04/09 para o verso caber sem cortar. No celular (375px) 18rem =
+   288px, e a proxima carta aparece pela metade: e' esse pedaco
+   cortado que diz "tem mais para o lado" antes de qualquer seta.
+   ============================================================ */
+.carrossel{position:relative}
+.carrossel .cartas{
+  display:flex; margin:1.6rem 0 0; padding:.25rem .25rem 1rem;
+  overflow-x:auto; overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  /* a barra de rolagem tambem e' superficie da pagina */
+  scrollbar-width:thin; scrollbar-color:var(--linha) transparent;
+}
+.carrossel .cartas::-webkit-scrollbar{height:6px}
+.carrossel .cartas::-webkit-scrollbar-track{background:transparent}
+.carrossel .cartas::-webkit-scrollbar-thumb{background:var(--linha); border-radius:99px}
+.carrossel .carta{flex:0 0 18rem; scroll-snap-align:start}
+
+/* Setas: SVG desenhado, um traco so, do lado — sobre a carta, porque
+   fora dela nao ha margem em 375px. */
+.seta{
+  position:absolute; top:calc(50% - 1.8rem); z-index:3;
+  width:2.6rem; height:2.6rem; padding:0;
+  display:grid; place-items:center;
+  border:1px solid var(--linha); border-radius:50%;
+  background:var(--cartao); color:var(--tinta); cursor:pointer;
+  box-shadow:0 3px 12px rgba(28,23,18,.22);
+  transition:background .18s ease-out, transform .18s ease-out, box-shadow .18s ease-out;
+}
+.seta:hover{background:var(--pergaminho); transform:scale(1.07); box-shadow:0 5px 18px rgba(28,23,18,.26)}
+.seta:active{transform:scale(.96)}
+.seta:focus-visible{outline:2px solid var(--citacao); outline-offset:3px}
+.seta.ant{left:.35rem}
+.seta.prox{right:.35rem}
+
+/* Controle e instrucao na mesma linha: o botao de pausa e' exigencia de
+   acessibilidade (conteudo que se move sozinho tem de poder parar), e a
+   instrucao ao lado e' o que explica que a carta tambem vira. */
+.carrossel-nota{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .75rem;
+  margin:.2rem 0 0; font-size:.82rem; line-height:1.45; color:var(--pedra);
+}
+.carrossel-nota > span{flex:1 1 18rem; min-width:0}
+.pausa{
+  display:inline-flex; align-items:center; gap:.4rem; flex:0 0 auto;
+  font:500 .78rem Inter,sans-serif; color:var(--tinta);
+  padding:.36rem .72rem; border:1px solid var(--linha); border-radius:99px;
+  background:var(--cartao); cursor:pointer;
+  transition:background .18s ease-out, border-color .18s ease-out;
+}
+.pausa:hover{background:var(--pergaminho); border-color:var(--pedra)}
+.pausa:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
+.pausa .i-toca{display:none}
+.pausa.esta-pausado .i-pausa{display:none}
+.pausa.esta-pausado .i-toca{display:block}
+
+/* Movimento reduzido: o giro automatico nunca comeca (o script le a mesma
+   consulta) e o salto das setas deixa de ser animado. A galeria continua
+   inteira — so nao se mexe sozinha. */
+@media(prefers-reduced-motion:reduce){
+  .carrossel .cartas{scroll-behavior:auto}
+  .seta{transition:none}
+  .seta:hover{transform:none}
+}
+
 .giro{
   all:unset; box-sizing:border-box; display:block; position:relative;
   width:100%; aspect-ratio:5/7; cursor:pointer;
