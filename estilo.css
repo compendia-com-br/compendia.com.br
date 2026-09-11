@@ -186,24 +186,62 @@ details p{margin:.8rem 0 0; color:#3A322B}
 .carrossel .cartas::-webkit-scrollbar{height:6px}
 .carrossel .cartas::-webkit-scrollbar-track{background:transparent}
 .carrossel .cartas::-webkit-scrollbar-thumb{background:var(--linha); border-radius:99px}
+/* CARTA CENTRADA E SETAS NA MARGEM — medido em 375px, 11/09/2026.
+   -------------------------------------------------------------
+   O que estava errado: a carta encostava na esquerda (`snap-align:start`)
+   e as setas de 2,6rem caiam EM CIMA do texto do verso. Medido: a seta da
+   esquerda ocupava 27..69px e a carta comecava em 26 — quarenta e dois
+   pixels de botao sobre a leitura.
+
+   O conserto e' geometrico, nao cosmetico: centrando a carta, sobra margem
+   dos DOIS lados, e e' nessa margem que a seta cabe. Com carta de 17,5rem
+   num trilho de 332px a carta fica em 47..327 e a seta invade o texto em
+   1px de cada lado -- contra 42.
+
+   POR QUE 17,5rem E NAO 17: a 17rem o verso do Steiner volta a estourar
+   (9px). A largura da carta e' o que faz o verso caber -- ver o comentario
+   da grade acima. Testado 18 / 17,5 / 17: as tres com zero estouro menos a
+   ultima, e a sobreposicao caindo 15 -> 11 -> 7px.
+   E carta FLUIDA foi testada e reprovada: `min(17.5rem, 100% - 4rem)` em
+   320px encolhe a carta para ~200px e faz 30 a 40 versos estourarem, o pior
+   deles em 211px. Largura fixa, entao. */
 .carrossel .carta{flex:0 0 18rem; scroll-snap-align:start}
 
-/* Setas: SVG desenhado, um traco so, do lado — sobre a carta, porque
-   fora dela nao ha margem em 375px. */
+@media (max-width:40rem){
+  /* o `max()` protege telas menores que a carta: sem ele o padding fica
+     negativo abaixo de ~22rem e o trilho desalinha */
+  .carrossel .cartas{padding-inline:max(.25rem, calc((100% - 17.5rem)/2))}
+  .carrossel .carta{flex:0 0 17.5rem; scroll-snap-align:center}
+}
+
+/* Setas: SVG desenhado, um traco so, do lado. Translucidas de proposito --
+   mesmo na margem elas encostam na borda da carta, e o texto tem de passar
+   por baixo. */
 .seta{
   position:absolute; top:calc(50% - 1.8rem); z-index:3;
-  width:2.6rem; height:2.6rem; padding:0;
+  width:2.1rem; height:2.1rem; padding:0;
   display:grid; place-items:center;
-  border:1px solid var(--linha); border-radius:50%;
-  background:var(--cartao); color:var(--tinta); cursor:pointer;
-  box-shadow:0 3px 12px rgba(28,23,18,.22);
+  border:1px solid rgba(28,23,18,.28); border-radius:50%;
+  background:rgba(250,246,236,.55); color:var(--tinta); cursor:pointer;
+  box-shadow:0 2px 8px rgba(28,23,18,.16);
   transition:background .18s ease-out, transform .18s ease-out, box-shadow .18s ease-out;
 }
 .seta:hover{background:var(--pergaminho); transform:scale(1.07); box-shadow:0 5px 18px rgba(28,23,18,.26)}
 .seta:active{transform:scale(.96)}
 .seta:focus-visible{outline:2px solid var(--citacao); outline-offset:3px}
-.seta.ant{left:.35rem}
-.seta.prox{right:.35rem}
+.seta.ant{left:.2rem}
+.seta.prox{right:.2rem}
+
+/* Abaixo de ~368px nao existe geometria que resolva: a carta precisa de
+   17,5rem para o verso caber, e isso nao deixa margem para a seta. Medido em
+   320px: ela invade o texto em 21-24px. Entao a saida ali e' a transparencia
+   fazer o trabalho -- menor, mais apagada, sem sombra. */
+@media (max-width:23rem){
+  .seta{width:1.85rem; height:1.85rem; background:rgba(250,246,236,.34);
+        border-color:rgba(28,23,18,.2); box-shadow:none}
+  .seta.ant{left:.05rem}
+  .seta.prox{right:.05rem}
+}
 
 /* Controle e instrucao na mesma linha: o botao de pausa e' exigencia de
    acessibilidade (conteudo que se move sozinho tem de poder parar), e a
@@ -269,34 +307,39 @@ details p{margin:.8rem 0 0; color:#3A322B}
 .carta.vazia .placa{background:linear-gradient(to top,rgba(28,23,18,.9),transparent)}
 
 /* verso — CSS puro, nenhuma imagem */
+/* O VERSO TEM DE CABER SEM ROLAR. Medido em 11/09 nos 42: so' o Steiner
+   estourava, em 65px, com DOZE areas de atuacao. Rolagem dentro de uma carta
+   que gira e' o pior lugar para esconder texto -- ninguem procura ali.
+   Estes numeros sao o aperto minimo que zerou o estouro nos 42, conferido
+   carta a carta com `scrollHeight - clientHeight`. */
 .verso{
   transform:rotateY(180deg); background:var(--tinta-fundo); color:var(--pergaminho);
-  padding:.8rem .78rem; display:flex; flex-direction:column; gap:.32rem;
+  padding:.62rem .6rem; display:flex; flex-direction:column; gap:.26rem;
   overflow-y:auto; text-align:left;
 }
-.verso-topo{display:block; border-bottom:1px solid rgba(243,235,218,.22); padding-bottom:.35rem}
+.verso-topo{display:block; border-bottom:1px solid rgba(243,235,218,.22); padding-bottom:.28rem}
 .verso-topo b{display:block; font-family:Fraunces,ui-serif,Georgia,serif; font-size:.86rem; line-height:1.2}
 .verso-topo i{font-style:normal; font-size:.7rem; color:var(--perg-60)}
 .numeros{display:flex; gap:.8rem}
 .numeros span{display:block; font-size:.62rem; color:var(--perg-60); line-height:1.3}
 .numeros b{
   display:block; font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:.86rem; color:var(--pergaminho); letter-spacing:-.02em;
+  font-size:.8rem; color:var(--pergaminho); letter-spacing:-.02em;
 }
 .rotulo{
-  display:block; font-size:.58rem; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--perg-45); margin-top:.2rem;
+  display:block; font-size:.55rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--perg-45); margin-top:.12rem;
 }
-.temas{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.22rem}
+.temas{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.18rem}
 .temas li{
-  font-size:.68rem; line-height:1.25; padding:.14rem .36rem; border-radius:2px;
+  font-size:.6rem; line-height:1.22; padding:.1rem .3rem; border-radius:2px;
   background:rgba(243,235,218,.1); color:var(--perg-90);
 }
 .linguas{margin:0; font-size:.68rem; color:#D9C9BE}
 .linguas span{color:var(--perg-45); letter-spacing:.07em; text-transform:uppercase; font-size:.58rem}
 .temas .mais{background:none; color:var(--perg-45); padding-inline:.1rem}
 .proc{
-  margin:auto 0 0; padding-top:.4rem; font-size:.6rem; line-height:1.35; color:var(--perg-45);
+  margin:auto 0 0; padding-top:.32rem; font-size:.56rem; line-height:1.35; color:var(--perg-45);
   border-top:1px solid rgba(243,235,218,.22);
 }
 .proc b{color:var(--perg-60); font-weight:600}
