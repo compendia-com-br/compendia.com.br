@@ -357,6 +357,16 @@ details p{margin:.8rem 0 0; color:#3A322B}
 }
 .linguas{margin:0; font-size:.68rem; color:#D9C9BE}
 .linguas span{color:var(--perg-45); letter-spacing:.07em; text-transform:uppercase; font-size:.58rem}
+/* DECIDIDO PELO THIAGO EM 11/09/2026 — nao ligar o `.mais`.
+   A tipografia do verso foi apertada para caber o PIOR caso (o Steiner, com
+   doze areas). A alternativa era devolver o tamanho anterior e o gerador
+   mostrar, digamos, nove areas mais um "+3" usando esta classe. Ele escolheu o
+   aperto: "mantem o aperto mesmo".
+   O que a escolha compra e o que custa: todas as areas ficam VISIVEIS em todas
+   as 42 cartas, ao preco de tipo menor em todas elas. Esconder area atras de um
+   "+3" trocaria texto pequeno por informacao que ninguem clica.
+   Esta classe fica no arquivo porque e' estrutura pronta, nao porque falta
+   liga-la. Se alguem for usa-la, e' decisao nova e nao conserto. */
 .temas .mais{background:none; color:var(--perg-45); padding-inline:.1rem}
 .proc{
   margin:auto 0 0; padding-top:.32rem; font-size:.56rem; line-height:1.35; color:var(--perg-45);
