@@ -214,6 +214,26 @@ details p{margin:.8rem 0 0; color:#3A322B}
   .carrossel .carta{flex:0 0 17.5rem; scroll-snap-align:center}
 }
 
+/* ⚠️ INVARIANTE SILENCIOSO — o padding tem de ser SIMETRICO.
+   Achado pela sessao «Compendia Sites» em 11/09/2026, conferindo a juncao
+   deste CSS com a JS do carrossel (que vive no `acervo-modelo.html`).
+
+   A JS calcula o passo como `largura da carta + column-gap` e mira `i x passo`.
+   Com `scroll-snap-align:center`, o ponto de encaixe da carta `i` so' cai em
+   `i x passo` se o padding dos dois lados for IGUAL — ai ele se cancela na
+   conta. O `padding-inline` acima e' simetrico, e por isso os dois sistemas
+   fecham: medido em 375px nas cartas 0/1/2/5/10/20/40, erro de ZERO pixel, e a
+   ultima mirando exatamente `scrollWidth - clientWidth`.
+
+   O QUE QUEBRA, sem erro no console e sem estragar o layout: padding
+   assimetrico, `scroll-padding-left`, ou uma carta com largura diferente das
+   outras. O sintoma e' a seta pular ou emperrar carta — coisa que so' aparece
+   clicando, e que ninguem liga a uma mudanca de CSS.
+
+   O teste custa tres linhas, se alguem mexer nesta geometria:
+     padL + i*passo + largCarta/2 - largTrilho/2   ===   i*passo
+   para alguns `i`. Se divergir, a seta ja' esta errada. */
+
 /* Setas: SVG desenhado, um traco so, do lado. Translucidas de proposito --
    mesmo na margem elas encostam na borda da carta, e o texto tem de passar
    por baixo. */
