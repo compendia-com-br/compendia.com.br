@@ -296,6 +296,9 @@ details p{margin:.8rem 0 0; color:#3A322B}
 .contato{list-style:none; padding:0}
 .contato a{color:var(--grafite)}
 
+/* canal de contato no rodape de TODA pagina (bloqueio de largada no 2, 11/09) */
+.contato-rodape{margin:0 0 .4rem}
+
 /* ---------- pagina de autor ---------- */
 .autor-topo{display:grid; gap:1.6rem; align-items:start}
 @media(min-width:46rem){
