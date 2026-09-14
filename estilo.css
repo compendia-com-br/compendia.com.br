@@ -656,14 +656,15 @@ details p{margin:.8rem 0 0; color:#3A322B}
   .secao-garantia .txt,
   .secao-pos-garantia .txt{max-width:calc(46rem + 2.7rem); margin-inline:auto}
 
-  /* «Como funciona» e a dos autores indexados (titulo gerado pelo build, com a contagem por extenso): as duas ultimas secoes da pagina com
-     `env > txt` encostado a esquerda — medido em 1440px, 230px de um lado e 602px do
-     outro. Pedido do Thiago em 14/09 («centraliza as outras secoes»). So' a COLUNA
-     centraliza; o texto segue alinhado a esquerda, porque sao lista numerada e
-     paragrafo longo, que leem pior centralizados. As demais ja' eram simetricas:
-     `env txt` num elemento so', duas colunas, lado a lado e indice de largura total. */
-  .secao-como-funciona .txt,
-  .secao-autores > .env > .txt{margin-inline:auto}
+  /* REGRA GERAL: coluna de texto dentro de `.env` centraliza, em qualquer pagina.
+     Nasceu secao por secao na /bibliotheca/ («Como funciona» e a dos autores
+     indexados, 230/602 px a 1440) e o Thiago pediu o mesmo na home e nas paginas de
+     autor em 14/09 — onde sobravam exatamente as secoes com este padrao: «Em
+     desenvolvimento» (home) e «O que esta' indexado» (autor), as duas 230/602. Com
+     tres paginas e o mesmo caso, regra por secao vira lista que esquece a proxima.
+     So' a COLUNA centraliza; o texto segue a esquerda (paragrafo longo le pior
+     centralizado). `env txt` num elemento so' ja' era centralizado pelo `.env`. */
+  .env > .txt{margin-inline:auto}
 
   /* «Confira voce mesmo» (so' esta secao usa .lado-a-lado). Com `1fr .8fr` a grade
      ocupava a largura toda e a foto — 318px, presa pelo max-height — ia para a borda
