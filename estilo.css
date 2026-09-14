@@ -655,5 +655,14 @@ details p{margin:.8rem 0 0; color:#3A322B}
      da dos valores — medido: 352 contra 374 em 1440px. */
   .secao-garantia .txt,
   .secao-pos-garantia .txt{max-width:calc(46rem + 2.7rem); margin-inline:auto}
+
+  /* «Como funciona» e «Quarenta e um autores»: as duas ultimas secoes da pagina com
+     `env > txt` encostado a esquerda — medido em 1440px, 230px de um lado e 602px do
+     outro. Pedido do Thiago em 14/09 («centraliza as outras secoes»). So' a COLUNA
+     centraliza; o texto segue alinhado a esquerda, porque sao lista numerada e
+     paragrafo longo, que leem pior centralizados. As demais ja' eram simetricas:
+     `env txt` num elemento so', duas colunas, lado a lado e indice de largura total. */
+  .secao-como-funciona .txt,
+  .secao-autores > .env > .txt{margin-inline:auto}
 }
 
