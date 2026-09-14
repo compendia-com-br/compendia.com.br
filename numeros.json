@@ -1,0 +1,27 @@
+{
+ "_leia": [
+  "Fonte central dos numeros da Compendia Bibliotheca, gerada a cada build do site",
+  "e conferida contra GET /numeros do servidor (o build recusa publicar se divergir).",
+  "Nao copie o numero para documento vivo: aponte para este arquivo, ou escreva o",
+  "numero COM a data ('41 autores em 14/09/2026'). Numero sem data envelhece calado.",
+  "a_venda = o que a pagina anuncia e a chave do pacote entrega (piso de volumes",
+  "vendaveis por autor). carregados = tudo o que o servidor tem carregado, o /saude."
+ ],
+ "medido_em": "2026-09-14T11:16:11-03:00",
+ "piso": 4,
+ "a_venda": {
+  "autores": 41,
+  "volumes": 1206
+ },
+ "carregados": {
+  "autores": 42,
+  "volumes": 1208
+ },
+ "fora_do_piso": [
+  {
+   "autor": "vygotsky",
+   "volumes": 2
+  }
+ ],
+ "conferido_contra": "https://corpus.compendia.com.br/numeros"
+}
