@@ -561,3 +561,99 @@ details p{margin:.8rem 0 0; color:#3A322B}
 .temas-lista{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:.3rem}
 .temas-lista li{font-size:.82rem; padding:.2rem .5rem; border-radius:2px;
   background:rgba(243,235,218,.1); color:var(--perg-90); margin:0}
+
+/* ============================================================
+   GARANTIA EM CAIXAS — pedido do Thiago em 13/09/2026: «De destaques com
+   boxes e cores de fundo diferentes na parte da Garantia». Desenho do chefe
+   de design do Escritorio (setor design, playbook design-ui-ux), aplicado
+   pela sessao 6 com aviso a sessao 4, dona deste arquivo.
+   Caixa clara = o direito (art. 49 do CDC), fundo --cartao, o mesmo da
+   comparacao. Caixa escura = como o dinheiro volta, fundo --tinta-fundo, o
+   mesmo de «como funciona»: prazo por forma de pagamento e' mecanismo.
+   Contraste calculado (WCAG): grafite/cartao 16,48:1 · pergaminho/tinta-fundo
+   15,11:1 · perg-75/tinta-fundo 11,13:1. Nenhuma cor nova.
+   ============================================================ */
+.garantia-caixas{
+  display:grid; gap:1rem; margin:1.6rem 0 0;
+}
+/* EMPILHADAS, e nao lado a lado — corrigido na conferencia de tela, 13/09.
+   Lado a lado, numa coluna de 38rem, o paragrafo da garantia virava uma torre de
+   11 linhas e a caixa escura ficava com metade vazia: textos de tamanhos muito
+   diferentes em colunas iguais. Empilhadas, cada caixa tem a largura toda e as
+   duas terminam onde o texto termina. */
+
+.caixa-garantia{
+  border-radius:3px; padding:1.35rem;
+}
+.caixa-garantia p{margin:0}
+.caixa-garantia p + p{margin-top:.6rem}
+
+.caixa-garantia.clara{
+  background:var(--cartao); border:1px solid var(--linha);
+}
+
+.caixa-garantia.escura{
+  background:var(--tinta-fundo); color:var(--pergaminho);
+  border:1px solid rgba(243,235,218,.16);
+}
+.caixa-garantia.escura .sub{color:var(--perg-75)}
+
+/* ============================================================
+   O SEAM entre a Garantia e a "retirada de pressao" ("Voce nao precisa
+   decidir agora...").
+   Medido em 375px, no ar: 113px de vao — 48px (padding-bottom da secao
+   Garantia) + 48px (padding-top da secao seguinte) + 16,8px (margem do
+   ultimo paragrafo). Nenhum elemento vazio: e' padding de duas secoes
+   empilhado.
+   DECISAO: o vao ENCOLHE, mas nao para zero e as duas secoes CONTINUAM
+   separadas. A "retirada de pressao" e' um segundo movimento do metodo,
+   deliberado (ver comentario no HTML: "RETIRADA DE PRESSAO — movimento do
+   metodo, depois da garantia e antes do FAQ") — fundir as duas secoes
+   apagaria essa virada de registro (de fato juridico concreto para
+   reasseguramento emocional). Mas 113px em 375px e' quase um terco da
+   tela sem NENHUM sinal — so' padding em cima de padding, porque as duas
+   secoes usam o floor do clamp(3rem,8vw,5.25rem) (8vw de 375px = 30px,
+   abaixo do minimo de 3rem = 48px). Reduzo os dois lados do encontro para
+   1.75rem cada: 28+28+16,8 = ~72.8px. Ainda e' uma pausa real (maior que o
+   espaco entre paragrafos dentro de uma secao), so' deixa de ser o dobro
+   do padding-block padrao por acidente de clamp.
+   ============================================================ */
+.secao-garantia{padding-bottom:1.75rem}
+.secao-pos-garantia{padding-top:1.75rem}
+
+/* ============================================================
+   CENTRALIZAR — pedido do Thiago em 13/09/2026, duas secoes:
+   «precisa centralizar na pagina a parte dos valores "Duas formas de acesso"»
+   e «tambem precisa centralizar "Toda IA generalista responde"».
+   A causa era a mesma nas duas: `.env` tem 64rem e e' centralizado, mas
+   `.txt` tem 38rem e ENCOSTA A ESQUERDA dentro dele — texto estreito colado
+   a esquerda, e o lado direito vazio em tela larga.
+   So' a partir de 46rem: em 375px as colunas ja' ocupam a largura toda, e
+   texto centralizado em coluna estreita le pior.
+   ============================================================ */
+@media(min-width:46rem){
+  /* Duas formas de acesso: titulo, cartoes e notas numa coluna so', a mesma
+     largura dos cartoes (.planos ja' e' 46rem), centralizada — assim a borda
+     esquerda do titulo e das notas cai exatamente na borda dos cartoes. */
+  #comprar .txt,
+  #comprar .planos{max-width:46rem; margin-inline:auto}
+  #comprar h2{text-align:center}
+
+  /* Comparacao: o texto de abertura centralizado sobre os dois cartoes, que
+     ja' ocupam a largura toda. Titulo e dois paragrafos curtos de abertura —
+     curtos o bastante para ler bem centralizados. */
+  .secao-comparacao .txt{margin-inline:auto; text-align:center}
+
+  /* Garantia e «Voce nao precisa decidir agora» na MESMA coluna dos valores.
+     Medido na conferencia de tela: com os valores centralizados e a Garantia
+     ainda encostada a esquerda, a borda esquerda saltava entre as duas secoes
+     vizinhas. Preco, garantia e ausencia de pressa sao um bloco so' de compra —
+     a coluna e' a mesma. */
+  /* `calc(46rem + 2.7rem)` e nao `46rem`: nestas duas secoes o `.txt` e' o PROPRIO
+     `.env` (`class="env txt"`), entao o padding lateral de 1.35rem fica DENTRO da
+     largura. Com 46rem puro o conteudo encolhia 43px e a borda caia 22px para dentro
+     da dos valores — medido: 352 contra 374 em 1440px. */
+  .secao-garantia .txt,
+  .secao-pos-garantia .txt{max-width:calc(46rem + 2.7rem); margin-inline:auto}
+}
+
