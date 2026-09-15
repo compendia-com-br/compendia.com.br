@@ -573,7 +573,11 @@ details p{margin:.8rem 0 0; color:#3A322B}
    Contraste calculado (WCAG): grafite/cartao 16,48:1 · pergaminho/tinta-fundo
    15,11:1 · perg-75/tinta-fundo 11,13:1. Nenhuma cor nova.
    ============================================================ */
-.garantia-caixas{
+/* `.caixas-destaque`/`.caixa-destaque` sao o MESMO componente fora da Garantia —
+   pedido do Thiago em 14/09 para a juncao «Repare na coincidencia» / «O problema
+   nunca foi confiar em IA». Um componente, dois nomes de uso; nenhuma cor nova. */
+.garantia-caixas,
+.caixas-destaque{
   display:grid; gap:1rem; margin:1.6rem 0 0;
 }
 /* EMPILHADAS, e nao lado a lado — corrigido na conferencia de tela, 13/09.
@@ -582,21 +586,28 @@ details p{margin:.8rem 0 0; color:#3A322B}
    diferentes em colunas iguais. Empilhadas, cada caixa tem a largura toda e as
    duas terminam onde o texto termina. */
 
-.caixa-garantia{
+.caixa-garantia,
+.caixa-destaque{
   border-radius:3px; padding:1.35rem;
 }
-.caixa-garantia p{margin:0}
-.caixa-garantia p + p{margin-top:.6rem}
+.caixa-garantia p,
+.caixa-destaque p{margin:0}
+.caixa-garantia p + p,
+.caixa-destaque p + p{margin-top:.6rem}
 
-.caixa-garantia.clara{
+.caixa-garantia.clara,
+.caixa-destaque.clara{
   background:var(--cartao); border:1px solid var(--linha);
 }
 
-.caixa-garantia.escura{
+.caixa-garantia.escura,
+.caixa-destaque.escura{
   background:var(--tinta-fundo); color:var(--pergaminho);
   border:1px solid rgba(243,235,218,.16);
 }
 .caixa-garantia.escura .sub{color:var(--perg-75)}
+/* Fora da Garantia nao ha' titulo acima: a caixa comeca no topo da secao. */
+.caixas-destaque{margin-top:0}
 
 /* ============================================================
    O SEAM entre a Garantia e a "retirada de pressao" ("Voce nao precisa
