@@ -403,6 +403,23 @@ details p{margin:.8rem 0 0; color:#3A322B}
 .idioma [aria-current]{color:var(--tinta); font-weight:600}
 .idioma [aria-hidden]{opacity:.45}
 
+/* A BANDEIRA (16/09/2026, a pedido dele). Ela leva `aria-hidden` porque quem
+   nomeia a lingua e' a sigla ao lado — mas a regra generica de `[aria-hidden]`
+   acima existe para APAGAR o separador «·», e apagaria a bandeira junto. Por
+   isso esta linha devolve a opacidade cheia: a excecao e' de proposito, e sem
+   ela o pedido chega meio-feito, com a bandeira lavada. */
+.idioma .bandeira,
+.idioma-rodape .bandeira{opacity:1; font-size:1.05em; line-height:1;
+  /* A fonte do site nao tem bandeira; sem esta pilha, alguns sistemas mostram
+     as duas letras do pais («BR») em vez do desenho. */
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.idioma .bandeira{margin-right:.28rem}
+.idioma-rodape .bandeira{margin-right:.3rem}
+/* Alvo de toque: no celular a sigla sozinha era pequena demais para o dedo. */
+.idioma a,.idioma .atual{display:inline-flex; align-items:center;
+  padding:.3rem .32rem; border-radius:4px}
+.idioma a:hover{background:var(--linha); border-bottom-color:transparent}
+
 .idioma-rodape{margin:.2rem 0 .5rem; font-size:.82rem; color:var(--pedra)}
 .idioma-rodape a{color:var(--pedra)}
 .idioma-rodape [aria-current]{color:var(--tinta); font-weight:600}
