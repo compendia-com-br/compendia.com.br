@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia de instalação e uso — Compendia Bibliotheca</title>
+<meta name="description" content="Como instalar e usar Compendia Bibliotheca no Claude e no ChatGPT. Passo a passo escrito e duas videoaulas.">
+<link rel="canonical" href="https://compendia.com.br/en/bibliotheca/obrigado/">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260916102940">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260916102940">
+<meta name="theme-color" content="#F3EBDA">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://compendia.com.br/en/bibliotheca/obrigado/">
+<meta property="og:site_name" content="Compendia">
+<meta property="og:title" content="Guia de instalação e uso — Compendia Bibliotheca">
+<meta property="og:description" content="Passo a passo e duas videoaulas: instalar no Claude, usar no ChatGPT.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/estilo.css?v=20260916102940">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18444114151"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18444114151');
+</script>
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '981095944998918');
+fbq('track', 'PageView');
+</script>
+
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+
+<header class="topo">
+  <div class="env">
+    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20260916102940" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <nav class="menu" aria-label="Principal"></nav>
+    <div class="idioma" role="group" aria-label="Idioma / Language"><span aria-current="true">EN</span><span aria-hidden="true">·</span><a href="/bibliotheca/obrigado/" hreflang="pt-BR" data-idioma="pt">PT</a></div>
+  </div>
+</header>
+
+
+<style>
+/* Só o que esta página tem e a de vendas não. O resto vem do estilo.css. */
+.migalha{font-size:.85rem; color:var(--pedra); margin:0 0 .4rem}
+.migalha a{color:var(--pedra)}
+.video{position:relative; width:100%; aspect-ratio:16/9; margin:1.6rem 0 .6rem;
+  border:1px solid var(--linha); border-radius:3px; overflow:hidden; background:var(--cartao)}
+.video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.legenda{font-size:.85rem; color:var(--pedra); margin:0 0 2rem}
+.escuro .legenda, .escuro .migalha{color:var(--perg-75)}
+.escuro .aviso{border-left-color:var(--perg-60)}
+.escuro .chave{background:rgba(243,235,218,.12); border-color:rgba(243,235,218,.25); color:var(--pergaminho)}
+.passos li{margin-bottom:.55rem}
+.passos li b{font-weight:600}
+.chave{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.95rem;
+  background:var(--cartao); border:1px solid var(--linha); border-radius:3px; padding:.15rem .4rem}
+.aviso{border-left:3px solid var(--tinta); padding:.1rem 0 .1rem 1rem; margin:1.5rem 0}
+.aviso p:last-child{margin-bottom:0}
+.indice{list-style:none; padding:0; margin:1.2rem 0 0}
+.indice li{margin-bottom:.4rem}
+.indice a{color:var(--tinta); font-weight:600}
+.baixar{display:inline-flex; align-items:center; gap:.5rem; margin:.2rem .6rem .6rem 0;
+  padding:.7rem 1.1rem; border:1.5px solid var(--tinta); border-radius:3px;
+  color:var(--tinta); text-decoration:none; font-weight:600; font-size:.95rem}
+.baixar:hover{background:var(--tinta); color:var(--pergaminho)}
+.escuro .baixar{border-color:var(--pergaminho); color:var(--pergaminho)}
+.escuro .baixar:hover{background:var(--pergaminho); color:var(--tinta)}
+.baixar small{font-weight:400; font-size:.82rem; opacity:.75}
+</style>
+<section class="hero">
+  <div class="env txt">
+    <p class="migalha">Bibliotheca · Guide</p>
+    <h1>Installation and use</h1>
+    <p class="sub">Your key arrives by e-mail as soon as the payment clears. It starts with <span class="chave">cmp_</span> and it is your licence — the key is what opens the corpus, wherever you use it.</p>
+    <div class="aviso">
+      <p><b>Key not there yet?</b> Pix and card clear immediately; bank slip and transfer take longer, and the e-mail only goes out after the payment is confirmed. If it still hasn't arrived after that, write to <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — we answer within 24 to 48 business hours.</p>
+    </div>
+    <ul class="indice">
+      <li><a href="#claude">1 · Install and use it in Claude</a></li>
+      <li><a href="#chatgpt">2 · Use it in ChatGPT</a></li>
+      <li><a href="#renovar">3 · When the subscription expires</a></li>
+      <li><a href="#problemas">4 · If something doesn't work</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="claude">
+  <div class="env txt">
+    <h2>1 · Install and use it in Claude</h2>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/OvMVmIH545w" title="Lesson 1 — Installing and using Compendia Bibliotheca in Claude" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <p class="legenda">6 min 59 s · spoken in Portuguese, with two chapters: install and connect, then talk to the authors. The on-screen steps are the ones written below.</p>
+
+    <div class="aviso">
+      <p><b>This works in all three Claude surfaces</b> — the desktop app, <i>claude.ai</i> in the browser, and Claude Code. The path is the same in all three. But <b>installing in one does not install in the others</b>: if you use more than one, repeat it there.</p>
+    </div>
+
+    <h3>Install the plugin</h3>
+    <p><a class="baixar" href="/bibliotheca/compendia-bibliotheca.zip" download>Download the plugin <small>compendia-bibliotheca.zip</small></a></p>
+    <p class="legenda">The file is the trigger for the Bibliotheca — small, with no books inside it. It only answers after you connect your key.</p>
+    <ol class="passos">
+      <li>Click <b>your name</b>, in the bottom left corner.</li>
+      <li>Go to <b>Settings</b>.</li>
+      <li>In the left-hand menu, choose <b>Plugins</b>.</li>
+      <li>In the top right corner, click <b>Add</b> and then <b>Upload</b>.</li>
+      <li>Click <b>Browse files</b> and pick the <b>.zip</b> you downloaded.</li>
+      <li><b>Open</b> → <b>Upload</b>. The plugin is now installed and enabled.</li>
+    </ol>
+
+    <h3>Connect your key</h3>
+    <ol class="passos">
+      <li>Still in Settings, click <b>Connectors</b>.</li>
+      <li><b>Install</b> → <b>Continue</b> → wait for it to finish.</li>
+      <li>Scroll the <b>add custom connector</b> screen to the bottom and click <b>Add</b>.</li>
+      <li>Click the connector <b>again</b> and choose <b>Connect</b>.</li>
+      <li>It asks for the key. <b>Paste yours</b> — the one starting with <span class="chave">cmp_</span> — and click <b>Sign in</b>.</li>
+      <li>The page reloads, and a notice appears in the bottom right saying the connector is connected.</li>
+    </ol>
+
+    <h3>Check that it worked</h3>
+    <p>Go back to <b>your name → Settings → Connectors</b>. <b>compendia</b> should show as <b>connected and enabled</b>.</p>
+    <p>That is also where you set the permission. Use <b>Ask before using</b> or <b>Always allow</b> — with the other options the corpus does not answer.</p>
+
+    <h3>Talk to the authors</h3>
+    <ol class="passos">
+      <li>Open a <b>new conversation</b>.</li>
+      <li>Type <b>a slash and the author's name</b> — <span class="chave">/steiner</span>, for instance — and ask your question.</li>
+      <li>To see which authors your key reaches, ask it to <b>list authors</b>.</li>
+    </ol>
+    <div class="aviso">
+      <p><b>One author at a time, and that is deliberate.</b> The Bibliotheca loads each author's reconstructed voice separately, so that two voices never get mixed into one answer. That is why switching authors takes a few seconds — it is the next one loading.</p>
+      <p><b>You can put two authors in conversation</b> in the same thread: after the first one answers, call the second and ask what he makes of it. What you get back is each corpus read in turn, with the citation attached — not the authors themselves.</p>
+    </div>
+    <p>Creating a <b>Project</b> in Claude is optional — it keeps a separate thread per author. The connector on its own already delivers everything.</p>
+  </div>
+</section>
+
+<section id="chatgpt" class="escuro">
+  <div class="env txt">
+    <h2>2 · Use it in ChatGPT</h2>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/RGk5grox6yw" title="Lesson 2 — Using Compendia Bibliotheca in ChatGPT" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <p class="legenda">5 min 05 s · spoken in Portuguese, with two chapters: open it and activate the key, then talk to the authors. The on-screen steps are the ones written below.</p>
+
+    <p><b>Nothing to download here.</b> No file, no upload — just the link and your key.</p>
+    <p><a class="baixar" href="https://chatgpt.com/g/g-69e0327c41f48191b69d1bd50769e3b3-compendia-acervo" target="_blank" rel="noopener">Open Compendia Bibliotheca in ChatGPT</a></p>
+    <p class="legenda">This is the GPT to use — the official one, already configured. Keep the link: it is how you come back.</p>
+    <ol class="passos">
+      <li>Sign in to your <b>ChatGPT</b> account.</li>
+      <li>Open the GPT with the button above (or with the link you got by e-mail — it is the same one).</li>
+      <li>Click <b>list available authors</b> or <b>learn more about Compendia</b>.</li>
+      <li>A button appears to <b>start the session</b>. Click it.</li>
+      <li>The sign-in screen loads. <b>Paste your key</b> and click <b>Sign in</b>.</li>
+      <li>ChatGPT reloads within a few seconds, already connected.</li>
+      <li>When it asks about the corpus, choose <b>Always allow</b>.</li>
+    </ol>
+    <p>It tells you straight away which authors your key reaches. To start a conversation, write <b>the author's name at the beginning of the sentence</b>, or use the <b>slash</b>, as in Claude.</p>
+  </div>
+</section>
+
+<section id="renovar">
+  <div class="env txt">
+    <h2>3 · When the subscription expires</h2>
+    <p>Access runs for a year. You get an e-mail warning <b>seven days before</b> it expires, and after that there are <b>three more days of grace</b> in which everything keeps working.</p>
+    <p>Once the grace period passes without renewal, access <b>pauses</b>. Nothing is deleted: your authors stay reserved, and the key starts working again as soon as the renewal is paid — with no reinstalling and no pasting the key again.</p>
+    <div class="aviso">
+      <p><b>On renewal the same key works again</b> — no reinstalling the plugin, no pasting anything, no redoing the connection.</p>
+    </div>
+  </div>
+</section>
+
+<section id="problemas">
+  <div class="env txt">
+    <h2>4 · If something doesn't work</h2>
+    <p><b>The author answers like an ordinary assistant, without his voice.</b> Call him with the slash — <span class="chave">/steiner</span> — in the first message. The slash is what loads the persona.</p>
+    <p><b>I installed it and it doesn't show up.</b> In Settings → Connectors, check that compendia is connected <i>and</i> enabled, and that the permission is not blocked.</p>
+    <p><b>It works in one place and not the other.</b> That is expected: the app, claude.ai, Claude Code and ChatGPT are separate installations. Repeat it in the ones you use.</p>
+    <p><b>It takes a while to answer.</b> On the first question to each author, it loads the whole persona. The ones after that are faster.</p>
+    <p><b>The answer says the corpus doesn't cover my question.</b> That is the system working, not failing. The Bibliotheca indexes the public-domain volumes of each author and nothing else — when the text does not cover the question, it says so instead of filling the gap with something plausible.</p>
+    <p><b>I lost my key.</b> It is in the e-mail you received with the corpus. Reply to that e-mail and we will send it again — never generate a new one yourself.</p>
+    <div class="aviso">
+      <p><b>The key is your licence.</b> Don't share it: whoever has the code has your access.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="env">
+    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20260916102940" alt="Compendia" width="413" height="100"></p>
+    <p class="contato-rodape">Dúvidas antes de assinar: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — resposta em 24h a 48h úteis.</p>
+    <p class="idioma-rodape"><span aria-current="true">English</span> · <a href="/bibliotheca/obrigado/" hreflang="pt-BR" data-idioma="pt">Português (Brasil)</a></p>
+    <p>Dúvida, sugestão ou crítica: responda o e-mail em que você recebeu a Bibliotheca.<br>
+    © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var CHAVE = 'compendia-idioma', ATUAL = 'en', OUTRO = 'pt';
+
+  // Gravar a escolha e' o unico efeito colateral do seletor. Vale para os dois
+  // seletores (topo e rodape) porque ambos carregam data-idioma.
+  document.querySelectorAll('[data-idioma]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem(CHAVE, a.getAttribute('data-idioma')); } catch (e) {}
+    });
+  });
+
+  var escolhido = null;
+  try { escolhido = localStorage.getItem(CHAVE); } catch (e) {}
+  if (escolhido) return;                       // ja decidiu: nao se pergunta de novo
+
+  // `navigator.languages` primeiro: `navigator.language` e' so' a preferida, e
+  // quem tem o sistema em ingles com portugues em segundo lugar le os dois.
+  var prefs = (navigator.languages && navigator.languages.length
+               ? navigator.languages : [navigator.language || '']);
+  var familia = String(prefs[0]).toLowerCase().split('-')[0];
+  // Idioma do sistema, nao pais: `pt-PT`, `pt-AO` e `pt-BR` sao todos `pt`.
+  var quer = (familia === 'pt') ? 'pt' : 'en';
+  if (quer === ATUAL) return;
+
+  var alvo = document.querySelector('[data-idioma="' + OUTRO + '"]');
+  if (!alvo) return;
+
+  var barra = document.createElement('div');
+  barra.className = 'convite-idioma';
+  barra.setAttribute('lang', 'pt-BR');
+  barra.innerHTML = '<span>Esta página também está em português.</span>'
+    + '<a href="' + alvo.getAttribute('href') + '" data-idioma="' + OUTRO + '">Ler em português</a>'
+    + '<button type="button" aria-label="Fechar">'
+    + '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" '
+    + 'stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+    + '<path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+
+  barra.querySelector('a').addEventListener('click', function () {
+    try { localStorage.setItem(CHAVE, OUTRO); } catch (e) {}
+  });
+  // Fechar tambem e' decidir: quem dispensa o convite escolheu ficar.
+  barra.querySelector('button').addEventListener('click', function () {
+    try { localStorage.setItem(CHAVE, ATUAL); } catch (e) {}
+    barra.remove();
+  });
+  document.body.insertBefore(barra, document.body.firstChild);
+})();
+</script>
+</body>
+</html>
