@@ -42,7 +42,14 @@ a{color:inherit}
 :root{--secao:clamp(3rem,6vw,4rem)}
 section{padding-block:var(--secao)}
 section:not(.escuro):not(.hero) + section:not(.escuro):not(.indice),
-section.escuro + section.escuro{padding-top:0}
+section.escuro:not(.hero) + section.escuro{padding-top:0}
+/* `:not(.hero)` desde 16/09/2026, quando a abertura da vitrine ficou vinho junto com a
+   secao seguinte (pedido dele). O hero termina na imagem, sem padding embaixo; sem esta
+   excecao a secao escura seguinte perderia o topo e o texto colaria na foto. */
+/* Costura: as duas faixas vinho terminam e comecam em fracao de pixel (medido: 785,30 e
+   784,30), e o pergaminho do body vazava numa linha fina atravessando a pagina. Um pixel
+   de sobreposicao fecha a costura sem mudar nenhuma medida visivel. */
+.hero.escuro + .escuro{margin-top:-1px}
 section > .env > :last-child,
 section > .env > :last-child > :last-child,
 section > .env > :last-child > :last-child > :last-child{margin-bottom:0}
