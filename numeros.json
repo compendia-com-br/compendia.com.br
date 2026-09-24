@@ -7,15 +7,15 @@
   "a_venda = o que a pagina anuncia e a chave do pacote entrega (piso de volumes",
   "vendaveis por autor). carregados = tudo o que o servidor tem carregado, o /saude."
  ],
- "medido_em": "2026-09-23T11:39:08-03:00",
+ "medido_em": "2026-09-23T22:10:25-03:00",
  "piso": 4,
  "a_venda": {
   "autores": 41,
-  "volumes": 1314
+  "volumes": 1323
  },
  "carregados": {
   "autores": 42,
-  "volumes": 1316
+  "volumes": 1325
  },
  "fora_do_piso": [
   {
