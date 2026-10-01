@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="en" href="https://compendia.com.br/en/privacidade/">
 <link rel="alternate" hreflang="pt-BR" href="https://compendia.com.br/privacidade/">
 <link rel="alternate" hreflang="x-default" href="https://compendia.com.br/privacidade/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261001063844">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261001063844">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261001064534">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261001064534">
 <meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://compendia.com.br/en/privacidade/">
@@ -19,10 +19,7 @@
 <meta property="og:description" content="What reaches the server, how long it stays, and what is not done with it.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/estilo.css?v=20261001063844">
+<link rel="stylesheet" href="/estilo.css?v=20261001064534">
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -79,7 +76,7 @@
 <body>
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/en/"><img src="/marca/assinatura.svg?v=20261001063844" alt="Compendia" width="413" height="100"></a>
+    <a class="assina" href="/en/"><img src="/marca/assinatura.svg?v=20261001064534" alt="Compendia" width="413" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/en/">Home</a><a href="/en/bibliotheca/">Bibliotheca</a><a href="/en/privacidade/" aria-current="page">Privacy</a><a href="/en/termos/">Terms</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></span><span aria-hidden="true">·</span><a href="/privacidade/" hreflang="pt-BR" data-idioma="pt"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></a></div>
   </div>
@@ -90,7 +87,7 @@
 <section class="hero">
   <div class="env txt">
     <h1>Privacy Policy</h1>
-    <p class="sub">Version 6 · 30 September 2026 · applies to
+    <p class="sub">Version 7 · 1 October 2026 · applies to
     <span class="mono">compendia.com.br</span> and to the service at
     <span class="mono">corpus.compendia.com.br</span></p>
   </div>
@@ -134,8 +131,12 @@
     <p>Technical access records (the server logs) are deleted automatically within <b>14
     days</b>. The term you searched for is not stored in any database and is not linked to
     you; it exists only in those technical records, for the same period.</p>
+    <p>Hostinger makes automatic backup copies of the server, one a week. Those copies are stored
+    in Brazil, contain the technical records and are replaced automatically within <b>3
+    weeks</b>. So a technical record may last up to about 5 weeks in total: up to 14 days on
+    the server and up to 3 weeks in the copy.</p>
     <p><b>That period applies only to the technical records.</b> Sales records — e-mail, order
-    and amount — are not deleted after 14 days: they are kept for the tax-law period, as a
+    and amount — are not deleted after 14 days: they are kept for <b>5 years from the sale</b>, as a
     sales record. This is stated in
     <a href="#guarda-cadastro">How long we keep the record</a>.</p>
 
@@ -216,7 +217,8 @@
     twice. Google Ads does not use it.</p>
     <p><b>What is not sent:</b> your name, tax number, telephone, the e-mail in the clear, and
     what was bought. The Meta Pixel receives none of this.</p>
-    <p><b>Where it is processed:</b> Google may process this data on servers outside Brazil.</p>
+    <p><b>Where it is processed:</b> Google may process this data on servers outside Brazil.
+    The spreadsheet sits in a Google account.</p>
     <p><b>Legal basis: legitimate interest</b> (art. 7, IX, of the LGPD) — knowing whether money
     spent on advertising brought in the sale. This measurement is a different thing from the
     cookies above: it uses no cookie, does not go through the browser and does not depend on
@@ -244,12 +246,14 @@
     <p>Besides us, these companies receive data. For each one, what it receives and why:</p>
     <ol class="passos">
       <li><b>Hostinger</b> — hosts the server, in São Paulo, where the service runs. It holds
-      the record of who bought, the access keys and the technical records described above.</li>
+      the record of who bought, the access keys and the technical records described above.
+      It also makes the server's automatic weekly backup copies, stored in Brazil and replaced within 3 weeks.</li>
       <li><b>Cloudflare</b> — delivers the pages of <span class="mono">compendia.com.br</span>.
-      It receives the IP address and technical data of anyone opening the site, so that it can
-      deliver the page.</li>
+      It receives the IP address and technical data of anyone opening the site, to deliver the
+      page and to protect the site against attack and abuse.</li>
       <li><b>GitHub</b> — stores and publishes the files of the pages of
-      <span class="mono">compendia.com.br</span>.</li>
+      <span class="mono">compendia.com.br</span>. The pages reach you through Cloudflare, which
+      passes on to GitHub the IP address of anyone opening the site.</li>
       <li><b>Greenn</b> — runs the checkout and receives the payment data. It is the source of
       the purchase data we receive, described in <a href="#quando-compra">When you buy</a>.</li>
       <li><b>Resend</b> — delivers the e-mails about your purchase. It receives your e-mail
@@ -261,8 +265,7 @@
       <li><b>Google</b> — receives what is described in
       <a href="#medicao-navegacao">Measurement of browsing</a> (the Google Ads and Google
       Analytics 4 tags, after you accept) and in <a href="#medir-compra">Measuring whether a purchase came from an
-      ad</a> (the spreadsheet with the scrambled e-mail). It also receives the IP address of
-      anyone opening the site, because the page fonts are loaded from its servers. And it
+      ad</a> (the spreadsheet with the scrambled e-mail). And it
       stores, on Google Drive, encrypted backup copies of our server, described in
       <a href="#guarda-cadastro">How long we keep the record</a>.</li>
       <li><b>Meta</b> — receives what the pixel sends, after you accept, described in
@@ -284,7 +287,7 @@
 
     <h2 id="transferencia">Transfer outside Brazil</h2>
     <p>The Brazilian General Data Protection Law (art. 33) says in which cases personal data
-    may go to another country. These are the cases that rely on a specific basis for the transfer, company by company:</p>
+    may go to another country. These are the cases in which the transfer has a declared basis:</p>
     <ol class="passos">
       <li><b>Google and Meta, in the browser cookies</b> (Google Ads tag and Meta Pixel): you
       consent, specifically and prominently, by clicking «Accept» on the cookie notice, knowing
@@ -292,10 +295,14 @@
       not sent.</li>
       <li><b>Google Analytics 4:</b> the same basis as the cookies above — it is only switched
       on after you click «Accept», knowing the data goes outside Brazil (art. 33, VIII).</li>
-      <li><b>Cloudflare, Resend and WhatsApp:</b> the transfer is necessary to perform the
+      <li><b>Cloudflare, Resend and WhatsApp, for those who buy:</b> the transfer is necessary to perform the
       contract you make when you buy, or steps you ask for before buying (art. 33, IX,
       combined with art. 7, V).</li>
     </ol>
+    <p>Other data may also be processed outside Brazil: by Google, in purchase measurement (the
+    spreadsheet with the scrambled e-mail) and in the backup copies kept on Google Drive; and by
+    Cloudflare and GitHub, when delivering the pages to those who only visit. What each one
+    receives is in <a href="#quem-recebe">Who else receives data, and what</a>.</p>
 
     <h2 id="guarda-cadastro">How long we keep the record</h2>
     <p>For as long as your licence exists, because the record is what makes the key work.
@@ -305,8 +312,13 @@
     ad-measurement spreadsheet. Two things stay: the <b>sales record</b>, described below, and
     a trace showing that the request was carried out — your scrambled e-mail, on a list that
     stops a future purchase from being measured again, and the date it was handled.</p>
+    <p id="lista-embaralhada"><b>That list of scrambled e-mails</b> holds only people who refused the measurement or
+    asked for deletion. It exists so that a purchase of yours is not sent to measurement again.
+    It is kept while there is an active subscription or renewal, and for up to <b>90 days</b>
+    after it expires. After that, the entry leaves the list. Legal basis: legitimate interest
+    (art. 7, IX).</p>
     <p><b>Sales record:</b> the e-mail, the order number and the amount of each purchase are
-    kept <b>for the tax-law period, as a sales record</b> — and not for the 14 days of the
+    kept for <b>5 years from the sale</b>, as a sales record — and not for the 14 days of the
     technical records. Keeping them is a legal obligation (art. 7, II, of the LGPD), so a
     deletion request does not shorten it.</p>
     <p><b>Deletion has limits, and they are written here so that you know them.</b> It does not
@@ -325,12 +337,17 @@
       the subscription notices:</b> performance of a contract (art. 7, V).</li>
       <li><b>Technical server records and backup copies:</b> legitimate interest (art. 7,
       IX).</li>
+      <li><b>Delivering the pages to those who only visit</b> (Cloudflare and GitHub):
+      legitimate interest (art. 7, IX), so that the site works and stays secure.</li>
       <li><b>Browser cookies</b> (Google Ads tag, Meta Pixel and Google Analytics 4): consent
       (art. 7, I), given when you click «Accept» on the cookie notice. As in
       <a href="#medicao-navegacao">Measurement of browsing (cookies)</a>.</li>
       <li><b>Purchase measurement, done by the server:</b> legitimate interest (art. 7, IX), as
       in <a href="#medir-compra">Measuring whether a purchase came from an ad</a>.</li>
-      <li><b>Sales record</b> (e-mail, order and amount), kept for the tax-law period:
+      <li><b>The list of scrambled e-mails</b> of people who refused the measurement or asked
+      for deletion: legitimate interest (art. 7, IX), for the period described in
+      <a href="#lista-embaralhada">How long we keep the record</a>.</li>
+      <li><b>Sales record</b> (e-mail, order and amount), kept for 5 years from the sale:
       compliance with a legal obligation (art. 7, II).</li>
     </ol>
     <p>For the uses based on legitimate interest, you can object through the
