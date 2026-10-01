@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="en" href="https://compendia.com.br/en/bibliotheca/weber/">
 <link rel="alternate" hreflang="pt-BR" href="https://compendia.com.br/bibliotheca/weber/">
 <link rel="alternate" hreflang="x-default" href="https://compendia.com.br/bibliotheca/weber/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260930181320">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260930181320">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260930235217">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260930235217">
 <meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://compendia.com.br/en/bibliotheca/weber/">
@@ -18,7 +18,7 @@
 <meta property="og:title" content="Compendia Weber — Compendia Bibliotheca">
 <meta property="og:description" content="5 volumes by Max Weber, with the exact sentence when the text covers the question.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://compendia.com.br/bibliotheca/img/autor-weber.jpg?v=20260930181320">
+<meta property="og:image" content="https://compendia.com.br/bibliotheca/img/autor-weber.jpg?v=20260930235217">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Compendia Weber — Compendia Bibliotheca">
@@ -26,23 +26,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/estilo.css?v=20260930181320">
+<link rel="stylesheet" href="/estilo.css?v=20260930235217">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18444114151"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied',
+    'ad_user_data': 'denied', 'ad_personalization': 'denied'});
   gtag('js', new Date());
   gtag('config', 'AW-18444114151');
   gtag('config', 'G-ZFCGP6744X');
-</script>
-
-<script>
   gtag('event', 'conversion', {
       'send_to': 'AW-18444114151/-7ZQCIiY-vYcEOex69pE',
       'value': 1.0,
       'currency': 'BRL'
   });
+  (function () {
+    var CHAVE = 'compendia-consentimento';
+    function carregar() {
+      if (window.compendiaMedidores) return;
+      window.compendiaMedidores = true;
+      gtag('consent', 'update', {'ad_storage': 'granted', 'analytics_storage': 'granted',
+        'ad_user_data': 'granted', 'ad_personalization': 'granted'});
+      var g = document.createElement('script'); g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18444114151';
+      document.head.appendChild(g);
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('consent', 'grant');
+      fbq('init', '981095944998918');
+      fbq('track', 'PageView');
+    }
+    window.compendiaCarregarMedidores = carregar;
+    var v = null; try { v = localStorage.getItem(CHAVE); } catch (e) {}
+    if (v === 'aceito') carregar();
+  })();
 </script>
 <script>
   document.addEventListener('click', function (e) {
@@ -55,29 +79,11 @@
     });
   }, true);
 </script>
-
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '981095944998918');
-fbq('track', 'PageView');
-</script>
-
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript=1"
-/></noscript>
-
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/en/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20260930181320" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <a class="assina" href="/en/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20260930235217" alt="Bibliotheca — Compendia" width="391" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/en/">Home</a><a href="/en/bibliotheca/">Bibliotheca</a><a href="/en/privacidade/">Privacy</a><a href="/en/termos/">Terms</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></span><span aria-hidden="true">·</span><a href="/bibliotheca/weber/" hreflang="pt-BR" data-idioma="pt"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></a></div>
   </div>
@@ -97,7 +103,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
         <a class="cta" href="https://payfast.greenn.com.br/3f4896g">Buy Max Weber — US$ 5/year</a>
         <p class="aviso-cta">Annual subscription. When it expires, access pauses and returns on renewal. The price is in US dollars. You pay in your own country's currency, converted at the day's rate, and the correct amount appears at checkout before you pay. The charge appears under the name Thiago Luz, Compendia's legal representative.</p>
       </div>
-      <figure class="retrato"><img src="/bibliotheca/img/autor-weber.jpg?v=20260930181320" alt="Max Weber" width="400" height="500"><figcaption><b>Portrait recreated</b> from Ernst Gottmann, 1918. The original is kept.</figcaption></figure>
+      <figure class="retrato"><img src="/bibliotheca/img/autor-weber.jpg?v=20260930235217" alt="Max Weber" width="400" height="500"><figcaption><b>Portrait recreated</b> from Ernst Gottmann, 1918. The original is kept.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -174,11 +180,11 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>a production of</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20260930181320" alt="Compendia" width="413" height="100"></p>
+    <p class="produtor"><span>a production of</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20260930235217" alt="Compendia" width="413" height="100"></p>
     <p class="contato-rodape">Questions before subscribing: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — we answer within 24 to 48 business hours.</p>
     <p class="idioma-rodape"><span aria-current="true"><span class="bandeira" aria-hidden="true">🇺🇸</span>English</span> · <a href="/bibliotheca/weber/" hreflang="pt-BR" data-idioma="pt"><span class="bandeira" aria-hidden="true">🇧🇷</span>Português (Brasil)</a></p>
     <p>Public-domain portraits, each with its source noted beside it. Scenes generated by AI.<br>
-    © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a></p>
+    © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a> · <a href="#preferencias-cookies" class="abrir-consentimento">Cookie preferences</a></p>
   </div>
 </footer>
 
@@ -231,6 +237,54 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
     barra.remove();
   });
   document.body.insertBefore(barra, document.body.firstChild);
+})();
+</script>
+<style>
+.consentimento{position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:50;
+  max-width:34rem; margin-inline:auto; background:var(--cartao,#FAF6EC);
+  color:var(--grafite,#1C1712); border:1px solid var(--linha,#DFD3BC); border-radius:.5rem;
+  box-shadow:0 .4rem 1.4rem rgba(28,23,18,.14); padding:1rem 1.15rem;
+  font-size:.92rem; line-height:1.5}
+.consentimento[hidden]{display:none}
+.consentimento p{margin:0 0 .8rem}
+.consentimento a{color:var(--tinta,#4A1626)}
+.consentimento .botoes{display:flex; gap:.6rem; flex-wrap:wrap}
+.consentimento button{flex:1 1 8rem; font:600 .92rem/1 Inter,ui-sans-serif,system-ui,sans-serif;
+  padding:.7rem 1rem; border-radius:.35rem; cursor:pointer;
+  background:var(--pergaminho,#F3EBDA); color:var(--tinta,#4A1626);
+  border:1px solid var(--tinta,#4A1626)}
+.consentimento button:hover{background:var(--tinta,#4A1626); color:var(--pergaminho,#F3EBDA)}
+.consentimento button:focus-visible{outline:2px solid var(--citacao,#12776D); outline-offset:2px}
+</style>
+<div id="consentimento" class="consentimento" role="region" aria-label="Cookie notice" hidden>
+  <p>We use Meta and Google cookies to measure visits and learn which ads bring readers here. They are only switched on if you accept. <a href="/en/privacidade/">Privacy policy</a>.</p>
+  <div class="botoes">
+    <button type="button" data-escolha="recusado">Decline</button>
+    <button type="button" data-escolha="aceito">Accept</button>
+  </div>
+</div>
+<script>
+(function () {
+  var CHAVE = 'compendia-consentimento';
+  var caixa = document.getElementById('consentimento');
+  if (!caixa) return;
+  var v = null; try { v = localStorage.getItem(CHAVE); } catch (e) {}
+  if (v !== 'aceito' && v !== 'recusado') caixa.hidden = false;
+  function decidir(escolha) {
+    var antes = null; try { antes = localStorage.getItem(CHAVE); } catch (e) {}
+    try { localStorage.setItem(CHAVE, escolha); } catch (e) {}
+    caixa.hidden = true;
+    if (escolha === 'aceito') { window.compendiaCarregarMedidores(); return; }
+    // Recusar depois de ter aceito: o gtag.js nao se descarrega; recarregar e' o
+    // que faz a recusa valer ja'.
+    if (antes === 'aceito' || window.compendiaMedidores) location.reload();
+  }
+  caixa.querySelector('[data-escolha="aceito"]').addEventListener('click', function () { decidir('aceito'); });
+  caixa.querySelector('[data-escolha="recusado"]').addEventListener('click', function () { decidir('recusado'); });
+  document.querySelectorAll('.abrir-consentimento').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); caixa.hidden = false;
+      caixa.querySelector('button').focus(); });
+  });
 })();
 </script>
 </body>

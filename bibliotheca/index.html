@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="en" href="https://compendia.com.br/en/bibliotheca/">
 <link rel="alternate" hreflang="pt-BR" href="https://compendia.com.br/bibliotheca/">
 <link rel="alternate" hreflang="x-default" href="https://compendia.com.br/bibliotheca/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260930181320">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260930181320">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20260930235217">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20260930235217">
 <meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://compendia.com.br/bibliotheca/">
@@ -22,23 +22,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/estilo.css?v=20260930181320">
+<link rel="stylesheet" href="/estilo.css?v=20260930235217">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18444114151"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied',
+    'ad_user_data': 'denied', 'ad_personalization': 'denied'});
   gtag('js', new Date());
   gtag('config', 'AW-18444114151');
   gtag('config', 'G-ZFCGP6744X');
-</script>
-
-<script>
   gtag('event', 'conversion', {
       'send_to': 'AW-18444114151/-7ZQCIiY-vYcEOex69pE',
       'value': 1.0,
       'currency': 'BRL'
   });
+  (function () {
+    var CHAVE = 'compendia-consentimento';
+    function carregar() {
+      if (window.compendiaMedidores) return;
+      window.compendiaMedidores = true;
+      gtag('consent', 'update', {'ad_storage': 'granted', 'analytics_storage': 'granted',
+        'ad_user_data': 'granted', 'ad_personalization': 'granted'});
+      var g = document.createElement('script'); g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18444114151';
+      document.head.appendChild(g);
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('consent', 'grant');
+      fbq('init', '981095944998918');
+      fbq('track', 'PageView');
+    }
+    window.compendiaCarregarMedidores = carregar;
+    var v = null; try { v = localStorage.getItem(CHAVE); } catch (e) {}
+    if (v === 'aceito') carregar();
+  })();
 </script>
 <script>
   document.addEventListener('click', function (e) {
@@ -51,29 +75,11 @@
     });
   }, true);
 </script>
-
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '981095944998918');
-fbq('track', 'PageView');
-</script>
-
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript=1"
-/></noscript>
-
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20260930181320" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20260930235217" alt="Bibliotheca — Compendia" width="391" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/">Início</a><a href="/bibliotheca/" aria-current="page">Bibliotheca</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><a href="/en/bibliotheca/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></a><span aria-hidden="true">·</span><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></span></div>
   </div>
@@ -199,7 +205,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-steiner.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-steiner.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Steiner</b><span>306 volumes</span></span>
           </span>
           <span class="face verso">
@@ -217,7 +223,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-goethe.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-goethe.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Goethe</b><span>280 volumes</span></span>
           </span>
           <span class="face verso">
@@ -235,7 +241,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-comenius.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-comenius.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Comênio</b><span>120 volumes</span></span>
           </span>
           <span class="face verso">
@@ -253,7 +259,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-pestalozzi.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-pestalozzi.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Pestalozzi</b><span>86 volumes</span></span>
           </span>
           <span class="face verso">
@@ -271,7 +277,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-tolstoi.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-tolstoi.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Tolstói</b><span>52 volumes</span></span>
           </span>
           <span class="face verso">
@@ -289,7 +295,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-herbart.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-herbart.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Herbart</b><span>47 volumes</span></span>
           </span>
           <span class="face verso">
@@ -307,7 +313,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-montesquieu.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-montesquieu.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Montesquieu</b><span>35 volumes</span></span>
           </span>
           <span class="face verso">
@@ -325,7 +331,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-rousseau.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-rousseau.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Rousseau</b><span>34 volumes</span></span>
           </span>
           <span class="face verso">
@@ -343,7 +349,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-schiller.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-schiller.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Schiller</b><span>31 volumes</span></span>
           </span>
           <span class="face verso">
@@ -361,7 +367,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-freud.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-freud.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Freud</b><span>29 volumes</span></span>
           </span>
           <span class="face verso">
@@ -379,7 +385,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-froebel.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-froebel.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Fröbel</b><span>25 volumes</span></span>
           </span>
           <span class="face verso">
@@ -397,7 +403,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-dewey.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-dewey.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Dewey</b><span>18 volumes</span></span>
           </span>
           <span class="face verso">
@@ -415,7 +421,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-kierkegaard.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-kierkegaard.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Kierkegaard</b><span>17 volumes</span></span>
           </span>
           <span class="face verso">
@@ -433,7 +439,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-hume.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-hume.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Hume</b><span>16 volumes</span></span>
           </span>
           <span class="face verso">
@@ -451,7 +457,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-kant.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-kant.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Kant</b><span>16 volumes</span></span>
           </span>
           <span class="face verso">
@@ -469,7 +475,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-adam-smith.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-adam-smith.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Adam Smith</b><span>15 volumes</span></span>
           </span>
           <span class="face verso">
@@ -487,7 +493,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-binet.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-binet.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Binet</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -505,7 +511,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-hegel.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-hegel.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Hegel</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -523,7 +529,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-stuart-mill.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-stuart-mill.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Stuart Mill</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -541,7 +547,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-darwin.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-darwin.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Darwin</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -559,7 +565,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-dostoievski.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-dostoievski.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Dostoiévski</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -577,7 +583,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-william-james.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-william-james.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>William James</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -595,7 +601,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-schopenhauer.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-schopenhauer.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Schopenhauer</b><span>12 volumes</span></span>
           </span>
           <span class="face verso">
@@ -613,7 +619,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-nietzsche.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-nietzsche.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Nietzsche</b><span>11 volumes</span></span>
           </span>
           <span class="face verso">
@@ -631,7 +637,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-voltaire.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-voltaire.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Voltaire</b><span>11 volumes</span></span>
           </span>
           <span class="face verso">
@@ -649,7 +655,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-cicero.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-cicero.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Cícero</b><span>10 volumes</span></span>
           </span>
           <span class="face verso">
@@ -667,7 +673,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-manoel-bomfim.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-manoel-bomfim.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Bomfim</b><span>9 volumes</span></span>
           </span>
           <span class="face verso">
@@ -685,7 +691,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-keynes.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-keynes.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Keynes</b><span>8 volumes</span></span>
           </span>
           <span class="face verso">
@@ -703,7 +709,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-aristoteles.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-aristoteles.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Aristóteles</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -721,7 +727,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-durkheim.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-durkheim.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Durkheim</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -739,7 +745,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-ellen-key.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-ellen-key.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Ellen Key</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -757,7 +763,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-jefferson.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-jefferson.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Jefferson</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -775,7 +781,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-maquiavel.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-maquiavel.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Maquiavel</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -793,7 +799,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-montessori.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-montessori.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Montessori</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -811,7 +817,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-planck.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-planck.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Planck</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -829,7 +835,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-aquino.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-aquino.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Aquino</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -847,7 +853,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-locke.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-locke.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Locke</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -865,7 +871,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-nightingale.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-nightingale.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Nightingale</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -883,7 +889,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-lutero.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-lutero.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Lutero</b><span>5 volumes</span></span>
           </span>
           <span class="face verso">
@@ -901,7 +907,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-platao.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-platao.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Platão</b><span>5 volumes</span></span>
           </span>
           <span class="face verso">
@@ -919,7 +925,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-weber.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-weber.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Weber</b><span>5 volumes</span></span>
           </span>
           <span class="face verso">
@@ -937,7 +943,7 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-marx.jpg?v=20260930181320" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-marx.jpg?v=20260930235217" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Marx</b><span>4 volumes</span></span>
           </span>
           <span class="face verso">
@@ -1240,11 +1246,11 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20260930181320" alt="Compendia" width="413" height="100"></p>
+    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20260930235217" alt="Compendia" width="413" height="100"></p>
     <p class="contato-rodape">Dúvidas antes de assinar: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — resposta em 24h a 48h úteis.</p>
     <p class="idioma-rodape"><a href="/en/bibliotheca/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span>English</a> · <span aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span>Português (Brasil)</span></p>
     <p>Retratos em domínio público, com a fonte de cada um no verso da carta. Cenas geradas por IA.<br>
-    © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a></p>
+    © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a> · <a href="#preferencias-cookies" class="abrir-consentimento">Preferências de cookies</a></p>
   </div>
 </footer>
 
@@ -1444,6 +1450,54 @@ src="https://www.facebook.com/tr?id=981095944998918&amp;ev=PageView&amp;noscript
     barra.remove();
   });
   document.body.insertBefore(barra, document.body.firstChild);
+})();
+</script>
+<style>
+.consentimento{position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:50;
+  max-width:34rem; margin-inline:auto; background:var(--cartao,#FAF6EC);
+  color:var(--grafite,#1C1712); border:1px solid var(--linha,#DFD3BC); border-radius:.5rem;
+  box-shadow:0 .4rem 1.4rem rgba(28,23,18,.14); padding:1rem 1.15rem;
+  font-size:.92rem; line-height:1.5}
+.consentimento[hidden]{display:none}
+.consentimento p{margin:0 0 .8rem}
+.consentimento a{color:var(--tinta,#4A1626)}
+.consentimento .botoes{display:flex; gap:.6rem; flex-wrap:wrap}
+.consentimento button{flex:1 1 8rem; font:600 .92rem/1 Inter,ui-sans-serif,system-ui,sans-serif;
+  padding:.7rem 1rem; border-radius:.35rem; cursor:pointer;
+  background:var(--pergaminho,#F3EBDA); color:var(--tinta,#4A1626);
+  border:1px solid var(--tinta,#4A1626)}
+.consentimento button:hover{background:var(--tinta,#4A1626); color:var(--pergaminho,#F3EBDA)}
+.consentimento button:focus-visible{outline:2px solid var(--citacao,#12776D); outline-offset:2px}
+</style>
+<div id="consentimento" class="consentimento" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies da Meta e do Google para medir as visitas e saber quais anúncios trazem leitores até aqui. Eles só são ativados se você aceitar. <a href="/privacidade/">Política de privacidade</a>.</p>
+  <div class="botoes">
+    <button type="button" data-escolha="recusado">Recusar</button>
+    <button type="button" data-escolha="aceito">Aceitar</button>
+  </div>
+</div>
+<script>
+(function () {
+  var CHAVE = 'compendia-consentimento';
+  var caixa = document.getElementById('consentimento');
+  if (!caixa) return;
+  var v = null; try { v = localStorage.getItem(CHAVE); } catch (e) {}
+  if (v !== 'aceito' && v !== 'recusado') caixa.hidden = false;
+  function decidir(escolha) {
+    var antes = null; try { antes = localStorage.getItem(CHAVE); } catch (e) {}
+    try { localStorage.setItem(CHAVE, escolha); } catch (e) {}
+    caixa.hidden = true;
+    if (escolha === 'aceito') { window.compendiaCarregarMedidores(); return; }
+    // Recusar depois de ter aceito: o gtag.js nao se descarrega; recarregar e' o
+    // que faz a recusa valer ja'.
+    if (antes === 'aceito' || window.compendiaMedidores) location.reload();
+  }
+  caixa.querySelector('[data-escolha="aceito"]').addEventListener('click', function () { decidir('aceito'); });
+  caixa.querySelector('[data-escolha="recusado"]').addEventListener('click', function () { decidir('recusado'); });
+  document.querySelectorAll('.abrir-consentimento').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); caixa.hidden = false;
+      caixa.querySelector('button').focus(); });
+  });
 })();
 </script>
 </body>
