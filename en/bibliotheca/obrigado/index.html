@@ -6,8 +6,8 @@
 <title>Installation and use guide — Compendia Bibliotheca</title>
 <meta name="description" content="How to install and use Compendia Bibliotheca in Claude and ChatGPT. Written step by step, with two video lessons.">
 <link rel="canonical" href="https://compendia.com.br/en/bibliotheca/obrigado/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261002124758">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261002124758">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261002131623">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261002131623">
 <meta name="theme-color" content="#F3EBDA">
 <meta name="robots" content="noindex">
 <meta property="og:type" content="article">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="Step by step and two video lessons: install in Claude, use in ChatGPT.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/estilo.css?v=20261002124758">
+<link rel="stylesheet" href="/estilo.css?v=20261002131623">
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -74,7 +74,7 @@
 <body>
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/en/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261002124758" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <a class="assina" href="/en/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261002131623" alt="Bibliotheca — Compendia" width="391" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/en/">Home</a><a href="/en/bibliotheca/">Bibliotheca</a><a href="/en/privacidade/">Privacy</a><a href="/en/termos/">Terms</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></span><span aria-hidden="true">·</span><a href="/bibliotheca/obrigado/" hreflang="pt-BR" data-idioma="pt"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></a></div>
   </div>
@@ -85,9 +85,11 @@
 /* Só o que esta página tem e a de vendas não. O resto vem do estilo.css. */
 .migalha{font-size:.85rem; color:var(--pedra); margin:0 0 .4rem}
 .migalha a{color:var(--pedra)}
-.video{position:relative; width:100%; aspect-ratio:16/9; margin:1.6rem 0 .6rem;
-  border:1px solid var(--linha); border-radius:3px; overflow:hidden; background:var(--cartao)}
-.video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.tela{margin:1.2rem 0 1.6rem}
+.tela img{display:block; width:100%; height:auto; border:1px solid var(--linha); border-radius:3px}
+.tela figcaption{font-size:.85rem; color:var(--pedra); margin-top:.45rem}
+.escuro .tela figcaption{color:var(--perg-75)}
+.tela.estreita{max-width:22rem}
 .legenda{font-size:.85rem; color:var(--pedra); margin:0 0 2rem}
 .escuro .legenda, .escuro .migalha{color:var(--perg-75)}
 .escuro .aviso{border-left-color:var(--perg-60)}
@@ -118,93 +120,108 @@
       <p><b>Key not there yet?</b> Pix and card clear immediately; bank slip and transfer take longer, and the e-mail only goes out after the payment is confirmed. If it still hasn't arrived after that, write to <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — we answer within 24 to 48 business hours.</p>
     </div>
     <ul class="indice">
-      <li><a href="#claude">1 · Install and use it in Claude</a></li>
+      <li><a href="#claude">1 · Install and activate it in Claude</a></li>
       <li><a href="#chatgpt">2 · Use it in ChatGPT</a></li>
-      <li><a href="#renovar">3 · When the subscription expires</a></li>
-      <li><a href="#problemas">4 · If something doesn't work</a></li>
+      <li><a href="#usar">3 · Ways to use it</a></li>
+      <li><a href="#renovar">4 · When the subscription expires</a></li>
+      <li><a href="#problemas">5 · If something doesn't work</a></li>
     </ul>
   </div>
 </section>
 
 <section id="claude">
   <div class="env txt">
-    <h2>1 · Install and use it in Claude</h2>
-    <div class="video">
-      <iframe src="https://www.youtube-nocookie.com/embed/OvMVmIH545w" title="Lesson 1 — Installing and using Compendia Bibliotheca in Claude" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-    <p class="legenda">6 min 59 s · spoken in Portuguese, with two chapters: install and connect, then talk to the authors. The on-screen steps are the ones written below.</p>
-
+    <h2>1 · Install and activate it in Claude</h2>
     <div class="aviso">
-      <p><b>This works in all three Claude surfaces</b> — the desktop app, <i>claude.ai</i> in the browser, and Claude Code. The path is the same in all three. But <b>installing in one does not install in the others</b>: if you use more than one, repeat it there.</p>
+      <p><b>This works in all three Claude surfaces</b>: the desktop app, <i>claude.ai</i> in the browser, and Claude Code. The path is the same in all three. But <b>installing in one does not install in the others</b>: if you use more than one, repeat it there.</p>
     </div>
+    <p class="legenda">The screenshots below show the Portuguese interface. The buttons sit in the same places in English.</p>
 
-    <h3>Install the plugin</h3>
+    <h3>Step 1 · Download the plugin</h3>
     <p><a class="baixar" href="/bibliotheca/compendia-bibliotheca.zip" download>Download the plugin <small>compendia-bibliotheca.zip</small></a></p>
-    <p class="legenda">The file is the trigger for the Bibliotheca — small, with no books inside it. It only answers after you connect your key.</p>
-    <ol class="passos">
-      <li>Click <b>your name</b>, in the bottom left corner.</li>
-      <li>Go to <b>Settings</b>.</li>
-      <li>In the left-hand menu, choose <b>Plugins</b>.</li>
-      <li>In the top right corner, click <b>Add</b> and then <b>Upload</b>.</li>
-      <li>Click <b>Browse files</b> and pick the <b>.zip</b> you downloaded.</li>
-      <li><b>Open</b> → <b>Upload</b>. The plugin is now installed and enabled.</li>
-    </ol>
+    <p class="legenda">The file is small and holds no books. It only starts answering once you connect your key.</p>
 
-    <h3>Connect your key</h3>
+    <h3>Step 2 · Install</h3>
     <ol class="passos">
-      <li>Still in Settings, click <b>Connectors</b>.</li>
-      <li><b>Install</b> → <b>Continue</b> → wait for it to finish.</li>
-      <li>Scroll the <b>add custom connector</b> screen to the bottom and click <b>Add</b>.</li>
-      <li>Click the connector <b>again</b> and choose <b>Connect</b>.</li>
-      <li>It asks for the key. <b>Paste yours</b> — the one starting with <span class="chave">cmp_</span> — and click <b>Sign in</b>.</li>
-      <li>The page reloads, and a notice appears in the bottom right saying the connector is connected.</li>
+      <li>In Claude, click <b>your name</b> in the bottom-left corner.</li>
+      <li>Go to <b>Settings</b> and, in the left menu, choose <b>Plugins</b>.</li>
+      <li>In the top-right corner, click <b>Add</b>, then <b>Upload</b>.</li>
+      <li>Click <b>Browse files</b>, pick <b>compendia-bibliotheca.zip</b> and click <b>Upload</b>.</li>
     </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-1-upload.jpg?v=20261002131623" alt="Claude's plugin upload window, with the Browse files button" loading="lazy" width="740" height="686">
+      <figcaption>The upload window. The red notice is Claude's standard warning for any plugin uploaded as a file.</figcaption>
+    </figure>
 
-    <h3>Check that it worked</h3>
-    <p>Go back to <b>your name → Settings → Connectors</b>. <b>compendia</b> should show as <b>connected and enabled</b>.</p>
-    <p>That is also where you set the permission. Use <b>Ask before using</b> or <b>Always allow</b> — with the other options the corpus does not answer.</p>
-
-    <h3>Talk to the authors</h3>
+    <h3>Step 3 · Activate it with your key</h3>
     <ol class="passos">
-      <li>Open a <b>new conversation</b>.</li>
-      <li>Type <b>a slash and the author's name</b> — <span class="chave">/steiner</span>, for instance — and ask your question.</li>
-      <li>To see which authors your key reaches, ask it to <b>list authors</b>.</li>
+      <li>On the plugin page, open the <b>Connectors</b> tab. You will see <b>compendia</b> there. Click <b>Connect</b>.</li>
+      <li>The Compendia sign-in screen opens. <b>Paste your key</b>, the one starting with <span class="chave">cmp_</span>, and click <b>Sign in</b>.</li>
+      <li>Claude reloads and shows the notice <b>Connected to compendia</b> in the bottom-right corner.</li>
     </ol>
-    <div class="aviso">
-      <p><b>One author at a time, and that is deliberate.</b> The Bibliotheca loads each author's reconstructed voice separately, so that two voices never get mixed into one answer. That is why switching authors takes a few seconds — it is the next one loading.</p>
-      <p><b>You can put two authors in conversation</b> in the same thread: after the first one answers, call the second and ask what he makes of it. What you get back is each corpus read in turn, with the citation attached — not the authors themselves.</p>
-    </div>
-    <p>Creating a <b>Project</b> in Claude is optional — it keeps a separate thread per author. The connector on its own already delivers everything.</p>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-2-vincular.jpg?v=20261002131623" alt="The plugin's Connectors tab, with the compendia connector and its connect button" loading="lazy" width="1190" height="200">
+      <figcaption>The plugin's Connectors tab, with the connect button on the right.</figcaption>
+    </figure>
+    <figure class="tela estreita">
+      <img src="/bibliotheca/img/guia/claude-3-chave.jpg?v=20261002131623" alt="Compendia sign-in screen, with the access key field and the sign-in button" loading="lazy" width="900" height="900">
+      <figcaption>The sign-in screen is the same in Claude and in ChatGPT. Your key is stored, so you won't need to type it again.</figcaption>
+    </figure>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-4-conectado.jpg?v=20261002131623" alt="Claude's home screen with the connected-to-compendia notice in the bottom-right corner" loading="lazy" width="1200" height="662">
+      <figcaption>Activated: the connection notice appears in the bottom-right corner.</figcaption>
+    </figure>
+
+    <h3>Step 4 · Check the permission</h3>
+    <p>In <b>your name → Settings → Connectors</b>, <b>compendia</b> should show as <b>connected and enabled</b>. That is where you choose the permission: set it to <b>Needs approval</b> or <b>Always allow</b>. With the connector blocked, the corpus does not answer.</p>
   </div>
 </section>
 
 <section id="chatgpt" class="escuro">
   <div class="env txt">
     <h2>2 · Use it in ChatGPT</h2>
-    <div class="video">
-      <iframe src="https://www.youtube-nocookie.com/embed/RGk5grox6yw" title="Lesson 2 — Using Compendia Bibliotheca in ChatGPT" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="aviso">
+      <p><b>OpenAI has set 11 December 2026 as the deadline for custom GPTs to migrate to plugins.</b> Until then, the Compendia Bibliotheca GPT works as usual. After that date, if you use it through ChatGPT you will need to move to the <b>plugin</b>. Your key and your authors stay the same: only the way in changes.</p>
     </div>
-    <p class="legenda">5 min 05 s · spoken in Portuguese, with two chapters: open it and activate the key, then talk to the authors. The on-screen steps are the ones written below.</p>
 
-    <p><b>Nothing to download here.</b> No file, no upload — just the link and your key.</p>
+    <h3>The Compendia Bibliotheca plugin for ChatGPT</h3>
+    <p>The plugin has been submitted to OpenAI's directory and is <b>under review</b>. Once it is approved, you will get an e-mail and this guide will gain the step-by-step, with screenshots. Activation uses the same sign-in screen and the same <span class="chave">cmp_</span> key you already have.</p>
+
+    <h3>Meanwhile: the custom GPT (until 11 December 2026)</h3>
+    <p>Nothing to download here. You only need the link and your key.</p>
     <p><a class="baixar" href="https://chatgpt.com/g/g-69e0327c41f48191b69d1bd50769e3b3-compendia-acervo" target="_blank" rel="noopener">Open Compendia Bibliotheca in ChatGPT</a></p>
-    <p class="legenda">This is the GPT to use — the official one, already configured. Keep the link: it is how you come back.</p>
     <ol class="passos">
-      <li>Sign in to your <b>ChatGPT</b> account.</li>
-      <li>Open the GPT with the button above (or with the link you got by e-mail — it is the same one).</li>
+      <li>Sign in to <b>ChatGPT</b> and open the GPT with the button above. It is the same link as in the e-mail.</li>
       <li>Click <b>list available authors</b> or <b>learn more about Compendia</b>.</li>
-      <li>A button appears to <b>start the session</b>. Click it.</li>
-      <li>The sign-in screen loads. <b>Paste your key</b> and click <b>Sign in</b>.</li>
-      <li>ChatGPT reloads within a few seconds, already connected.</li>
-      <li>When it asks about the corpus, choose <b>Always allow</b>.</li>
+      <li>A button to <b>sign in</b> appears. Click it.</li>
+      <li>On the sign-in screen, <b>paste your key</b> and click <b>Sign in</b>. ChatGPT reloads, already connected.</li>
+      <li>When it asks permission to talk to the corpus, choose <b>Always allow</b>.</li>
     </ol>
-    <p>It tells you straight away which authors your key reaches. To start a conversation, write <b>the author's name at the beginning of the sentence</b>, or use the <b>slash</b>, as in Claude.</p>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-2-permitir.jpg?v=20261002131623" alt="ChatGPT permission prompt, with Always allow, Deny and Allow once buttons" loading="lazy" width="1000" height="385">
+      <figcaption>The permission prompt. «Always allow» stops it from asking on every message.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="usar">
+  <div class="env txt">
+    <h2>3 · Ways to use it</h2>
+    <p><b>Talk to an author.</b> Open a new conversation and start with <b>a slash and the author's name</b>, for instance <span class="chave">/steiner</span>, followed by your question. In ChatGPT, writing the author's name at the start of the sentence also works.</p>
+    <p><b>See who your key reaches.</b> Ask to <b>list authors</b>.</p>
+    <p><b>Ask for the citation.</b> Ask for the exact sentence: «quote the passage where Kant talks about…». The answer gives the volume and the sentence, and the page when the source volume preserves it.</p>
+    <p><b>Look for a theme in the corpus.</b> Ask where a subject appears: «in which works does Rousseau deal with the education of the senses?». The search runs through the volumes your key covers.</p>
+    <p><b>Put two authors face to face.</b> After the first one answers, call the second and ask what they make of it. Each answer comes from reading one corpus, with the citation attached.</p>
+    <div class="aviso">
+      <p><b>One author at a time, on purpose.</b> The Bibliotheca loads each author's way of answering separately, so two voices never get mixed into one answer. That is why switching authors takes a few extra seconds.</p>
+    </div>
+    <p>In Claude, creating a <b>Project</b> is optional. It keeps a separate conversation with each author.</p>
   </div>
 </section>
 
 <section id="renovar">
   <div class="env txt">
-    <h2>3 · When the subscription expires</h2>
+    <h2>4 · When the subscription expires</h2>
     <p>Access runs for a year. You get an e-mail warning <b>seven days before</b> it expires, and after that there are <b>three more days of grace</b> in which everything keeps working.</p>
     <p>Once the grace period passes without renewal, access <b>pauses</b>. Nothing is deleted: your authors stay reserved, and the key starts working again as soon as the renewal is paid — with no reinstalling and no pasting the key again.</p>
     <div class="aviso">
@@ -215,10 +232,10 @@
 
 <section id="problemas">
   <div class="env txt">
-    <h2>4 · If something doesn't work</h2>
-    <p><b>The author answers like an ordinary assistant, without his voice.</b> Call him with the slash — <span class="chave">/steiner</span> — in the first message. The slash is what loads the persona.</p>
+    <h2>5 · If something doesn't work</h2>
+    <p><b>The author answers like an ordinary assistant, without their voice.</b> Call them with the slash — <span class="chave">/steiner</span> — in the first message. The slash is what loads the persona.</p>
     <p><b>I installed it and it doesn't show up.</b> In Settings → Connectors, check that compendia is connected <i>and</i> enabled, and that the permission is not blocked.</p>
-    <p><b>It works in one place and not the other.</b> That is expected: the app, claude.ai, Claude Code and ChatGPT are separate installations. Repeat it in the ones you use.</p>
+    <p><b>It works in one place and not the other.</b> That is expected: the app, claude.ai, Claude Code and ChatGPT are separate installations, and in ChatGPT so are the GPT and the plugin. Repeat it in the ones you use.</p>
     <p><b>It takes a while to answer.</b> On the first question to each author, it loads the whole persona. The ones after that are faster.</p>
     <p><b>The answer says the corpus doesn't cover my question.</b> That is the system working, not failing. The Bibliotheca indexes the public-domain volumes of each author and nothing else — when the text does not cover the question, it says so instead of filling the gap with something plausible.</p>
     <p><b>I lost my key.</b> It is in the e-mail you received with the corpus. Reply to that e-mail and we will send it again — never generate a new one yourself.</p>
@@ -230,7 +247,7 @@
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>a production of</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261002124758" alt="Compendia" width="413" height="100"></p>
+    <p class="produtor"><span>a production of</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261002131623" alt="Compendia" width="413" height="100"></p>
     <p class="contato-rodape">Questions before subscribing: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — we answer within 24 to 48 business hours.</p>
     <p class="idioma-rodape"><span aria-current="true"><span class="bandeira" aria-hidden="true">🇺🇸</span>English</span> · <a href="/bibliotheca/obrigado/" hreflang="pt-BR" data-idioma="pt"><span class="bandeira" aria-hidden="true">🇧🇷</span>Português (Brasil)</a></p>
     <p>Questions, suggestions or criticism: reply to the e-mail in which you received the Bibliotheca.<br>
