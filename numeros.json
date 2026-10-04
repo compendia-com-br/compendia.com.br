@@ -7,20 +7,20 @@
   "a_venda = o que a pagina anuncia e a chave do pacote entrega (piso de volumes",
   "vendaveis por autor). carregados = tudo o que o servidor tem carregado, o /saude."
  ],
- "medido_em": "2026-10-04T11:12:45-03:00",
+ "medido_em": "2026-10-04T18:56:57-03:00",
  "piso": 4,
  "a_venda": {
   "autores": 42,
-  "volumes": 1362
+  "volumes": 1354
  },
  "carregados": {
   "autores": 43,
-  "volumes": 1364
+  "volumes": 1355
  },
  "fora_do_piso": [
   {
    "autor": "vygotsky",
-   "volumes": 2
+   "volumes": 1
   }
  ],
  "conferido_contra": "https://corpus.compendia.com.br/numeros"
