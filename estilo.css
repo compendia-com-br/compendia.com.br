@@ -122,8 +122,8 @@
   --tinta:#4A1626; --tinta-fundo:#2C0C17; --pergaminho:#F3EBDA; --cartao:#FAF6EC;
   --grafite:#1C1712; --pedra:#6E645A; --linha:#DFD3BC; --citacao:#12776D;
   /* Rampa de pergaminho sobre tinta — para superficie escura (verso da carta,
-     secao .escuro). NAO esta na §4 do brandbook: sao tintas do pergaminho, nao
-     cor nova, mas a §4 precisa de uma linha sobre isso. Medidas sobre
+     secao .escuro). Registrada na §4.1 do brandbook desde a v1.28 (10/10/2026):
+     sao tintas do pergaminho, nao cor nova. Medidas sobre
      --tinta-fundo: 12,54:1 · 9,16:1 · 6,31:1 — todas AA. */
   --perg-90:#E3D6C6; --perg-75:#D9C9BE; --perg-60:#C9B6A8; --perg-45:#A8968A;
   --largura:64rem; --texto:38rem;
@@ -132,7 +132,8 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--pergaminho); color:var(--grafite);
-  font:400 1.0625rem/1.65 Inter,ui-sans-serif,system-ui,sans-serif;
+  /* 16px/1,5: o corpo da §5 do brandbook (decisao de 10/10/2026; era 17px/1,65). */
+  font:400 1rem/1.5 Inter,ui-sans-serif,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%; height:auto; display:block}
