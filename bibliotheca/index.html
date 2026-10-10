@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="en" href="https://compendia.com.br/en/bibliotheca/">
 <link rel="alternate" hreflang="pt-BR" href="https://compendia.com.br/bibliotheca/">
 <link rel="alternate" hreflang="x-default" href="https://compendia.com.br/bibliotheca/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261009110937">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261009110937">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261010084926">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261010084926">
 <meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://compendia.com.br/bibliotheca/">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="A obra, a busca que atravessa o corpus, e a conversa com os livros na voz de quem os escreveu — reconstruída do texto, com o volume apontado.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/estilo.css?v=20261009110937">
+<link rel="stylesheet" href="/estilo.css?v=20261010084926">
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -76,7 +76,7 @@
 <body>
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261009110937" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261010084926" alt="Bibliotheca — Compendia" width="391" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/">Início</a><a href="/bibliotheca/" aria-current="page">Bibliotheca</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><a href="/en/bibliotheca/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></a><span aria-hidden="true">·</span><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></span></div>
   </div>
@@ -89,7 +89,62 @@
     <h1>A frase veio pronta, entre aspas, com o nome do autor.</h1>
     <p class="sub">Soava exata. Foi para o texto, para a aula, para o slide.
     Ninguém abriu o livro para ver se ela estava lá.</p>
-    <div class="hero-img"><img src="img/hero.jpg" alt="" width="1600" height="630"></div>
+    
+    <style>
+    .hero-video{position:relative; margin-top:clamp(2rem,5vw,3rem); aspect-ratio:16/9;
+      width:100%; background:#000; border-radius:2px; overflow:hidden}
+    .hero-video video{display:block; width:100%; height:100%; object-fit:cover; background:#000}
+    .hero-video .hv-play{position:absolute; left:clamp(.6rem,2.2vw,1.1rem); bottom:clamp(.6rem,2.2vw,1.1rem);
+      font:600 clamp(.8rem,2.6vw,1rem)/1.2 Inter,ui-sans-serif,system-ui,sans-serif;
+      padding:.62em 1em; border-radius:999px; cursor:pointer;
+      background:rgba(28,23,18,.74); color:var(--pergaminho); border:1px solid rgba(243,235,218,.7)}
+    .hero-video .hv-play:hover{background:rgba(28,23,18,.92)}
+    .hero-video .hv-play:focus-visible,.hero-video .hv-denovo:focus-visible,
+    .hero-video .hv-fim .cta:focus-visible,.hero-video video:focus-visible{
+      outline:3px solid var(--pergaminho); outline-offset:3px}
+    .hero-video .hv-fim{position:absolute; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:.7rem; padding:1rem; text-align:center;
+      background:rgba(28,23,18,.86)}
+    .hero-video .hv-fim .cta{margin:0}
+    .hero-video .hv-denovo{background:none; border:0; padding:.3rem .5rem; cursor:pointer;
+      color:var(--pergaminho); font:400 .85rem/1.3 Inter,ui-sans-serif,system-ui,sans-serif;
+      text-decoration:underline; text-underline-offset:3px}
+    .hero-video [hidden]{display:none}
+    </style>
+    <div class="hero-video" data-hero-video
+         data-vsl="https://midia.compendia.com.br/bibliotheca/vsl/vsl-A-PT-v3-720p.mp4"
+         data-vtt="https://midia.compendia.com.br/bibliotheca/vsl/vsl-A-PT-v3.vtt"
+         data-srclang="pt-BR" data-rotulo-legenda="Português"
+         data-rotulo-video="Vídeo da Compendia Bibliotheca" data-titulo="vsl-A-PT-v3"
+         data-poster-jpg="https://midia.compendia.com.br/bibliotheca/hero/hero-poster-v2.jpg">
+      <video autoplay muted loop playsinline preload="metadata" crossorigin="anonymous"
+             width="1280" height="720" aria-hidden="true" tabindex="-1"
+             poster="https://midia.compendia.com.br/bibliotheca/hero/hero-poster-v2.webp">
+        <source src="https://midia.compendia.com.br/bibliotheca/hero/hero-loop-v2.webm" type="video/webm">
+        <source src="https://midia.compendia.com.br/bibliotheca/hero/hero-loop-v2.mp4" type="video/mp4">
+      </video>
+      <script>
+      /* Roda ANTES de o autoplay pegar: movimento reduzido ou economia de dados
+         ficam so' com o poster e o botao — sem loop e sem baixar o video. */
+      (function () {
+        var v = document.currentScript.previousElementSibling;
+        var c = navigator.connection;
+        var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduz || (c && c.saveData)) {
+          v.removeAttribute('autoplay'); v.autoplay = false;
+          v.removeAttribute('loop'); v.loop = false;
+          v.preload = 'none';
+          while (v.firstChild) v.removeChild(v.firstChild);
+          v.pause(); v.load();
+        }
+      })();
+      </script>
+      <button type="button" class="hv-play" hidden aria-label="Assistir com som, 4 minutos e 25 segundos">▶ Assistir com som · 4 min 25 s</button>
+      <div class="hv-fim" hidden>
+        <a class="cta" href="#comprar" data-hv-cta>Ver as duas formas de acesso</a>
+        <button type="button" class="hv-denovo">Assistir de novo</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -188,7 +243,7 @@
   <div class="env">
     <div class="txt">
       <h2>Quarenta e oito autores, domínio público, indexados</h2>
-      <p>Cada autor tem a obra indexada — medido em 09/10/2026, a partir do índice atual. O acervo é reindexado; a página de cada autor diz o que está indexado hoje.</p>
+      <p>Cada autor tem a obra indexada — medido em 10/10/2026, a partir do índice atual. O acervo é reindexado; a página de cada autor diz o que está indexado hoje.</p>
       <p class="sub">A galeria passa por todos eles sozinha.</p>
     </div>
 
@@ -202,7 +257,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-steiner.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-steiner.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Steiner</b><span>306 volumes</span></span>
           </span>
           <span class="face verso">
@@ -220,7 +275,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-goethe.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-goethe.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Goethe</b><span>280 volumes</span></span>
           </span>
           <span class="face verso">
@@ -238,7 +293,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-comenius.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-comenius.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Comênio</b><span>92 volumes</span></span>
           </span>
           <span class="face verso">
@@ -256,7 +311,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-pestalozzi.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-pestalozzi.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Pestalozzi</b><span>85 volumes</span></span>
           </span>
           <span class="face verso">
@@ -274,7 +329,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-tolstoi.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-tolstoi.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Tolstói</b><span>52 volumes</span></span>
           </span>
           <span class="face verso">
@@ -292,7 +347,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-herbart.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-herbart.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Herbart</b><span>47 volumes</span></span>
           </span>
           <span class="face verso">
@@ -310,7 +365,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-schiller.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-schiller.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Schiller</b><span>45 volumes</span></span>
           </span>
           <span class="face verso">
@@ -328,7 +383,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-montesquieu.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-montesquieu.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Montesquieu</b><span>35 volumes</span></span>
           </span>
           <span class="face verso">
@@ -346,7 +401,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-rousseau.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-rousseau.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Rousseau</b><span>34 volumes</span></span>
           </span>
           <span class="face verso">
@@ -364,7 +419,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-freud.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-freud.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Freud</b><span>29 volumes</span></span>
           </span>
           <span class="face verso">
@@ -382,7 +437,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-tagore.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-tagore.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Tagore</b><span>29 volumes</span></span>
           </span>
           <span class="face verso">
@@ -400,7 +455,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-roosevelt.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-roosevelt.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Roosevelt</b><span>26 volumes</span></span>
           </span>
           <span class="face verso">
@@ -418,7 +473,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-froebel.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-froebel.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Fröbel</b><span>23 volumes</span></span>
           </span>
           <span class="face verso">
@@ -436,7 +491,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-kierkegaard.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-kierkegaard.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Kierkegaard</b><span>22 volumes</span></span>
           </span>
           <span class="face verso">
@@ -454,7 +509,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-wilson.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-wilson.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Wilson</b><span>20 volumes</span></span>
           </span>
           <span class="face verso">
@@ -472,7 +527,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-dante.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-dante.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Dante</b><span>19 volumes</span></span>
           </span>
           <span class="face verso">
@@ -490,7 +545,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-kant.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-kant.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Kant</b><span>19 volumes</span></span>
           </span>
           <span class="face verso">
@@ -508,7 +563,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-dewey.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-dewey.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Dewey</b><span>18 volumes</span></span>
           </span>
           <span class="face verso">
@@ -526,7 +581,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-hume.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-hume.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Hume</b><span>16 volumes</span></span>
           </span>
           <span class="face verso">
@@ -544,7 +599,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-adam-smith.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-adam-smith.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Adam Smith</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -562,7 +617,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-binet.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-binet.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Binet</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -580,7 +635,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-hegel.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-hegel.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Hegel</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -598,7 +653,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-stuart-mill.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-stuart-mill.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Stuart Mill</b><span>14 volumes</span></span>
           </span>
           <span class="face verso">
@@ -616,7 +671,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-darwin.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-darwin.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Darwin</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -634,7 +689,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-dostoievski.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-dostoievski.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Dostoiévski</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -652,7 +707,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-william-james.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-william-james.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>William James</b><span>13 volumes</span></span>
           </span>
           <span class="face verso">
@@ -670,7 +725,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-lutero.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-lutero.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Lutero</b><span>12 volumes</span></span>
           </span>
           <span class="face verso">
@@ -688,7 +743,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-schopenhauer.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-schopenhauer.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Schopenhauer</b><span>12 volumes</span></span>
           </span>
           <span class="face verso">
@@ -706,7 +761,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-nietzsche.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-nietzsche.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Nietzsche</b><span>11 volumes</span></span>
           </span>
           <span class="face verso">
@@ -724,7 +779,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-voltaire.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-voltaire.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Voltaire</b><span>11 volumes</span></span>
           </span>
           <span class="face verso">
@@ -742,7 +797,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-manoel-bomfim.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-manoel-bomfim.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Bomfim</b><span>9 volumes</span></span>
           </span>
           <span class="face verso">
@@ -760,7 +815,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-keynes.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-keynes.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Keynes</b><span>8 volumes</span></span>
           </span>
           <span class="face verso">
@@ -778,7 +833,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-durkheim.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-durkheim.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Durkheim</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -796,7 +851,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-ellen-key.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-ellen-key.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Ellen Key</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -814,7 +869,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-jefferson.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-jefferson.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Jefferson</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -832,7 +887,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-maquiavel.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-maquiavel.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Maquiavel</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -850,7 +905,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-marco-aurelio.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-marco-aurelio.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Marco Aurélio</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -868,7 +923,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-montessori.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-montessori.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Montessori</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -886,7 +941,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-planck.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-planck.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Planck</b><span>7 volumes</span></span>
           </span>
           <span class="face verso">
@@ -904,7 +959,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-aquino.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-aquino.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Aquino</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -922,7 +977,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-aristoteles.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-aristoteles.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Aristóteles</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -940,7 +995,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-cicero.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-cicero.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Cícero</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -958,7 +1013,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-laozi.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-laozi.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Lao Zi</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -976,7 +1031,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-locke.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-locke.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Locke</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -994,7 +1049,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-nightingale.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-nightingale.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Nightingale</b><span>6 volumes</span></span>
           </span>
           <span class="face verso">
@@ -1012,7 +1067,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-platao.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-platao.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Platão</b><span>5 volumes</span></span>
           </span>
           <span class="face verso">
@@ -1030,7 +1085,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-weber.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-weber.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Weber</b><span>5 volumes</span></span>
           </span>
           <span class="face verso">
@@ -1048,7 +1103,7 @@
       <li class="carta">
         <button type="button" class="giro" aria-expanded="false">
           <span class="face frente">
-            <img src="/bibliotheca/img/autor-marx.jpg?v=20261009110937" alt="" width="400" height="500" loading="lazy">
+            <img src="/bibliotheca/img/autor-marx.jpg?v=20261010084926" alt="" width="400" height="500" loading="lazy">
             <span class="placa"><b>Marx</b><span>4 volumes</span></span>
           </span>
           <span class="face verso">
@@ -1363,13 +1418,114 @@
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261009110937" alt="Compendia" width="413" height="100"></p>
+    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261010084926" alt="Compendia" width="413" height="100"></p>
     <p class="contato-rodape">Dúvidas antes de assinar: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — resposta em 24h a 48h úteis.</p>
     <p class="idioma-rodape"><a href="/en/bibliotheca/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span>English</a> · <span aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span>Português (Brasil)</span></p>
-    <p>Retratos em domínio público, com a fonte de cada um no verso da carta. Cenas geradas por IA.<br>
+    <p>Retratos em domínio público, com a fonte de cada um no verso da carta. O vídeo: personagem e cenas fictícias, imagens geradas por IA e narração sintética; as respostas da Bibliotheca que aparecem nele são capturas reais.<br>
     © 2026 Compendia · <a href="https://compendia.com.br">compendia.com.br</a> · <a href="#preferencias-cookies" class="abrir-consentimento">Preferências de cookies</a></p>
   </div>
 </footer>
+
+<script>
+/* VIDEO-HERO — o mesmo elemento passa de loop mudo a VSL. Sem biblioteca. */
+(function () {
+  'use strict';
+  var caixa = document.querySelector('[data-hero-video]');
+  if (!caixa) return;
+  var v = caixa.querySelector('video');
+  var play = caixa.querySelector('.hv-play');
+  var fim = caixa.querySelector('.hv-fim');
+  var denovo = caixa.querySelector('.hv-denovo');
+  var cta = caixa.querySelector('[data-hv-cta]');
+  var d = caixa.dataset;
+  var naVsl = false;
+
+  /* Pôster: WebP por padrao; navegador sem WebP leva o JPG de reserva. */
+  var teste = new Image();
+  teste.onerror = function () { v.poster = d.posterJpg; };
+  teste.src = v.poster;
+
+  /* Medicao: so' pelo gtag() que a pagina ja' tem. Sem aceite de cookies ele
+     apenas empilha no dataLayer e nada sai da maquina (ver MEDIDORES_HEAD). */
+  function mede(nome, extra) {
+    if (typeof window.gtag !== 'function') return;
+    var p = { send_to: 'G-ZFCGP6744X', video_title: d.titulo };
+    for (var k in extra) p[k] = extra[k];
+    window.gtag('event', nome, p);
+  }
+  var marcas = [25, 50, 75], enviadas = {};
+
+  function ligaLegenda() {
+    var t = v.textTracks && v.textTracks[0];
+    if (t) t.mode = 'showing';
+  }
+
+  function tocar() {
+    naVsl = true;
+    v.pause();
+    while (v.firstChild) v.removeChild(v.firstChild);
+    v.removeAttribute('loop'); v.loop = false;
+    v.removeAttribute('autoplay'); v.autoplay = false;
+    v.removeAttribute('muted'); v.defaultMuted = false; v.muted = false;
+    v.removeAttribute('aria-hidden'); v.removeAttribute('tabindex');
+    v.setAttribute('aria-label', d.rotuloVideo);
+    v.controls = true;
+    v.preload = 'auto';
+    v.src = d.vsl;
+    var tr = document.createElement('track');
+    tr.kind = 'captions'; tr.src = d.vtt; tr.srclang = d.srclang;
+    tr.label = d.rotuloLegenda; tr.default = true;
+    v.appendChild(tr);
+    v.load();
+    ligaLegenda();
+    v.addEventListener('loadedmetadata', ligaLegenda, { once: true });
+    play.hidden = true; fim.hidden = true;
+    var pr = v.play();
+    if (pr && pr.catch) pr.catch(function () {});
+    v.focus();
+    mede('video_start', {});
+  }
+
+  function sairDaTelaCheia() {
+    try {
+      if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+      else if (v.webkitDisplayingFullscreen && v.webkitExitFullscreen) v.webkitExitFullscreen();
+    } catch (e) {}
+  }
+
+  v.addEventListener('timeupdate', function () {
+    if (!naVsl || !v.duration) return;
+    var pct = v.currentTime / v.duration * 100;
+    marcas.forEach(function (m) {
+      if (pct >= m && !enviadas[m]) { enviadas[m] = true; mede('video_progress', { video_percent: m }); }
+    });
+  });
+
+  v.addEventListener('ended', function () {
+    if (!naVsl) return;
+    if (!enviadas[100]) { enviadas[100] = true; mede('video_progress', { video_percent: 100 }); }
+    sairDaTelaCheia();
+    fim.hidden = false;
+    cta.focus();
+  });
+
+  play.addEventListener('click', tocar);
+  denovo.addEventListener('click', function () {
+    fim.hidden = true;
+    v.currentTime = 0;
+    var pr = v.play();
+    if (pr && pr.catch) pr.catch(function () {});
+    v.focus();
+  });
+  cta.addEventListener('click', function () { mede('video_cta', { link_url: cta.href }); });
+
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && naVsl && !v.paused) v.pause();
+  });
+
+  play.hidden = false;
+})();
+</script>
 
 <script>
 (function () {

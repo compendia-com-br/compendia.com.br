@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="en" href="https://compendia.com.br/en/bibliotheca/guia/">
 <link rel="alternate" hreflang="pt-BR" href="https://compendia.com.br/bibliotheca/guia/">
 <link rel="alternate" hreflang="x-default" href="https://compendia.com.br/bibliotheca/guia/">
-<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261009110937">
-<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261009110937">
+<link rel="icon" type="image/svg+xml" href="/marca/favicon.svg?v=20261010084926">
+<link rel="apple-touch-icon" href="/marca/apple-touch-icon.png?v=20261010084926">
 <meta name="theme-color" content="#F3EBDA">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://compendia.com.br/bibliotheca/guia/">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="Passo a passo e duas videoaulas: instalar no Claude, usar no ChatGPT.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/estilo.css?v=20261009110937">
+<link rel="stylesheet" href="/estilo.css?v=20261010084926">
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -76,7 +76,7 @@
 <body>
 <header class="topo">
   <div class="env">
-    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261009110937" alt="Bibliotheca — Compendia" width="391" height="100"></a>
+    <a class="assina" href="/bibliotheca/"><img src="/bibliotheca/img/assinatura-bibliotheca.svg?v=20261010084926" alt="Bibliotheca — Compendia" width="391" height="100"></a>
     <nav class="menu" aria-label="Principal"><a href="/">Início</a><a href="/bibliotheca/">Bibliotheca</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a></nav>
     <div class="idioma" role="group" aria-label="Idioma / Language"><a href="/en/bibliotheca/guia/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span><span class="sigla">EN</span></a><span aria-hidden="true">·</span><span class="atual" aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span><span class="sigla">PT</span></span></div>
   </div>
@@ -92,6 +92,11 @@
 .tela figcaption{font-size:.85rem; color:var(--pedra); margin-top:.45rem}
 .escuro .tela figcaption{color:var(--perg-75)}
 .tela.estreita{max-width:22rem}
+/* Video curto de cada passo: mudo, sem autoplay, so carrega no play
+   (preload=none). width/height no elemento reservam o 16:9 antes do poster. */
+.tela video{display:block; width:100%; height:auto; aspect-ratio:16/9; background:#111;
+  border:1px solid var(--linha); border-radius:3px}
+.etapa{margin:1.6rem 0 .5rem}
 .legenda{font-size:.85rem; color:var(--pedra); margin:0 0 2rem}
 /* Em seção escura, `pedra` sobre tinta-fundo dá 3,10:1 — reprova em AA. A rampa
    de pergaminho existe para isso (§4). E a barra do aviso, que é tinta, some
@@ -149,35 +154,63 @@
     <ol class="passos">
       <li>No Claude, clique <b>no seu nome</b>, no canto inferior esquerdo.</li>
       <li>Vá em <b>Configurações</b> e, no menu da esquerda, escolha <b>Plugins</b>.</li>
-      <li>No canto superior direito, clique em <b>Adicionar</b> e depois em <b>Fazer upload</b>.</li>
-      <li>Clique em <b>Procurar arquivos</b>, escolha o <b>compendia-bibliotheca.zip</b> e clique em <b>Fazer upload</b>.</li>
+      <li>No canto superior direito, clique em <b>Adicionar</b> e depois em <b>Fazer upload de plugin</b>.</li>
+      <li>Arraste o <b>compendia-bibliotheca.zip</b> para a janela, ou clique nela para escolher o arquivo.</li>
+      <li>Clique em <b>Fazer upload</b>.</li>
     </ol>
     <figure class="tela">
-      <img src="/bibliotheca/img/guia/claude-1-upload.jpg?v=20261009110937" alt="Janela «Fazer upload de plugin» do Claude, com o botão Procurar arquivos" loading="lazy" width="740" height="686">
-      <figcaption>A janela de upload. O aviso vermelho é padrão do Claude para qualquer plugin enviado por arquivo.</figcaption>
+      <img src="/bibliotheca/img/guia/claude-1-instalar-upload-PT.jpg?v=20261010084926" alt="Janela «Enviar um plugin» do Claude, com o arquivo compendia-bibliotheca.zip escolhido e o botão Fazer upload" loading="lazy" width="1600" height="900">
+      <figcaption>A janela de upload, com o arquivo escolhido. O aviso vermelho é padrão do Claude para qualquer plugin enviado por arquivo.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/claude-1-instalar-upload-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/claude-1-instalar-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: a instalação do começo ao fim (26 s).</figcaption>
     </figure>
 
     <h3>Passo 3 · Ativar com a sua chave</h3>
     <ol class="passos">
       <li>Na página do plugin, abra a aba <b>Conectores</b>. Ali aparece o <b>compendia</b>. Clique em <b>Vincular</b>.</li>
+      <li>Abre a janela <b>Adicionar conector personalizado</b>. Não mude nada nela: clique em <b>Continuar</b> e, na tela seguinte, em <b>Adicionar</b>.</li>
       <li>Abre a tela de entrada da Compendia. <b>Cole a sua chave</b>, a que começa com <span class="chave">cmp_</span>, e clique em <b>Entrar</b>.</li>
       <li>O Claude recarrega e mostra o aviso <b>Conectado a compendia</b> no canto inferior direito.</li>
     </ol>
     <figure class="tela">
-      <img src="/bibliotheca/img/guia/claude-2-vincular.jpg?v=20261009110937" alt="Aba Conectores do plugin, com o conector compendia e o botão Vincular" loading="lazy" width="1190" height="200">
-      <figcaption>A aba Conectores do plugin. O botão é «Vincular».</figcaption>
+      <img src="/bibliotheca/img/guia/claude-2-vincular-conector-PT.jpg?v=20261010084926" alt="Página do plugin Compendia Bibliotheca no Claude, com as abas Visão Geral, Conteúdo, Habilidades e Conectores" loading="lazy" width="1600" height="900">
+      <figcaption>A página do plugin. O compendia fica na aba «Conectores».</figcaption>
+    </figure>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-3-chave-PT.jpg?v=20261010084926" alt="Segunda tela da janela do conector, com a opção Registrar automaticamente já marcada e os botões Voltar e Adicionar" loading="lazy" width="1600" height="900">
+      <figcaption>A segunda tela do conector. As opções já vêm marcadas: só confirme em «Adicionar».</figcaption>
     </figure>
     <figure class="tela estreita">
-      <img src="/bibliotheca/img/guia/claude-3-chave.jpg?v=20261009110937" alt="Tela de entrada da Compendia, com o campo Chave de acesso e o botão Entrar" loading="lazy" width="900" height="900">
+      <img src="/bibliotheca/img/guia/entrar-chave-claude.jpg?v=20261010084926" alt="Tela de entrada da Compendia, com o campo Chave de acesso e o botão Entrar" loading="lazy" width="800" height="900">
       <figcaption>A tela de entrada é a mesma no Claude e no ChatGPT. A chave fica guardada: você não precisa digitá-la de novo.</figcaption>
     </figure>
     <figure class="tela">
-      <img src="/bibliotheca/img/guia/claude-4-conectado.jpg?v=20261009110937" alt="Tela inicial do Claude com o aviso Conectado a compendia no canto inferior direito" loading="lazy" width="1200" height="662">
+      <img src="/bibliotheca/img/guia/claude-4-conectado-PT.jpg?v=20261010084926" alt="Tela inicial do Claude com o aviso Conectado a compendia no canto inferior direito" loading="lazy" width="1600" height="900">
       <figcaption>Ativado: o aviso «Conectado a compendia» aparece no canto inferior direito.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/claude-2-vincular-conector-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/claude-2-vincular-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: da aba Conectores até o aviso «Conectado a compendia» (38 s). Na gravação, a primeira chave colada estava errada: a tela avisa «Chave não reconhecida», e basta colar a chave certa.</figcaption>
     </figure>
 
     <h3>Passo 4 · Conferir a permissão</h3>
-    <p>Em <b>seu nome → Configurações → Conectores</b>, o <b>compendia</b> deve aparecer <b>vinculado e ativado</b>. Ali você escolhe a permissão: deixe em <b>Requer aprovação</b> ou <b>Sempre permitir</b>. Com o conector bloqueado, o acervo não responde.</p>
+    <p>Em <b>seu nome → Configurações → Conectores</b>, o <b>compendia</b> deve aparecer <b>vinculado e ativado</b>. Clique nele para ver a permissão: deixe em <b>Requer aprovação</b> ou <b>Sempre permitir</b>. Com o conector bloqueado, o acervo não responde.</p>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-5-conferir-PT.jpg?v=20261010084926" alt="Página do conector compendia no Claude, com a lista de ferramentas e a permissão Sempre permitir" loading="lazy" width="1600" height="900">
+      <figcaption>A página do conector. A permissão fica no alto da lista de ferramentas.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/claude-5-conferir-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/claude-3-conferir-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: onde conferir o conector e a permissão (20 s).</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -191,8 +224,65 @@
     <p><b>Qual caminho usar.</b> No <b>aplicativo do ChatGPT no computador</b>, baixe o plugin logo abaixo. No <b>navegador</b> (chatgpt.com), use o GPT personalizado, mais abaixo, até o plugin ser aprovado no diretório da OpenAI. O arquivo do plugin não instala pelo navegador: é uma regra da OpenAI, não da Compendia.</p>
 
     <h3>No computador: o plugin</h3>
-    <p>Baixe o arquivo e instale pelo <b>aplicativo do ChatGPT no computador</b>. A ativação usa a mesma tela de entrada e a mesma chave <span class="chave">cmp_</span> que você já tem. O passo a passo com as telas está sendo preparado e entra nesta seção.</p>
+    <p>Baixe o arquivo e instale pelo <b>aplicativo do ChatGPT no computador</b>. A ativação usa a mesma tela de entrada e a mesma chave <span class="chave">cmp_</span> que você já tem.</p>
     <p><a class="baixar" href="../compendia-bibliotheca-chatgpt.zip" download>Baixar o plugin para ChatGPT <small>compendia-bibliotheca-chatgpt.zip</small></a></p>
+
+    <p class="etapa"><b>Instalar o plugin</b></p>
+    <ol class="passos">
+      <li>No aplicativo do ChatGPT, abra <b>Personalizar</b>, na barra da esquerda, e escolha <b>Plugins</b>.</li>
+      <li>No canto superior direito, clique em <b>«Adicionar»</b> e depois em <b>«Enviar arquivo compactado do plugin»</b>.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-1-adicionar-PT-EN.jpg?v=20261010084926" alt="Página Plugins do ChatGPT com o menu Adicionar aberto e a opção Enviar arquivo compactado do plugin" loading="lazy" width="1600" height="1192">
+      <figcaption>O menu «Adicionar», no canto superior direito da página Plugins.</figcaption>
+    </figure>
+    <ol class="passos" start="3">
+      <li>Na janela <b>«Novo plugin»</b>, clique em <b>«Escolher arquivo»</b> e escolha o <b>compendia-bibliotheca-chatgpt.zip</b>.</li>
+      <li>Clique em <b>«Adicionar plugin»</b>.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-2-arquivo-PT-EN.jpg?v=20261010084926" alt="Janela Novo plugin do ChatGPT com o arquivo compendia-bibliotheca-chatgpt.zip escolhido e o botão Adicionar plugin" loading="lazy" width="1600" height="1192">
+      <figcaption>A janela «Novo plugin», com o arquivo escolhido.</figcaption>
+    </figure>
+    <ol class="passos" start="5">
+      <li>Abre a página do <b>Compendia Bibliotheca</b>. Clique em <b>«Instalar plugin»</b>.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-3-instalar-PT-EN.jpg?v=20261010084926" alt="Página do plugin Compendia Bibliotheca no ChatGPT, com o botão Instalar plugin no alto, à direita" loading="lazy" width="1600" height="1192">
+      <figcaption>A página do plugin. O botão «Instalar plugin» fica no alto, à direita.</figcaption>
+    </figure>
+    <ol class="passos" start="6">
+      <li>Aparece o aviso <b>«Compendia Bibliotheca está pronto para uso»</b>. Clique em <b>«Configurar Compendia Bibliotheca»</b>.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-4-pronto-PT-EN.jpg?v=20261010084926" alt="Aviso do ChatGPT: Compendia Bibliotheca está pronto para uso, com os botões Talvez mais tarde e Configurar Compendia Bibliotheca" loading="lazy" width="1600" height="1192">
+      <figcaption>Instalado. Falta ativar com a sua chave.</figcaption>
+    </figure>
+
+    <p class="etapa"><b>Ativar com a sua chave</b></p>
+    <ol class="passos" start="7">
+      <li>O ChatGPT abre uma conversa de configuração. Ela avisa que <b>falta verificar a conexão</b>: é o que os passos seguintes fazem.</li>
+      <li>Abra as <b>Configurações</b> do ChatGPT e vá à página <b>«Servidores MCP»</b>, na aba <b>«MCPs»</b>.</li>
+      <li>Na linha do <b>compendia</b>, clique em <b>«Autenticar»</b>. Não mexa no campo ao lado.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-5-autenticar-PT-EN.jpg?v=20261010084926" alt="Configurações do ChatGPT, com a linha do compendia e o botão Autenticar à direita" loading="lazy" width="1600" height="1192">
+      <figcaption>A linha do compendia. O botão é «Autenticar».</figcaption>
+    </figure>
+    <ol class="passos" start="10">
+      <li>Abre a tela de entrada da Compendia. <b>Cole a sua chave</b>, a que começa com <span class="chave">cmp_</span>, e clique em <b>«Entrar»</b>.</li>
+      <li>Para usar, escreva <b>@compendia</b> na conversa e escolha <b>Compendia Bibliotheca</b> na lista.</li>
+    </ol>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-uso-1-arroba-PT.jpg?v=20261010084926" alt="Caixa de mensagem do ChatGPT com @compen digitado e o plugin Compendia Bibliotheca sugerido na lista" loading="lazy" width="1600" height="1192">
+      <figcaption>Chame o plugin com @ no começo da mensagem.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/chatgpt-3-instalar-PT-EN.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/chatgpt-desktop-1-instalar-PT-EN-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: a instalação inteira, do menu «Adicionar» até «Autenticar» (73 s).</figcaption>
+    </figure>
     <p>O plugin também foi enviado ao diretório da OpenAI e está <b>em revisão</b>. Quando for aprovado, ele passa a funcionar também no navegador, e este guia mostra como.</p>
 
     <h3>No navegador: o GPT personalizado (até 11/12/2026)</h3>
@@ -200,14 +290,36 @@
     <p><a class="baixar" href="https://chatgpt.com/g/g-69e0327c41f48191b69d1bd50769e3b3-compendia-acervo" target="_blank" rel="noopener">Abrir Compendia Bibliotheca no ChatGPT</a></p>
     <ol class="passos">
       <li>Entre na sua conta do <b>ChatGPT</b> e abra o GPT pelo botão acima. É o mesmo link do e-mail.</li>
-      <li>Clique em <b>listar autores disponíveis</b> ou <b>saber mais sobre o Compendia</b>.</li>
-      <li>Aparece um botão para <b>iniciar a sessão</b>. Clique nele.</li>
-      <li>Na tela de entrada, <b>cole a sua chave</b> e clique em <b>Entrar</b>. O ChatGPT recarrega já conectado.</li>
-      <li>Quando ele pedir licença para falar com o acervo, escolha <b>Sempre permitir</b>.</li>
+      <li>Escreva uma pergunta, ou clique numa das sugestões. As sugestões estão em inglês; a pergunta pode ser em português.</li>
     </ol>
     <figure class="tela">
-      <img src="/bibliotheca/img/guia/chatgpt-2-permitir.jpg?v=20261009110937" alt="Pedido de permissão do ChatGPT, com os botões Sempre permitir, Negar e Permitir uma vez" loading="lazy" width="1000" height="385">
+      <img src="/bibliotheca/img/guia/chatgpt-web-1-gpt-personalizado-PT.jpg?v=20261010084926" alt="Tela inicial do GPT Compendia Bibliotheca no ChatGPT, com quatro sugestões de pergunta" loading="lazy" width="1600" height="1050">
+      <figcaption>A tela inicial do GPT.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/chatgpt-web-1-gpt-personalizado-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/chatgpt-web-1-gpt-personalizado-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: o GPT aberto no navegador (8 s).</figcaption>
+    </figure>
+    <ol class="passos" start="3">
+      <li>Aparece o botão <b>«Iniciar sessão com corpus.compendia.com.br»</b>. Clique nele.</li>
+      <li>Na tela de entrada, <b>cole a sua chave</b> e clique em <b>Entrar</b>. O ChatGPT volta com o aviso <b>«Sua conta está conectada»</b>.</li>
+      <li>Quando ele pedir licença para falar com o acervo, escolha <b>Sempre permitir</b>.</li>
+    </ol>
+    <figure class="tela estreita">
+      <img src="/bibliotheca/img/guia/entrar-chave-chatgpt.jpg?v=20261010084926" alt="Tela de entrada da Compendia aberta pelo ChatGPT, com o campo Chave de acesso e o botão Entrar" loading="lazy" width="800" height="800">
+      <figcaption>A mesma tela de entrada do plugin. A chave é a mesma.</figcaption>
+    </figure>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-web-2b-permitir-PT.jpg?v=20261010084926" alt="Pedido de permissão do ChatGPT para falar com corpus.compendia.com.br, com os botões Sempre permitir, Negar e Permitir uma vez" loading="lazy" width="1600" height="1050">
       <figcaption>O pedido de permissão. «Sempre permitir» evita que ele pergunte a cada mensagem.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/entrar-chave-chatgpt.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/chatgpt-web-2-ativar-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: da primeira pergunta até a permissão (14 s).</figcaption>
     </figure>
   </div>
 </section>
@@ -224,6 +336,32 @@
       <p><b>Um autor por vez, de propósito.</b> A Bibliotheca carrega o jeito de responder de cada autor separadamente, para não misturar duas vozes numa resposta. Por isso trocar de autor leva alguns segundos a mais.</p>
     </div>
     <p>No Claude, criar um <b>Projeto</b> é opcional. Ele serve para manter uma conversa separada com cada autor.</p>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/claude-6-usar-PT.jpg?v=20261010084926" alt="Resposta no Claude com um trecho citado de Dewey, a referência e o parágrafo de origem" loading="lazy" width="1600" height="900">
+      <figcaption>Uma resposta no Claude: o trecho citado, o parágrafo e a referência completa.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/claude-6-usar-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/claude-4-usar-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: uma conversa com Dewey no Claude (1 min 37 s).</figcaption>
+    </figure>
+    <figure class="tela">
+      <img src="/bibliotheca/img/guia/chatgpt-uso-3-citacao-PT.jpg?v=20261010084926" alt="Resposta no aplicativo do ChatGPT com a frase de Dewey no original, a tradução, o parágrafo e a referência" loading="lazy" width="1600" height="1192">
+      <figcaption>A mesma pergunta no aplicativo do ChatGPT: a frase no original, a tradução e o parágrafo.</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/chatgpt-uso-3-citacao-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/chatgpt-desktop-2-usar-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: uma conversa com Dewey no aplicativo do ChatGPT (1 min 15 s).</figcaption>
+    </figure>
+    <figure class="tela video">
+      <video controls muted playsinline preload="none" width="1920" height="1080" poster="/bibliotheca/img/guia/chatgpt-web-3-usar-PT.jpg?v=20261010084926">
+        <source src="https://midia.compendia.com.br/bibliotheca/guia/chatgpt-web-3-usar-PT-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption>Vídeo curto, sem som: a mesma conversa no GPT, pelo navegador (26 s).</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -255,7 +393,7 @@
 
 <footer class="rodape">
   <div class="env">
-    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261009110937" alt="Compendia" width="413" height="100"></p>
+    <p class="produtor"><span>uma produção</span><img src="/bibliotheca/img/assinatura-produtora.svg?v=20261010084926" alt="Compendia" width="413" height="100"></p>
     <p class="contato-rodape">Dúvidas antes de assinar: <a href="mailto:contato@compendia.com.br">contato@compendia.com.br</a> — resposta em 24h a 48h úteis.</p>
     <p class="idioma-rodape"><a href="/en/bibliotheca/guia/" hreflang="en" data-idioma="en"><span class="bandeira" aria-hidden="true">🇺🇸</span>English</a> · <span aria-current="true"><span class="bandeira" aria-hidden="true">🇧🇷</span>Português (Brasil)</span></p>
     <p>Dúvida, sugestão ou crítica: responda o e-mail em que você recebeu a Bibliotheca.<br>
