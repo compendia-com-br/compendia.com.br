@@ -117,181 +117,376 @@
   src: url(/fontes/JetBrainsMono-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* Compendia · Acervo — tokens da §4 do brandbook. Não inventar cor aqui. */
+/* Compendia · site — desenho do protótipo aprovado em 17/10/2026
+   (design/plan-screen-bibliotheca/design-systems/bibliotheca, rodada 4.1).
+   Tokens da §4 e da §4.1 do brandbook. NAO inventar cor aqui: tom novo entra no
+   brandbook antes, com o contraste medido.
+   Acento UNICO: o teal (--citacao), so' no selo «conferido» e na citacao tecnica.
+   Sem dourado, sem degrade em peca nossa, sem segundo acento.
+   Pesos servidos (§5): Fraunces 600, Inter 400 e 600, JetBrains Mono 400 — so' esses.
+   Mobile primeiro: 375px e' a medida.
+
+   AS CLASSES ANTIGAS FICAM (env, txt, cta, escuro, caixa, par, duas, plano, obras,
+   retrato, migalha, aviso-cta, passos, indice-autores, rodape, topo, menu, idioma…),
+   redesenhadas no mesmo sistema: e' assim que home, autor, termos, privacidade e
+   steiner mudam de desenho sem mudar de HTML.
+
+   O bloco do CARROSSEL (de «CARTAS DE AUTOR» ao movimento reduzido das cartas) e'
+   copia BYTE A BYTE do estilo anterior — geometria medida carta a carta; nao mexer. */
 :root{
   --tinta:#4A1626; --tinta-fundo:#2C0C17; --pergaminho:#F3EBDA; --cartao:#FAF6EC;
   --grafite:#1C1712; --pedra:#6E645A; --linha:#DFD3BC; --citacao:#12776D;
-  /* Rampa de pergaminho sobre tinta — para superficie escura (verso da carta,
-     secao .escuro). Registrada na §4.1 do brandbook desde a v1.28 (10/10/2026):
-     sao tintas do pergaminho, nao cor nova. Medidas sobre
-     --tinta-fundo: 12,54:1 · 9,16:1 · 6,31:1 — todas AA. */
+  /* Rampa de pergaminho sobre tinta (§4.1, v1.28): tintas do pergaminho, nao cor
+     nova. Sobre --tinta-fundo: 12,54:1 · 11,13:1 · 9,16:1 · 6,31:1 — todas AA. */
   --perg-90:#E3D6C6; --perg-75:#D9C9BE; --perg-60:#C9B6A8; --perg-45:#A8968A;
-  --largura:64rem; --texto:38rem;
+  /* §4.1: corpo dentro de caixa; fundo do exemplo errado */
+  --grafite-suave:#3A322B; --caixa-errada:#EFE7D6;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --r:12px; --gut:max(20px,6vw);
+  --sombra:0 28px 56px -34px rgba(44,12,23,.55);
+  --largura:76rem; --texto:48rem;
+  --secao:72px;
 }
+@media (min-width:880px){:root{--secao:112px}}
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--pergaminho); color:var(--grafite);
-  /* 16px/1,5: o corpo da §5 do brandbook (decisao de 10/10/2026; era 17px/1,65). */
-  font:400 1rem/1.5 Inter,ui-sans-serif,system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%; height:auto; display:block}
-h1,h2,h3{font-family:Fraunces,ui-serif,Georgia,serif; font-weight:600; letter-spacing:-.015em; margin:0}
-h1{font-size:clamp(2rem,6.2vw,3.05rem); line-height:1.12}
-h2{font-size:clamp(1.6rem,4.4vw,2.25rem); line-height:1.2; margin-bottom:.9rem}
-h3{font-size:1.18rem; line-height:1.35; margin-bottom:.5rem}
-p{margin:0 0 1.05rem}
-a{color:inherit}
-.env{max-width:var(--largura); margin-inline:auto; padding-inline:1.35rem}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:24px}
+@media (min-width:880px){html{scroll-padding-top:88px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--pergaminho);color:var(--grafite);font:400 16px/1.65 var(--sans);
+  overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--tinta);text-underline-offset:3px}
+b,strong{font-weight:600}
+:focus-visible{outline:2px solid var(--tinta);outline-offset:3px}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3{margin:0}
+h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.025em;color:var(--tinta);margin-bottom:20px;text-wrap:balance}
+h1{font-size:clamp(34px,4.4vw,52px);line-height:1.08}
+@media (max-width:640px){h1{font-size:30px;line-height:1.12}}
+h2{font-size:clamp(30px,4.2vw,50px);line-height:1.08}
+h3{font:600 20px/1.3 var(--sans);letter-spacing:-.01em;margin-bottom:10px;color:var(--grafite)}
+p{margin:0 0 16px}
+ul{padding-left:1.15rem;margin:0 0 16px}
+li{margin-bottom:.5rem}
+.pequeno{font-size:14px;line-height:1.55;color:var(--pedra)}
+.sub{color:var(--pedra);font-size:17px;line-height:1.6}
+.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.55}
+.olho{display:block;margin-bottom:14px;font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pedra)}
+.centro{text-align:center}
+code,.mono{font-family:var(--mono);font-size:.88em;font-weight:400}
+/* citacao tecnica: o unico uso do teal fora do selo */
+.fonte{color:var(--citacao);font-family:var(--mono);font-size:.86rem}
+/* «sem fonte»: e' a AUSENCIA de citacao, entao nao leva o teal — pedra, em mono */
+.sem-fonte{color:var(--pedra);font-family:var(--mono);font-size:.86rem}
+.escuro .sem-fonte{color:var(--perg-60)}
+
+/* ---------- grade ----------
+   `.col`/`.col.larga` sao do prototipo; `.env`/`.txt` sao os nomes antigos, com a
+   mesma medida: coluna larga de 76rem e coluna de leitura de 48rem, centradas. */
+.col,.env{width:min(100% - 2*var(--gut),var(--largura));margin-inline:auto}
+.col{width:min(100% - 2*var(--gut),var(--texto))}
+.col.larga{width:min(100% - 2*var(--gut),var(--largura))}
 .txt{max-width:var(--texto)}
-/* RITMO ENTRE SECOES — padronizado em 16/09/2026, pedido dele: «diminua, equilibre,
-   equalize e padronize os espacos entre dobras/secoes que hoje estao muito heterogeneos».
-   Medido na vitrine a 1280px, ANTES: o vao visivel entre secoes de mesmo fundo ia de
-   79 a 207px. O CSS dava o mesmo padding a todas (84px) — a heterogeneidade vinha de
-   SOMA: duas secoes vizinhas de mesmo fundo empilham 84 de uma + 84 da outra (168px),
-   e a margem do ultimo paragrafo acrescentava mais 17 (185px).
-   AGORA, medido depois: um vao so', `--secao` (64px em tela larga, 48px no celular).
-   - Mesmo fundo: a segunda secao nao repete o respiro — o vao e' um `--secao`.
-   - Troca de fundo (claro/escuro): cada bloco colorido mantem seu `--secao` por dentro,
-     porque a cor e' a borda; sem padding o texto encostaria no limite da faixa.
-   - A ultima margem do conteudo da secao sai, para nao somar ao padding.
-   Excecoes, de proposito: o hero (a imagem ja' e' o fim dele), o indice (tem borda no
-   topo, e sem padding o texto colaria na linha) e a juncao garantia/pos-garantia (meio
-   vao — ver o bloco da garantia). */
-:root{--secao:clamp(3rem,6vw,4rem)}
+.env>.txt,.env.txt{margin-inline:auto}
+.env.txt{width:min(100% - 2*var(--gut),var(--texto))}
+
+/* ---------- ritmo entre secoes ----------
+   Um vao so' (--secao: 72px no celular, 112px a partir de 880px). Duas secoes
+   vizinhas de MESMO fundo nao somam o respiro: a segunda perde o topo. Troca de
+   fundo mantem o padding dos dois lados, porque a cor e' a borda. */
 section{padding-block:var(--secao)}
-section:not(.escuro):not(.hero) + section:not(.escuro):not(.indice),
-section.escuro:not(.hero) + section.escuro{padding-top:0}
-/* `:not(.hero)` desde 16/09/2026, quando a abertura da vitrine ficou vinho junto com a
-   secao seguinte (pedido dele). O hero termina na imagem, sem padding embaixo; sem esta
-   excecao a secao escura seguinte perderia o topo e o texto colaria na foto. */
-/* Costura: as duas faixas vinho terminam e comecam em fracao de pixel (medido: 785,30 e
-   784,30), e o pergaminho do body vazava numa linha fina atravessando a pagina. Um pixel
-   de sobreposicao fecha a costura sem mudar nenhuma medida visivel. */
+section:not(.escuro):not(.alt):not(.heroi):not(.convite):not(.galeria)
+  + section:not(.escuro):not(.alt):not(.convite):not(.galeria):not(.indice){padding-top:0}
+section.escuro:not(.hero):not(.heroi) + section.escuro,
+section.alt + section.alt{padding-top:0}
 .hero.escuro + .escuro{margin-top:-1px}
 section > .env > :last-child,
 section > .env > :last-child > :last-child,
-section > .env > :last-child > :last-child > :last-child{margin-bottom:0}
-.escuro{background:var(--tinta-fundo); color:var(--pergaminho)}
-.escuro .sub,.escuro li{color:#D9C9BE}
-.sub{color:var(--pedra); font-size:1.09rem}
+section > .col > :last-child{margin-bottom:0}
+/* faixa clara alternada (o --cartao do prototipo) */
+.alt{background:var(--cartao);border-block:1px solid var(--linha)}
 
-/* topo — assinatura do Acervo, submarca. Maior que a antiga assinatura da
-   Compendia (190px): aqui quem assina em peso e o Acervo, nao a Compendia
-   (regra de hierarquia, brandbook §12.1). Piso 180px fica acima dos ~96px
-   em que a palavra fecha os contraformas (§7). */
-.topo{padding:1.15rem 0; border-bottom:1px solid var(--linha)}
-.topo img{width:clamp(180px,34vw,260px)}
+/* ---------- superficie escura ---------- */
+.escuro{background:var(--tinta-fundo);color:var(--pergaminho)}
+.escuro h1,.escuro h2,.escuro h3{color:var(--pergaminho)}
+.escuro .sub,.escuro li,.escuro .pequeno{color:var(--perg-75)}
+.escuro .olho{color:var(--perg-60)}
+.escuro a{color:var(--pergaminho)}
+.escuro :focus-visible,.galeria a:focus-visible,.topo :focus-visible,.rodape :focus-visible,
+.convite :focus-visible,.heroi :focus-visible{outline-color:var(--pergaminho)}
 
-/* hero */
-.hero{padding-top:var(--secao); padding-bottom:0}
-.hero h1{margin-bottom:1rem}
-.hero .sub{max-width:34rem}
+/* ---------- botoes ----------
+   `.btn` (prototipo) e `.cta` (nome antigo, e o que o gerador emite) sao o MESMO
+   botao em pilula. `.contorno` = `.secundario`. */
+.btn,.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;
+  border-radius:999px;border:1.5px solid var(--tinta);background:var(--tinta);color:var(--pergaminho);
+  font:600 16px/1.2 var(--sans);text-decoration:none;text-align:center;cursor:pointer;
+  transition:transform .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease}
+.cta{margin-top:.4rem}
+.btn:hover,.cta:hover{transform:translateY(-1px);background:var(--tinta-fundo);border-color:var(--tinta-fundo);
+  box-shadow:0 10px 22px -12px rgba(44,12,23,.7)}
+.btn.contorno,.cta.secundario{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+.btn.contorno:hover,.cta.secundario:hover{background:var(--tinta);color:var(--pergaminho)}
+.btn.cheio{display:flex;width:100%;margin-top:24px}
+@media (min-width:640px){.btn.cheio{display:inline-flex;width:auto;min-width:22rem}}
+/* sobre fundo escuro o botao inverte: pergaminho com texto tinta */
+.escuro .cta,.escuro .btn,.heroi .btn,.convite .btn,.hero-video .hv-fim .cta,.galeria .btn{
+  background:var(--pergaminho);border-color:var(--pergaminho);color:var(--tinta)}
+.escuro .cta:hover,.escuro .btn:hover,.heroi .btn:hover,.convite .btn:hover,
+.hero-video .hv-fim .cta:hover,.galeria .btn:hover{background:var(--cartao);border-color:var(--cartao);color:var(--tinta)}
+/* Botao sem destino: existe enquanto o checkout nao existe. Nao e' link, nao
+   entra na ordem de tab, nao finge ser clicavel. */
+.cta.inerte,.cta.inerte:hover{background:transparent;color:var(--pedra);border:1.5px dashed var(--perg-45);
+  cursor:default;transform:none;box-shadow:none}
+/* Em secao escura, pedra sobre o cartao escuro dava 2,72:1 (revisao de 17/10/2026). */
+.escuro .cta.inerte,.escuro .cta.inerte:hover{color:var(--perg-60);border-color:var(--perg-45)}
+.aviso-cta{font-size:14px;line-height:1.55;color:var(--pedra);margin-top:.9rem}
+.escuro .aviso-cta{color:var(--perg-60)}
+
+/* ---------- cabecalho ----------
+   Escuro, com a assinatura NEGATIVA. Fixo no topo so' a partir de 880px: no
+   celular o menu quebra em duas linhas e um cabecalho fixo comeria a tela. */
+.topo{background:var(--tinta-fundo);color:var(--pergaminho);border-bottom:1px solid rgba(243,235,218,.12)}
+@media (min-width:880px){.topo{position:sticky;top:0;z-index:20}}
+.topo .env{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;min-height:66px;padding-block:12px}
+.assina{display:block;line-height:0;flex:0 1 auto}
+.topo .assina img{width:clamp(150px,30vw,200px);height:auto}
+.menu{order:3;display:flex;flex-wrap:wrap;gap:4px 20px;width:100%;font:400 14px/1.4 var(--sans)}
+.menu a{color:var(--perg-75);text-decoration:none;padding:4px 0;transition:color .15s}
+.menu a:hover{color:var(--pergaminho)}
+.menu a[aria-current="page"]{color:var(--pergaminho);font-weight:600}
+.cta-topo{display:none}
+@media (min-width:640px){
+  .cta-topo{display:inline-flex;min-height:42px;padding:0 20px;font-size:14px;margin:0;
+    background:var(--pergaminho);border-color:var(--pergaminho);color:var(--tinta)}
+  .cta-topo:hover{background:var(--cartao);border-color:var(--cartao);color:var(--tinta)}
+}
+@media (min-width:880px){
+  .topo .env{flex-wrap:nowrap;gap:28px}
+  .menu{order:0;width:auto;margin-left:auto;gap:28px}
+}
+
+/* ---------- heroi (venda): foto sob camada SOLIDA, coluna centrada de 48rem ---------- */
+.heroi{position:relative;isolation:isolate;color:var(--pergaminho);
+  background:var(--grafite) url("/bibliotheca/img/hero.jpg") center/cover no-repeat}
+.heroi::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(28,23,18,.72)}
+.heroi h1{color:var(--pergaminho)}
+.heroi .olho{color:var(--perg-75)}
+.heroi .lead{color:var(--perg-90);max-width:38rem}
+.heroi .hero-video{max-width:46rem;margin-top:36px}
+.heroi .pequeno{color:var(--perg-60);max-width:46rem;margin-top:12px;font-size:13px}
+@media (min-width:880px){.heroi{padding-block:120px 112px}}
+
+/* hero das paginas antigas (home, autor, termos, privacidade, steiner): claro */
+.hero h1{margin-bottom:16px}
+.hero .sub{max-width:38rem}
+.hero.escuro .sub{color:var(--perg-75)}
 .hero-img{margin-top:clamp(2rem,5vw,3rem)}
-.hero-img img{width:100%; border-radius:2px;
-  /* CORTE — 16/09/2026, pedido dele: «corta 20% de teto e 10% na base desta imagem».
-     Feito por CSS e nao no arquivo: `hero.jpg` segue inteiro (1600x900) e o corte se
-     desfaz apagando tres linhas. A conta: sobra 70% da altura -> 1600 x 630, entao
-     aspect-ratio 160/63; o que sai se reparte 20 em cima e 10 embaixo, entao o recorte
-     encosta a 20/(20+10) = 66,67% do excedente, medido de cima. So' a vitrine usa
-     `.hero-img`, nas duas arvores. */
-  aspect-ratio:160/63; object-fit:cover; object-position:50% 66.667%}
+.hero-img img{width:100%;border-radius:var(--r);aspect-ratio:160/63;object-fit:cover;object-position:50% 66.667%}
 
-/* botao */
-.cta{
-  display:inline-block; background:var(--tinta); color:var(--pergaminho);
-  text-decoration:none; font-weight:600; font-size:1.02rem;
-  padding:.95rem 1.7rem; border-radius:3px; margin-top:.4rem;
-  border:1px solid var(--tinta);
-}
-.cta:hover{background:var(--tinta-fundo); border-color:var(--tinta-fundo)}
-.escuro .cta{background:var(--pergaminho); color:var(--tinta); border-color:var(--pergaminho)}
-.aviso-cta{font-size:.82rem; color:var(--pedra); margin-top:.7rem}
-.escuro .aviso-cta{color:#B9A79A}
+/* ---------- video do heroi ----------
+   Era <style> dentro do molde da venda (PT e EN). Veio para ca' com o desenho novo:
+   moldura de 12px, botao em pilula pergaminho, mesmo comportamento. */
+.hero-video{position:relative;aspect-ratio:16/9;width:100%;background:var(--grafite);border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(243,235,218,.2);box-shadow:0 40px 80px -40px rgba(28,23,18,.8)}
+.hero-video video{display:block;width:100%;height:100%;object-fit:cover;background:var(--grafite)}
+.hero-video .hv-play{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;
+  min-height:42px;padding:0 18px;border-radius:999px;cursor:pointer;border:0;
+  background:var(--pergaminho);color:var(--tinta);font:600 14px/1 var(--sans);box-shadow:0 6px 16px -8px rgba(28,23,18,.6)}
+@media (max-width:400px){.hero-video .hv-play{left:10px;bottom:10px;min-height:38px;padding:0 14px;font-size:13px}}
+.hero-video .hv-play:hover{background:var(--cartao)}
+.hero-video .hv-play:focus-visible,.hero-video .hv-denovo:focus-visible,
+.hero-video .hv-fim .cta:focus-visible,.hero-video video:focus-visible,.hero-video .hv-cc:focus-visible{
+  outline:3px solid var(--pergaminho);outline-offset:3px}
+.hero-video .hv-fim{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.7rem;padding:1rem;text-align:center;background:rgba(28,23,18,.86)}
+.hero-video .hv-fim .cta{margin:0}
+.hero-video .hv-denovo{background:none;border:0;padding:.3rem .5rem;cursor:pointer;color:var(--pergaminho);
+  font:400 14px/1.3 var(--sans);text-decoration:underline;text-underline-offset:3px}
+.hero-video [hidden]{display:none}
+.hero-video .hv-cc{position:absolute;left:12px;top:12px;z-index:2;font:600 13px/1 var(--sans);color:var(--pergaminho);
+  background:rgba(28,23,18,.78);border:1px solid rgba(243,235,218,.55);border-radius:999px;padding:.45rem .8rem;cursor:pointer}
+.hero-video .hv-cc[aria-pressed="true"]{background:var(--pergaminho);color:var(--tinta-fundo)}
 
-/* citacao tecnica */
-code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:.92em}
-.fonte{color:var(--citacao); font-family:"JetBrains Mono",ui-monospace,monospace; font-size:.86rem}
+/* ---------- cartoes e respostas ---------- */
+.duas{display:grid;gap:16px;margin-top:8px}
+@media (min-width:640px){.duas{grid-template-columns:1fr 1fr;gap:20px}}
+.cartao{position:relative;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--r);padding:26px 24px}
+.cartao h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pedra);margin-bottom:14px}
+.resposta blockquote{margin:0 0 14px;font:400 18px/1.5 var(--serif)}
+.resposta.generica{background:transparent;border:1.5px dashed var(--perg-45);color:var(--pedra)}
+.resposta.generica .pequeno{margin:0}
+.resposta.bibliotheca{border:1.5px solid var(--tinta);box-shadow:var(--sombra)}
+.resposta.bibliotheca h3{color:var(--tinta)}
+.rodape-resposta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:16px;
+  padding-top:14px;border-top:1px solid var(--linha);color:var(--pedra)}
+/* o selo «conferido»: o lugar do teal */
+.selo{display:inline-flex;align-items:center;gap:6px;color:var(--citacao);border:1px solid var(--citacao);border-radius:999px;
+  padding:3px 11px;font:600 13px/1.4 var(--sans)}
+.selo svg{width:13px;height:13px}
+.depois-par{margin-top:16px}
 
-/* comparacao */
-.par{display:grid; gap:1.1rem; margin-top:1.6rem}
-@media(min-width:46rem){.par{grid-template-columns:1fr 1fr; gap:1.35rem}}
-.caixa{background:var(--cartao); border:1px solid var(--linha); border-radius:3px; padding:1.25rem}
-.caixa.ruim{background:#EFE7D6}
-.caixa h3{font-family:Inter; font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra); margin-bottom:.7rem}
-.caixa p{margin:0; font-size:.99rem}
-.caixa .fonte{display:block; margin-top:.8rem}
+/* ---------- abas (controle segmentado por radio, sem JavaScript) ---------- */
+.abas>input{position:absolute;opacity:0;pointer-events:none}
+.abas .barra{display:flex;gap:4px;padding:4px;margin:8px 0 20px;background:var(--pergaminho);border:1px solid var(--linha);border-radius:999px}
+.abas .barra label{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:999px;
+  font:600 15px/1 var(--sans);color:var(--pedra);cursor:pointer;transition:background .18s,color .18s}
+.abas .barra label:hover{color:var(--tinta)}
+.abas .painel{display:none}
+.abas>input:nth-of-type(1):checked~.barra label:nth-child(1),
+.abas>input:nth-of-type(2):checked~.barra label:nth-child(2),
+.abas>input:nth-of-type(3):checked~.barra label:nth-child(3){background:var(--tinta);color:var(--pergaminho)}
+.abas>input:nth-of-type(1):checked~.p1,.abas>input:nth-of-type(2):checked~.p2,.abas>input:nth-of-type(3):checked~.p3{display:block}
+.abas>input:focus-visible~.barra{outline:2px solid var(--tinta);outline-offset:3px}
+/* o video de cada aba: real, com controles; a legenda diz o que e' e quanto dura */
+.video-aba{margin:0}
+.video-aba video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--r);background:var(--tinta-fundo);
+  border:1px solid var(--tinta-fundo);box-shadow:var(--sombra)}
+.video-aba figcaption{margin-top:10px;font-size:14px;line-height:1.5;color:var(--pedra)}
+/* passos em cartao (so' a venda). `.passos` continua sendo o das paginas antigas. */
+.passos-cartao{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;counter-reset:pc}
+@media (min-width:640px){.passos-cartao{grid-template-columns:1fr 1fr}}
+.passos-cartao li{counter-increment:pc;display:flex;align-items:center;gap:12px;min-height:56px;margin:0;padding:10px 14px;
+  background:var(--pergaminho);border:1px solid var(--linha);border-radius:var(--r);font-weight:400}
+.passos-cartao li::before{content:counter(pc);flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--tinta);color:var(--pergaminho);font:600 13px/1 var(--sans)}
+.uso .btn.cheio{margin-top:28px}
 
-/* listas */
-ul{padding-left:1.15rem; margin:0 0 1.05rem}
-li{margin-bottom:.5rem}
-.duas{display:grid; gap:2rem}
-@media(min-width:46rem){.duas{grid-template-columns:1fr 1fr; gap:3rem}}
+/* ---------- passos numerados (termos, privacidade, guia) ---------- */
+.passos{counter-reset:p;list-style:none;padding:0;max-width:var(--texto)}
+.passos li{counter-increment:p;position:relative;padding-left:2.6rem;margin-bottom:1.05rem}
+.passos li::before{content:counter(p);position:absolute;left:0;top:.1rem;width:1.75rem;height:1.75rem;border-radius:50%;
+  background:var(--tinta);color:var(--pergaminho);font:600 13px/1 var(--sans);display:grid;place-items:center}
+.escuro .passos li::before{background:var(--pergaminho);color:var(--tinta)}
 
-/* passos */
-.passos{counter-reset:p; list-style:none; padding:0; max-width:var(--texto)}
-.passos li{counter-increment:p; position:relative; padding-left:2.5rem; margin-bottom:1.05rem}
-.passos li::before{
-  content:counter(p); position:absolute; left:0; top:.05rem;
-  width:1.65rem; height:1.65rem; border-radius:50%;
-  background:var(--tinta); color:var(--pergaminho);
-  font-size:.85rem; font-weight:600; display:grid; place-items:center;
-}
-.escuro .passos li::before{background:var(--pergaminho); color:var(--tinta)}
+/* ---------- preco ----------
+   Gerado por `precheckout()`: `.planos` > `.plano.destaque` + `.plano`. O plano em
+   destaque e' o cartao escuro; a etiqueta diz a CONTA, nao «mais vendido». */
+.planos{display:grid;gap:28px 16px;margin:24px 0 0}
+@media (min-width:640px){.planos{grid-template-columns:1fr 1fr;gap:20px}}
+.plano{position:relative;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--r);padding:26px 24px;
+  display:flex;flex-direction:column}
+.plano h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pedra);margin-bottom:14px}
+.plano .valor{margin:4px 0 14px;font:600 52px/1 var(--serif);letter-spacing:-.03em;color:var(--tinta)}
+.plano .valor small{font:400 15px/1 var(--sans);color:var(--pedra);letter-spacing:0}
+.plano p{color:var(--grafite-suave)}
+.plano.destaque{background:var(--tinta-fundo);border-color:var(--tinta-fundo);color:var(--perg-90);
+  box-shadow:0 36px 64px -36px rgba(44,12,23,.8);padding-top:36px}
+.plano.destaque h3{color:var(--perg-75)}
+.plano.destaque p{color:var(--perg-90)}
+.plano.destaque .valor{color:var(--pergaminho)}
+.plano.destaque .valor small{color:var(--perg-60)}
+.plano.destaque .cta{background:var(--pergaminho);border-color:var(--pergaminho);color:var(--tinta)}
+.plano.destaque .cta:hover{background:var(--cartao);border-color:var(--cartao)}
+.plano .cta{display:flex;width:100%;margin-top:auto}
+.plano.destaque .cta{margin-top:auto}
+.etiqueta{position:absolute;top:-13px;left:22px;padding:4px 12px;border-radius:999px;background:var(--pergaminho);color:var(--tinta);
+  border:1px solid var(--tinta);font:600 12px/1.4 var(--sans)}
+.escolha{display:block;margin:4px 0 6px;font:600 14px/1.4 var(--sans);color:var(--pedra)}
+.plano select{width:100%;min-height:50px;padding:0 14px;margin-bottom:12px;border-radius:var(--r);border:1px solid var(--perg-45);
+  background:var(--pergaminho);color:var(--grafite);font:400 16px var(--sans)}
+.plano select:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
+.plano .nota{font-size:14px;line-height:1.5;color:var(--pedra);margin:10px 0 0}
+.plano.destaque .nota{color:var(--perg-60)}
+.aviso-preco{margin-top:20px}
 
-/* autores */
-.autores{display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem; margin-top:2rem}
+/* ---------- autores: o palco escuro (o carrossel e' o do bloco abaixo) ---------- */
+.galeria{background:var(--tinta-fundo);color:var(--perg-90)}
+.galeria h2,.galeria h3{color:var(--pergaminho)}
+.galeria .olho,.galeria .pequeno,.galeria .sub{color:var(--perg-75)}
+.galeria .carrossel-nota{color:var(--perg-60)}
+.galeria .nota-retratos{margin-top:16px;color:var(--perg-60)}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:4px auto 18px;color:var(--perg-45);max-width:14rem}
+.orn::before,.orn::after{content:"";flex:1;height:1px;background:currentColor;opacity:.6}
+.orn svg{width:12px;height:12px;flex:none}
+/* a lista dos autores dentro da galeria: legivel no escuro, sem teal */
+.lista-autores{margin-top:56px;padding-top:40px;border-top:1px solid rgba(243,235,218,.16)}
+.lista-autores h3{font:600 24px/1.2 var(--serif);letter-spacing:-.02em;margin-bottom:6px}
+.galeria .indice-autores a{color:var(--perg-90)}
+.galeria .indice-autores a:hover{color:var(--pergaminho);border-bottom-color:rgba(243,235,218,.4)}
+
+/* ---------- confira + checagens ---------- */
+.confira{display:grid;gap:40px;align-items:center}
+.gravura{margin:0;max-width:24rem;justify-self:center}
+.gravura img{display:block;border-radius:18px;mix-blend-mode:multiply;box-shadow:var(--sombra)}
+@media (min-width:880px){.confira{grid-template-columns:5fr 7fr;gap:80px}.gravura{max-width:none}}
+.confira h3{margin-top:28px}
+ol.lista{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px;counter-reset:c}
+ol.lista>li{counter-increment:c;position:relative;margin:0;padding:14px 16px 14px 56px;background:var(--cartao);
+  border:1px solid var(--linha);border-radius:var(--r);line-height:1.5}
+ol.lista>li::before{content:counter(c);position:absolute;left:16px;top:14px;display:grid;place-items:center;width:26px;height:26px;
+  border-radius:50%;border:1.5px solid var(--tinta);color:var(--tinta);font:600 13px/1 var(--sans)}
+/* «para quem e' / nao e'»: marcadores desenhados (visto e xis), em vez de bolinha */
+ul.marcas{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+ul.marcas>li{position:relative;margin:0;padding:14px 16px 14px 48px;background:var(--pergaminho);border:1px solid var(--linha);
+  border-radius:var(--r);line-height:1.5}
+ul.marcas>li::before{content:"";position:absolute;left:16px;top:17px;width:18px;height:18px;border-radius:50%;
+  background:var(--tinta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.6' fill='none' stroke='%23F3EBDA' stroke-width='2'/%3E%3C/svg%3E") center/12px no-repeat}
+ul.marcas.nao>li{background:transparent;color:var(--pedra)}
+ul.marcas.nao>li::before{background:var(--perg-45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 5l6 6M11 5l-6 6' fill='none' stroke='%23F3EBDA' stroke-width='2'/%3E%3C/svg%3E") center/11px no-repeat}
+.subtitulo-serif{margin-top:32px;font:600 24px/1.2 var(--serif);letter-spacing:-.02em;color:var(--tinta)}
+.bloco-seguinte{margin-top:32px}
+
+/* ---------- perguntas (acordeao) ---------- */
+details{border-bottom:1px solid var(--linha)}
+h2+details{border-top:1px solid var(--linha);margin-top:8px}
+summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:14px 0;cursor:pointer;
+  list-style:none;font:600 17px/1.35 var(--sans);color:var(--grafite)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--linha);
+  background:var(--pergaminho);font:400 18px/1 var(--sans);color:var(--tinta);transition:transform .2s}
+details[open]>summary::after{transform:rotate(45deg)}
+details .conteudo{padding:0 0 20px;color:var(--pedra)}
+details>p{margin:0 0 20px;color:var(--grafite-suave)}
+.escuro summary{color:var(--pergaminho)}
+.escuro details{border-color:rgba(243,235,218,.16)}
+
+/* ---------- convite final: panorama sob camada solida ---------- */
+.convite{position:relative;isolation:isolate;text-align:center;color:var(--pergaminho);
+  background:var(--tinta-fundo) url("/bibliotheca/img/ruinas-poente.jpg") 18% center/cover no-repeat}
+.convite::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(44,12,23,.58)}
+.convite h2{color:var(--pergaminho)}
+.convite .olho{color:var(--perg-75)}
+.convite p{color:var(--perg-90);font-size:18px;max-width:36rem;margin-inline:auto}
+@media (min-width:880px){.convite{padding-block:140px}}
+
+/* ---------- comparacao e caixas (paginas antigas) ---------- */
+.par{display:grid;gap:16px;margin-top:24px}
+@media (min-width:46rem){.par{grid-template-columns:1fr 1fr;gap:20px}}
+/* Dentro de .env (76rem), o par fica na coluna de texto (48rem), centrado como ela:
+   na home o cartao «Em desenvolvimento» encostava na borda esquerda, fora da coluna (17/10/2026). */
+.env > .par{max-width:48rem;margin-inline:auto}
+.caixa{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--r);padding:24px}
+.caixa.ruim{background:var(--caixa-errada)}
+.caixa h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pedra);margin-bottom:12px}
+.caixa p{margin:0;font-size:16px;color:var(--grafite-suave)}
+.caixa .fonte{display:block;margin-top:.8rem}
+.escuro .caixa{background:rgba(243,235,218,.06);border-color:rgba(243,235,218,.16)}
+.escuro .caixa h3{color:var(--perg-60)}
+.escuro .caixa p{color:var(--perg-90)}
+
+/* autores (grade antiga) */
+.autores{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2rem}
 @media(min-width:38rem){.autores{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:60rem){.autores{grid-template-columns:repeat(7,1fr); gap:.85rem}}
-.autor img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; filter:grayscale(.25)}
-.autor b{display:block; font-size:.9rem; margin-top:.5rem; font-weight:600}
-.autor span{display:block; font-size:.8rem; color:var(--pedra)}
-.escuro .autor span{color:#B9A79A}
+@media(min-width:60rem){.autores{grid-template-columns:repeat(7,1fr);gap:.85rem}}
+.autor img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);filter:grayscale(.25)}
+.autor b{display:block;font-size:.9rem;margin-top:.5rem}
+.autor span{display:block;font-size:.8rem;color:var(--pedra)}
+.escuro .autor span{color:var(--perg-60)}
 
-/* faixa */
 .faixa img{width:100%}
 
-/* faq */
-details{border-bottom:1px solid var(--linha); padding:1.05rem 0}
-details summary{cursor:pointer; font-weight:600; font-size:1.05rem; list-style:none}
-details summary::-webkit-details-marker{display:none}
-details summary::after{content:"+"; float:right; color:var(--pedra); font-weight:400}
-details[open] summary::after{content:"–"}
-details p{margin:.8rem 0 0; color:#3A322B}
+/* lacuna a preencher (§4.1: so' rascunho — lacuna no ar reprova a peca) */
+.lacuna{background:#FBF3D8;border:1px dashed #B8952F;border-radius:var(--r);padding:.85rem 1rem;font-size:.86rem;color:#6B531A;margin:1rem 0}
 
-/* rodape — lockup "uma produção" + assinatura da Compendia, subordinada
-   (brandbook §12.1). Nunca a versao com slogan aqui: slogan e territorio da
-   assinatura da propria Compendia, nao de uma aparicao em rodape de produto. */
-.rodape{border-top:1px solid var(--linha); padding-block:2.5rem; font-size:.9rem; color:var(--pedra)}
-.produtor{display:flex; align-items:center; gap:.65rem; margin:0 0 1.1rem}
-.produtor span{font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra)}
-.produtor img{width:110px; margin:0}
-.rodape a{color:var(--grafite)}
-
-/* lacuna a preencher */
-.lacuna{
-  background:#FBF3D8; border:1px dashed #B8952F; border-radius:3px;
-  padding:.85rem 1rem; font-size:.86rem; color:#6B531A; margin:1rem 0;
-}
-
-/* texto e imagem lado a lado, sem cortar o assunto da foto */
-.lado-a-lado{display:grid; gap:2rem; align-items:center}
-.lado-a-lado img{border-radius:2px; width:100%}
+.lado-a-lado{display:grid;gap:2rem;align-items:center}
+.lado-a-lado img{border-radius:var(--r);width:100%}
 @media(min-width:46rem){
-  .lado-a-lado{grid-template-columns:1fr .8fr; gap:3.5rem}
-  .lado-a-lado img{max-height:30rem; width:auto; margin-left:auto}
+  .lado-a-lado{grid-template-columns:minmax(0,32rem) auto;justify-content:center;gap:3.5rem}
+  .lado-a-lado img{max-height:30rem;width:auto}
 }
-
-/* planos */
-.planos{display:grid; gap:1.1rem; margin:1.8rem 0 2rem}
-@media(min-width:46rem){.planos{grid-template-columns:1fr 1fr; gap:1.35rem; max-width:46rem}}
-.plano{background:var(--cartao); border:1px solid var(--linha); border-radius:3px; padding:1.5rem}
-.plano.destaque{border-color:var(--tinta); border-width:2px}
-.plano h3{font-family:Inter; font-size:.8rem; letter-spacing:.09em; text-transform:uppercase; color:var(--pedra); margin-bottom:.6rem}
-.plano .valor{font-family:Fraunces,ui-serif,Georgia,serif; font-size:2.3rem; line-height:1;
-  color:var(--tinta); margin:0 0 .7rem; font-weight:600}
-.plano p:last-child{margin:0; font-size:.97rem; color:#3A322B}
 
 /* ============================================================
    CARTAS DE AUTOR — grade fluida + giro
@@ -541,321 +736,180 @@ details p{margin:.8rem 0 0; color:#3A322B}
 /* ============================================================
    IDIOMA — o seletor e o convite
    ============================================================
-   `PT · EN` em texto, nao bandeira: bandeira e' pais, nao lingua. Ingles
-   nao e' dos Estados Unidos e portugues nao e' so' do Brasil, e o §10 do
-   brandbook manda que toda afirmacao se confira. Texto tambem ocupa menos
-   espaco no cabecalho, que e' o que o pedido pedia.
+   `PT · EN` em texto ao lado da bandeira: bandeira e' pais, nao lingua; quem
+   NOMEIA a lingua e' a sigla (ver `seletor_idioma()` no gerador). O seletor do
+   topo vive no cabecalho ESCURO desde 17/10/2026: tons da rampa do pergaminho,
+   foco em pergaminho (o teal saiu daqui — acento so' no selo e na citacao).
    ============================================================ */
-.idioma{
-  display:flex; align-items:center; gap:.35rem; flex:0 0 auto;
-  font-size:.78rem; letter-spacing:.06em; color:var(--pedra);
-}
-.idioma a{color:var(--pedra); text-decoration:none; padding:.2rem .1rem;
-  border-bottom:1px solid transparent; transition:color .15s, border-color .15s}
-.idioma a:hover{color:var(--tinta); border-bottom-color:var(--linha)}
-.idioma a:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
-.idioma [aria-current]{color:var(--tinta); font-weight:600}
+.idioma{display:flex;align-items:center;gap:.35rem;flex:0 0 auto;margin-left:auto;
+  font-size:.78rem;letter-spacing:.06em;color:var(--perg-60)}
+@media (min-width:880px){.idioma{margin-left:0}}
+.idioma a{color:var(--perg-75);text-decoration:none;transition:color .15s,background .15s}
+.idioma a:hover{color:var(--pergaminho);background:rgba(243,235,218,.1)}
+.idioma a:focus-visible{outline:2px solid var(--pergaminho);outline-offset:2px}
+.idioma [aria-current]{color:var(--pergaminho);font-weight:600}
 .idioma [aria-hidden]{opacity:.45}
-
-/* A BANDEIRA (16/09/2026, a pedido dele). Ela leva `aria-hidden` porque quem
-   nomeia a lingua e' a sigla ao lado — mas a regra generica de `[aria-hidden]`
-   acima existe para APAGAR o separador «·», e apagaria a bandeira junto. Por
-   isso esta linha devolve a opacidade cheia: a excecao e' de proposito, e sem
-   ela o pedido chega meio-feito, com a bandeira lavada. */
+/* A BANDEIRA leva `aria-hidden` (quem nomeia e' a sigla), e a regra de cima existe
+   para APAGAR o separador «·» — apagaria a bandeira junto. Esta linha devolve a
+   opacidade cheia, de proposito. */
 .idioma .bandeira,
-.idioma-rodape .bandeira{opacity:1; font-size:1.05em; line-height:1;
-  /* A fonte do site nao tem bandeira; sem esta pilha, alguns sistemas mostram
-     as duas letras do pais («BR») em vez do desenho. */
+.idioma-rodape .bandeira{opacity:1;font-size:1.05em;line-height:1;
   font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
 .idioma .bandeira{margin-right:.28rem}
 .idioma-rodape .bandeira{margin-right:.3rem}
 /* Alvo de toque: no celular a sigla sozinha era pequena demais para o dedo. */
-.idioma a,.idioma .atual{display:inline-flex; align-items:center;
-  padding:.3rem .32rem; border-radius:4px}
-.idioma a:hover{background:var(--linha); border-bottom-color:transparent}
+.idioma a,.idioma .atual{display:inline-flex;align-items:center;padding:.3rem .32rem;border-radius:6px}
 
-.idioma-rodape{margin:.2rem 0 .5rem; font-size:.82rem; color:var(--pedra)}
-.idioma-rodape a{color:var(--pedra)}
-.idioma-rodape [aria-current]{color:var(--tinta); font-weight:600}
+.idioma-rodape{margin:.2rem 0 .5rem;font-size:14px;color:var(--perg-60)}
+.idioma-rodape a{color:var(--perg-75)}
+.idioma-rodape [aria-current]{color:var(--pergaminho);font-weight:600}
 
-/* O convite aparece UMA vez, na primeira visita, e some quando a pessoa
-   decide — inclusive quando ela decide ficar. Nao e' faixa de promocao:
-   e' uma pergunta que se faz uma vez so'. */
-.convite-idioma{
-  display:flex; align-items:center; gap:.9rem; flex-wrap:wrap;
-  padding:.7rem 1.35rem; font-size:.88rem;
-  background:var(--tinta-fundo); color:var(--pergaminho);
-}
-.convite-idioma a{color:var(--pergaminho); font-weight:600; text-underline-offset:3px}
-.convite-idioma button{
-  margin-left:auto; display:grid; place-items:center;
-  width:1.8rem; height:1.8rem; padding:0; cursor:pointer;
-  background:none; border:1px solid rgba(243,235,218,.28); border-radius:50%;
-  color:var(--perg-60); transition:color .15s, border-color .15s;
-}
-.convite-idioma button:hover{color:var(--pergaminho); border-color:var(--perg-60)}
-.convite-idioma a:focus-visible,.convite-idioma button:focus-visible{
-  outline:2px solid var(--pergaminho); outline-offset:2px}
+/* O convite aparece UMA vez, na primeira visita, e some quando a pessoa decide. */
+.convite-idioma{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;padding:.7rem var(--gut);font-size:.88rem;
+  background:var(--grafite);color:var(--pergaminho);border-bottom:1px solid rgba(243,235,218,.12)}
+.convite-idioma a{color:var(--pergaminho);font-weight:600;text-underline-offset:3px}
+.convite-idioma button{margin-left:auto;display:grid;place-items:center;width:1.8rem;height:1.8rem;padding:0;cursor:pointer;
+  background:none;border:1px solid rgba(243,235,218,.28);border-radius:50%;color:var(--perg-60);transition:color .15s,border-color .15s}
+.convite-idioma button:hover{color:var(--pergaminho);border-color:var(--perg-60)}
+.convite-idioma a:focus-visible,.convite-idioma button:focus-visible{outline:2px solid var(--pergaminho);outline-offset:2px}
 
 /* ============================================================
-   INDICE DOS AUTORES — o pe da pagina de vendas
+   INDICE DOS AUTORES
    ============================================================
-   Colunas de CSS (`columns`) e nao grid: com 42 nomes de largura
-   desigual, o grid deixaria coluna curta ao lado de coluna cheia.
-   `columns` distribui pela ALTURA, entao as colunas terminam juntas
-   e a leitura desce cada uma de cima a baixo, como indice de livro.
-
-   Ele repete o que o carrossel ja mostra, de proposito: o carrossel
-   e' para descobrir e o indice e' para ACHAR — e so' o indice e'
-   link rastreavel para as 42 paginas de autor.
+   `columns` e nao grid: com nomes de largura desigual, as colunas terminam
+   juntas e a leitura desce cada uma, como indice de livro. 9rem cabe
+   `Schopenhauer` e deixa duas colunas em 375px.
+   O carrossel e' para descobrir; o indice e' para ACHAR — e e' o link rastreavel
+   para as paginas de autor.
    ============================================================ */
-.indice{border-top:1px solid var(--linha)}
-.indice h2{margin-bottom:.2rem}
-.indice-autores{
-  list-style:none; margin:1.4rem 0 0; padding:0;
-  /* 9rem, nao 11rem: com 11rem o celular de 375px caiu para UMA coluna
-     (332px uteis / 176px = 1) e a lista virou uma parede de 1.532px.
-     Com 9rem cabem duas la' e as quatro no desktop — o teto de 4 e' o
-     que impede seis colunas raquiticas em tela larga. O nome mais longo
-     do acervo e' `Schopenhauer`, que cabe folgado em 9rem. */
-  columns:4 9rem; column-gap:1.6rem;
-}
-.indice-autores li{break-inside:avoid; margin:0 0 .1rem}
-.indice-autores a{
-  display:block; padding:.3rem 0; font-size:.92rem;
-  color:var(--tinta); text-decoration:none;
-  border-bottom:1px solid transparent;
-  transition:color .15s ease-out, border-color .15s ease-out;
-}
-.indice-autores a:hover{color:var(--citacao); border-bottom-color:var(--linha)}
-.indice-autores a:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
+section.indice{border-top:1px solid var(--linha)}
+section.indice h2{margin-bottom:.2rem}
+.indice-autores{list-style:none;margin:1.4rem 0 0;padding:0;columns:4 9rem;column-gap:1.6rem}
+.indice-autores li{break-inside:avoid;margin:0 0 .1rem}
+.indice-autores a{display:block;padding:.3rem 0;font-size:15px;color:var(--tinta);text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease-out,border-color .15s ease-out}
+.indice-autores a:hover{color:var(--tinta-fundo);border-bottom-color:var(--linha)}
 
-/* pré-checkout — dois SKUs, e o avulso diz qual autor */
-/* O rotulo do seletor de autor: negrito e dois pontos maior que os .8rem de antes.
-   .8rem = 12,8px = 9,6pt; +2pt = 15,5px, que e' .97rem. Pedido dele em 06/09/2026:
-   e' a unica pergunta da secao de compra, e estava com peso de legenda. */
-.escolha{display:block; font-size:.97rem; font-weight:600; color:var(--pedra); margin:.9rem 0 .3rem}
-.plano select{
-  width:100%; font:400 .95rem Inter,sans-serif; color:var(--grafite);
-  padding:.6rem .7rem; border:1px solid var(--linha); border-radius:3px;
-  background:var(--cartao); margin-bottom:.9rem;
-}
-.plano select:focus-visible{outline:2px solid var(--citacao); outline-offset:2px}
-.plano .cta{display:block; text-align:center; margin-top:.4rem}
-.cta.secundario{background:transparent; color:var(--tinta); border:1.5px solid var(--tinta)}
-.plano .nota{font-size:.8rem; color:var(--pedra); margin:.7rem 0 0}
-
-/* Botão sem destino: existe enquanto o checkout não existe. Não é link, não
-   entra na ordem de tab, não finge ser clicável. */
-.cta.inerte{
-  display:inline-block; background:transparent; color:var(--pedra);
-  border:1.5px dashed var(--linha); cursor:default;
-}
-
-/* Selo do plano em destaque. Não diz "mais vendido" — ninguém comprou ainda, e
-   alegação que não se confere é o que a §10 reprova. Diz a conta. */
-.plano.destaque{position:relative}
-.plano .selo{
-  display:inline-block; margin-bottom:.8rem; padding:.3rem .6rem; border-radius:2px;
-  background:var(--tinta); color:var(--pergaminho);
-  font-size:.7rem; letter-spacing:.05em; line-height:1.3;
-}
-.plano .valor small{font-family:Inter,sans-serif; font-size:.95rem; color:var(--pedra); letter-spacing:0}
-
-/* ============================================================
-   CABECALHO COMPARTILHADO, MENU E PAGINAS NOVAS (home, termos,
-   privacidade, autor). Nenhuma cor nova: tudo sai das variaveis
-   da §4 ja' declaradas no topo deste arquivo.
-   Celular primeiro, medido em 375px: no menor, assinatura em cima
-   e menu embaixo, os dois na largura inteira; a partir de 46rem
-   eles dividem a linha.
-   ============================================================ */
-.topo .env{display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1.4rem}
-.assina{display:block; line-height:0}
-.menu{display:flex; flex-wrap:wrap; gap:.15rem 1.15rem; font-size:.92rem}
-.menu a{color:var(--pedra); text-decoration:none; padding:.15rem 0}
-.menu a:hover{color:var(--grafite)}
-.menu a[aria-current="page"]{color:var(--tinta); font-weight:600}
-@media(min-width:46rem){
-  .topo .env{flex-wrap:nowrap; justify-content:space-between}
-  .menu{gap:1.5rem}
-}
+/* ---------- rodape ----------
+   Escuro (grafite). Lockup «uma producao» + assinatura NEGATIVA da Compendia,
+   subordinada (brandbook §12.1). Nunca a versao com slogan aqui. */
+.rodape{background:var(--grafite);color:var(--perg-90);padding-block:56px;font-size:15px;line-height:1.6}
+.rodape a{color:var(--pergaminho)}
+.rodape p{margin:0 0 12px}
+.rodape > .env > :last-child{margin-bottom:0}
+.produtor{display:flex;align-items:center;gap:.75rem;margin:0 0 20px}
+.produtor span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--perg-60)}
+.produtor img{width:110px;margin:0}
+.contato-rodape{margin:0 0 12px}
 
 /* migalha — o caminho de volta, no topo da pagina de dentro */
-.migalha{font-size:.85rem; color:var(--pedra); margin:0 0 .5rem}
+.migalha{font-size:14px;color:var(--pedra);margin:0 0 .5rem}
 .migalha a{color:var(--pedra)}
+.escuro .migalha,.escuro .migalha a{color:var(--perg-60)}
 
 /* contato da home, sem marcador */
-.contato{list-style:none; padding:0}
-.contato a{color:var(--grafite)}
-
-/* canal de contato no rodape de TODA pagina (bloqueio de largada no 2, 11/09) */
-.contato-rodape{margin:0 0 .4rem}
+.contato{list-style:none;padding:0}
+.contato a{color:var(--tinta)}
+.escuro .contato a{color:var(--pergaminho)}
 
 /* ---------- pagina de autor ---------- */
-.autor-topo{display:grid; gap:1.6rem; align-items:start}
-@media(min-width:46rem){
-  .autor-topo{grid-template-columns:1fr 15rem; gap:2.5rem}
-}
-.autor-topo h1 small{display:block; font-family:Inter,sans-serif; font-size:.95rem;
-  font-weight:400; color:var(--pedra); letter-spacing:0; margin-top:.35rem}
-/* Ordem no celular: primeiro o retrato, depois o texto? NAO. O nome e o numero
-   decidem a compra; o rosto ilustra. Em 375px o texto vem primeiro e o retrato
-   desce — por isso o retrato e' o segundo filho na grade, e nao ha' `order`. */
-.retrato{margin:0; max-width:15rem}
-.retrato img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:3px;
-  border:1px solid var(--linha); filter:grayscale(.2)}
-.retrato figcaption{font-size:.72rem; line-height:1.4; color:var(--pedra); margin-top:.5rem}
-/* Autor sem retrato — 16 dos 28 hoje. A caixa continua existindo, com a inicial:
-   sem original em dominio publico nomeado, a §13 nao deixa entrar imagem. */
-.retrato.sem .sem-retrato{
-  display:grid; place-items:center; width:100%; aspect-ratio:4/5;
-  border:1px dashed var(--linha); border-radius:3px; background:var(--cartao);
-  font-family:Fraunces,ui-serif,Georgia,serif; font-size:4rem; font-weight:600;
-  color:var(--tinta);
-}
+.autor-topo{display:grid;gap:1.6rem;align-items:start}
+@media(min-width:46rem){.autor-topo{grid-template-columns:1fr 15rem;gap:2.5rem}}
+.autor-topo h1 small{display:block;font:400 15px/1.5 var(--sans);color:var(--pedra);letter-spacing:0;margin-top:.35rem}
+/* O nome e o numero decidem a compra; o rosto ilustra: em 375px o texto vem
+   primeiro e o retrato desce — por isso o retrato e' o segundo filho na grade. */
+.retrato{margin:0;max-width:15rem}
+.retrato img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);border:1px solid var(--linha);filter:grayscale(.2)}
+.retrato figcaption{font-size:12px;line-height:1.4;color:var(--pedra);margin-top:.5rem}
+.retrato.sem .sem-retrato{display:grid;place-items:center;width:100%;aspect-ratio:4/5;border:1px dashed var(--linha);border-radius:var(--r);
+  background:var(--cartao);font:600 4rem/1 var(--serif);color:var(--tinta)}
 
 /* lista de obras — o titulo em portugues manda, o original vem abaixo */
-.obras{list-style:none; padding:0; margin:1.4rem 0 1.2rem}
-.obra{
-  border-top:1px solid var(--linha); padding:.85rem 0; margin:0;
-  font-family:Fraunces,ui-serif,Georgia,serif; font-size:1.12rem; line-height:1.3;
-}
+.obras{list-style:none;padding:0;margin:1.4rem 0 1.2rem}
+.obra{border-top:1px solid var(--linha);padding:.85rem 0;margin:0;font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.3}
 .obra:last-child{border-bottom:1px solid var(--linha)}
-.obra-orig,.obra-meta{display:block; font-family:Inter,sans-serif; line-height:1.45}
-.obra-orig{font-size:.9rem; color:#3A322B; margin-top:.25rem}
-.obra-meta{font-size:.78rem; color:var(--pedra); margin-top:.1rem}
+.obra-orig,.obra-meta{display:block;font-family:var(--sans);font-weight:400;line-height:1.45}
+.obra-orig{font-size:.9rem;color:var(--grafite-suave);margin-top:.25rem}
+.obra-meta{font-size:.78rem;color:var(--pedra);margin-top:.1rem}
 
-.rotulo-bloco{font-size:.72rem; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--pedra); margin-bottom:.6rem}
+.rotulo-bloco{font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--pedra);margin-bottom:.6rem}
 .escuro .rotulo-bloco{color:var(--perg-45)}
-.temas-lista{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:.3rem}
-.temas-lista li{font-size:.82rem; padding:.2rem .5rem; border-radius:2px;
-  background:rgba(243,235,218,.1); color:var(--perg-90); margin:0}
+.temas-lista{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.3rem}
+.temas-lista li{font-size:.82rem;padding:.2rem .6rem;border-radius:999px;background:rgba(243,235,218,.1);color:var(--perg-90);margin:0}
 
-/* ============================================================
-   GARANTIA EM CAIXAS — pedido do Thiago em 13/09/2026: «De destaques com
-   boxes e cores de fundo diferentes na parte da Garantia». Desenho do chefe
-   de design do Escritorio (setor design, playbook design-ui-ux), aplicado
-   pela sessao 6 com aviso a sessao 4, dona deste arquivo.
-   Caixa clara = o direito (art. 49 do CDC), fundo --cartao, o mesmo da
-   comparacao. Caixa escura = como o dinheiro volta, fundo --tinta-fundo, o
-   mesmo de «como funciona»: prazo por forma de pagamento e' mecanismo.
-   Contraste calculado (WCAG): grafite/cartao 16,48:1 · pergaminho/tinta-fundo
-   15,11:1 · perg-75/tinta-fundo 11,13:1. Nenhuma cor nova.
-   ============================================================ */
-/* `.caixas-destaque`/`.caixa-destaque` sao o MESMO componente fora da Garantia —
-   pedido do Thiago em 14/09 para a juncao «Repare na coincidencia» / «O problema
-   nunca foi confiar em IA». Um componente, dois nomes de uso; nenhuma cor nova. */
-.garantia-caixas,
-.caixas-destaque{
-  display:grid; gap:1rem; margin:1.6rem 0 0;
-}
-/* EMPILHADAS, e nao lado a lado — corrigido na conferencia de tela, 13/09.
-   Lado a lado, numa coluna de 38rem, o paragrafo da garantia virava uma torre de
-   11 linhas e a caixa escura ficava com metade vazia: textos de tamanhos muito
-   diferentes em colunas iguais. Empilhadas, cada caixa tem a largura toda e as
-   duas terminam onde o texto termina. */
-
-.caixa-garantia,
-.caixa-destaque{
-  border-radius:3px; padding:1.35rem;
-}
-.caixa-garantia p,
-.caixa-destaque p{margin:0}
-.caixa-garantia p + p,
-.caixa-destaque p + p{margin-top:.6rem}
-
-.caixa-garantia.clara,
-.caixa-destaque.clara{
-  background:var(--cartao); border:1px solid var(--linha);
-}
-
-.caixa-garantia.escura,
-.caixa-destaque.escura{
-  background:var(--tinta-fundo); color:var(--pergaminho);
-  border:1px solid rgba(243,235,218,.16);
-}
-.caixa-garantia.escura .sub{color:var(--perg-75)}
-/* Fora da Garantia nao ha' titulo acima: a caixa comeca no topo da secao. */
+/* ---------- garantia e caixas em destaque (paginas antigas) ----------
+   Caixa clara = o direito; caixa escura = como o dinheiro volta. Empilhadas:
+   lado a lado, textos de tamanhos muito diferentes deixavam metade vazia. */
+.garantia-caixas,.caixas-destaque{display:grid;gap:1rem;margin:1.6rem 0 0}
 .caixas-destaque{margin-top:0}
-
-/* ============================================================
-   O SEAM entre a Garantia e a "retirada de pressao" ("Voce nao precisa
-   decidir agora...").
-   Medido em 375px, no ar: 113px de vao — 48px (padding-bottom da secao
-   Garantia) + 48px (padding-top da secao seguinte) + 16,8px (margem do
-   ultimo paragrafo). Nenhum elemento vazio: e' padding de duas secoes
-   empilhado.
-   DECISAO: o vao ENCOLHE, mas nao para zero e as duas secoes CONTINUAM
-   separadas. A "retirada de pressao" e' um segundo movimento do metodo,
-   deliberado (ver comentario no HTML: "RETIRADA DE PRESSAO — movimento do
-   metodo, depois da garantia e antes do FAQ") — fundir as duas secoes
-   apagaria essa virada de registro (de fato juridico concreto para
-   reasseguramento emocional). Mas 113px em 375px e' quase um terco da
-   tela sem NENHUM sinal — so' padding em cima de padding, porque as duas
-   secoes usam o floor do clamp(3rem,8vw,5.25rem) (8vw de 375px = 30px,
-   abaixo do minimo de 3rem = 48px). Reduzo os dois lados do encontro para
-   1.75rem cada: 28+28+16,8 = ~72.8px. Ainda e' uma pausa real (maior que o
-   espaco entre paragrafos dentro de uma secao), so' deixa de ser o dobro
-   do padding-block padrao por acidente de clamp.
-   ============================================================ */
+.caixa-garantia,.caixa-destaque{border-radius:var(--r);padding:24px}
+.caixa-garantia p,.caixa-destaque p{margin:0}
+.caixa-garantia p + p,.caixa-destaque p + p{margin-top:.6rem}
+.caixa-garantia.clara,.caixa-destaque.clara{background:var(--cartao);border:1px solid var(--linha)}
+.caixa-garantia.escura,.caixa-destaque.escura{background:var(--tinta-fundo);color:var(--pergaminho);border:1px solid rgba(243,235,218,.16)}
+.caixa-garantia.escura .sub{color:var(--perg-75)}
 .secao-garantia{padding-bottom:calc(var(--secao) / 2)}
-/* 16/09/2026: a pos-garantia nao precisa mais do proprio padding-top — a regra de
-   ritmo zera o topo de secao que segue outra de mesmo fundo. A juncao fica com meio
-   `--secao` (32px em tela larga), que continua sendo a pausa menor decidida acima. */
 
-/* ============================================================
-   CENTRALIZAR — pedido do Thiago em 13/09/2026, duas secoes:
-   «precisa centralizar na pagina a parte dos valores "Duas formas de acesso"»
-   e «tambem precisa centralizar "Toda IA generalista responde"».
-   A causa era a mesma nas duas: `.env` tem 64rem e e' centralizado, mas
-   `.txt` tem 38rem e ENCOSTA A ESQUERDA dentro dele — texto estreito colado
-   a esquerda, e o lado direito vazio em tela larga.
-   So' a partir de 46rem: em 375px as colunas ja' ocupam a largura toda, e
-   texto centralizado em coluna estreita le pior.
-   ============================================================ */
+/* ---------- centralizar (decisoes de 13 e 14/09/2026, mantidas) ---------- */
 @media(min-width:46rem){
-  /* Duas formas de acesso: titulo, cartoes e notas numa coluna so', a mesma
-     largura dos cartoes (.planos ja' e' 46rem), centralizada — assim a borda
-     esquerda do titulo e das notas cai exatamente na borda dos cartoes. */
-  #comprar .txt,
-  #comprar .planos{max-width:46rem; margin-inline:auto}
-  #comprar h2{text-align:center}
-
-  /* Comparacao: o texto de abertura centralizado sobre os dois cartoes, que
-     ja' ocupam a largura toda. Titulo e dois paragrafos curtos de abertura —
-     curtos o bastante para ler bem centralizados. */
-  .secao-comparacao .txt{margin-inline:auto; text-align:center}
-
-  /* Garantia e «Voce nao precisa decidir agora» na MESMA coluna dos valores.
-     Medido na conferencia de tela: com os valores centralizados e a Garantia
-     ainda encostada a esquerda, a borda esquerda saltava entre as duas secoes
-     vizinhas. Preco, garantia e ausencia de pressa sao um bloco so' de compra —
-     a coluna e' a mesma. */
-  /* `calc(46rem + 2.7rem)` e nao `46rem`: nestas duas secoes o `.txt` e' o PROPRIO
-     `.env` (`class="env txt"`), entao o padding lateral de 1.35rem fica DENTRO da
-     largura. Com 46rem puro o conteudo encolhia 43px e a borda caia 22px para dentro
-     da dos valores — medido: 352 contra 374 em 1440px. */
-  .secao-garantia .txt,
-  .secao-pos-garantia .txt{max-width:calc(46rem + 2.7rem); margin-inline:auto}
-
-  /* REGRA GERAL: coluna de texto dentro de `.env` centraliza, em qualquer pagina.
-     Nasceu secao por secao na /bibliotheca/ («Como funciona» e a dos autores
-     indexados, 230/602 px a 1440) e o Thiago pediu o mesmo na home e nas paginas de
-     autor em 14/09 — onde sobravam exatamente as secoes com este padrao: «Em
-     desenvolvimento» (home) e «O que esta' indexado» (autor), as duas 230/602. Com
-     tres paginas e o mesmo caso, regra por secao vira lista que esquece a proxima.
-     So' a COLUNA centraliza; o texto segue a esquerda (paragrafo longo le pior
-     centralizado). `env txt` num elemento so' ja' era centralizado pelo `.env`. */
-  .env > .txt{margin-inline:auto}
-
-  /* «Confira voce mesmo» (so' esta secao usa .lado-a-lado). Com `1fr .8fr` a grade
-     ocupava a largura toda e a foto — 318px, presa pelo max-height — ia para a borda
-     direita da coluna dela: texto a esquerda, foto a direita e 149px de vazio no meio,
-     medido em 1440px. Pedido do Thiago em 14/09. As colunas passam a ter o tamanho
-     do conteudo (texto ate' 32rem, foto no seu tamanho) e o PAR centraliza. */
-  .lado-a-lado{grid-template-columns:minmax(0,32rem) auto; justify-content:center}
-  .lado-a-lado img{margin-left:0}
+  #comprar .txt{margin-inline:auto}
+  .secao-comparacao .txt{margin-inline:auto;text-align:center}
 }
 
+/* O botao de pausa do carrossel pede `font:500` DENTRO do bloco travado acima, e o
+   500 nao e' servido (§5): o navegador ja' caia no 400. Esta linha so' declara o
+   que ja' se via, sem tocar no bloco. */
+.pausa{font-weight:400}
+.galeria .pausa{background:var(--cartao)}
+
+/* ============================================================
+   GUIA — /bibliotheca/guia/ e /bibliotheca/obrigado/ (mesmo molde)
+   ============================================================
+   Desenho do prototipo (guia-b): heroi com foto sob camada solida, abas
+   Claude/ChatGPT/GPT web (as `.abas` de cima), linha do tempo `.tempo`, `dl.formas`,
+   `.nota` e acordeoes. O heroi leva tambem `.heroi`, para herdar foco, botao e o
+   ritmo entre secoes; aqui so' muda o que o guia tem de diferente.
+   ============================================================ */
+.guia-heroi{background-position:center 40%}
+.guia-heroi::before{background:rgba(28,23,18,.74)}
+@media (min-width:880px){.guia-heroi{padding-block:var(--secao)}}
+.guia-heroi > .col.larga{width:min(100% - 2*var(--gut),var(--texto))}
+.guia-heroi h1{font-size:clamp(36px,5vw,60px)}
+@media (max-width:640px){.guia-heroi h1{font-size:34px;line-height:1.1}}
+.guia-heroi .olho a{color:inherit;text-underline-offset:3px}
+.guia-heroi .olho a:hover{color:var(--pergaminho)}
+.guia-heroi > .col > p{font-size:clamp(17px,1.6vw,20px);color:var(--perg-90);max-width:40rem}
+.guia-heroi .nota{max-width:44rem}
+.guia-heroi .nota a{color:var(--tinta)}
+.guia-heroi .nota :focus-visible,.guia-heroi .nota a:focus-visible{outline-color:var(--tinta)}
+.nota{margin-top:24px;padding:16px 18px;border-radius:var(--r);background:var(--cartao);border:1px solid var(--linha);
+  color:var(--grafite);font-size:15px;line-height:1.55}
+.alt .nota{background:var(--pergaminho)}
+/* linha do tempo: numero no circulo, fio vertical atras */
+.tempo{list-style:none;margin:28px 0 0;padding:0;position:relative;counter-reset:t}
+.tempo::before{content:"";position:absolute;left:17px;top:12px;bottom:12px;width:2px;background:var(--linha)}
+.tempo > li{counter-increment:t;position:relative;margin:0;padding:0 0 40px 62px}
+.tempo > li:last-child{padding-bottom:0}
+.tempo > li::before{content:counter(t);position:absolute;left:0;top:0;display:grid;place-items:center;width:36px;height:36px;
+  border-radius:50%;background:var(--tinta);color:var(--pergaminho);font:600 15px/1 var(--sans);box-shadow:0 0 0 6px var(--pergaminho)}
+.tempo h3{font:600 24px/1.2 var(--serif);letter-spacing:-.02em;color:var(--tinta);margin-top:4px}
+.tempo ul{margin:0 0 12px;padding-left:20px}
+.tempo li li{margin-bottom:4px}
+.tempo .btn{min-height:44px;padding:0 20px;font-size:15px}
+@media (max-width:640px){.tempo > li{padding-left:50px}.tempo::before{left:15px}
+  .tempo > li::before{width:32px;height:32px;font-size:14px}}
+/* capturas e videos curtos de cada passo */
+.tela{margin:20px 0 0}
+.tela + .tela{margin-top:16px}
+.tela img,.tela video{display:block;width:100%;height:auto;border:1px solid var(--linha);border-radius:var(--r);background:var(--cartao)}
+.tela video{aspect-ratio:16/9;background:var(--tinta-fundo);border-color:var(--tinta-fundo)}
+.tela figcaption{margin-top:8px;font-size:14px;line-height:1.5;color:var(--pedra)}
+.tela.estreita{max-width:22rem}
+/* formas de usar: cartao em duas partes (termo e explicacao) */
+dl.formas{margin:16px 0 0;display:grid;gap:12px}
+dl.formas dt{margin:0;padding:18px 18px 0;background:var(--cartao);border:1px solid var(--linha);border-bottom:0;
+  border-radius:var(--r) var(--r) 0 0;font:600 17px/1.3 var(--sans);color:var(--tinta)}
+dl.formas dd{margin:-12px 0 0;padding:6px 18px 18px;background:var(--cartao);border:1px solid var(--linha);border-top:0;
+  border-radius:0 0 var(--r) var(--r);color:var(--pedra)}
+.alt dl.formas dt,.alt dl.formas dd{background:var(--pergaminho)}
+.formas-midia{margin-top:28px}
