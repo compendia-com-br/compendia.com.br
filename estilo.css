@@ -732,6 +732,11 @@ details>p{margin:0 0 20px;color:var(--grafite-suave)}
   @media(hover:hover){.carta:hover .verso{opacity:1; pointer-events:auto}}
   .giro[aria-expanded="true"] .verso{opacity:1; pointer-events:auto}
 }
+/* Link «ver o original» no verso (rodada 2, 17/10/2026; §13). FORA do bloco do
+   carrossel de proposito: aquele bloco fica byte a byte. Sem esta regra o link
+   herdava `a{color:var(--tinta)}` — vinho sobre o verso escuro, invisivel. Leva a
+   cor do proprio texto da procedencia, sublinhado; nada de teal. */
+.verso .proc a{color:inherit; text-decoration:underline; text-underline-offset:2px}
 
 /* ============================================================
    IDIOMA — o seletor e o convite
