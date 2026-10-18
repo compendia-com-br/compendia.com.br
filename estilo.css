@@ -342,6 +342,7 @@ section > .col > :last-child{margin-bottom:0}
 .abas>input:focus-visible~.barra{outline:2px solid var(--tinta);outline-offset:3px}
 /* o video de cada aba: real, com controles; a legenda diz o que e' e quanto dura */
 .video-aba{margin:0}
+.video-aba img{display:block;width:100%;height:auto;border-radius:var(--r);border:1px solid var(--tinta-fundo);box-shadow:var(--sombra)}
 .video-aba video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--r);background:var(--tinta-fundo);
   border:1px solid var(--tinta-fundo);box-shadow:var(--sombra)}
 .video-aba figcaption{margin-top:10px;font-size:14px;line-height:1.5;color:var(--pedra)}
